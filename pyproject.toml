@@ -1,0 +1,54 @@
+[tool.black]
+target-version = ['py38']
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.mypy_cache
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | generated
+	| wrapper
+  | browser\.pyi
+)/
+'''
+
+[tool.ruff]
+lint.unfixable = []
+exclude = [
+  "__pycache__",
+  "generated",
+  "wrapper",
+  "browser.pyi",
+]
+target-version = "py38"
+lint.select = [
+  "E",
+  "F",
+  "W",
+  "C90",
+  "I",
+  "N",
+  "B",
+  "PYI",
+  "PL",
+  "PTH",
+  "UP",
+  "A",
+  "C4",
+  "DTZ",
+  "ISC",
+  "ICN",
+  "INP",
+  "PIE",
+  "T20",
+  "PYI",
+  "PT",
+  "RSE",
+  "RET",
+  "SIM",
+  "RUF"
+]

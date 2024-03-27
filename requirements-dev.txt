@@ -1,0 +1,12 @@
+black >= 24.1.1
+ruff >= 0.2.1
+invoke >= 2.2.0
+pytest >= 7.4.2
+twine >= 4.0.2
+rellu >= 0.7
+approvaltests == 11.1.3
+robotframework-tidy >= 4.9.0
+python-semantic-release >= 9.3.1
+# Include normal dependencies from requirements.txt. Makes it possible to use
+# requirements-dev.txt as a single requirement file in PyCharm and other IDEs.
+-r requirements.txt
