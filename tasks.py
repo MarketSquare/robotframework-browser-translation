@@ -1,6 +1,15 @@
 import os
+import shutil
+from pathlib import Path
 
 from invoke import task
+
+ROOT_FOLDER = Path(__file__).parent.absolute()
+ATEST_OUTPUT = ROOT_FOLDER / "atest" / "output"
+DIST_DIR = ROOT_FOLDER / "dist"
+RUFF_CACHE = ROOT_FOLDER / ".ruff_cache"
+PYTEST_CACHE = ROOT_FOLDER / ".pytest_cache"
+MYPY_CACHE = ROOT_FOLDER / ".mypy_cache"
 
 
 @task
@@ -34,3 +43,11 @@ def utest(ctx):
 @task
 def atest(ctx):
     ctx.run("robot -L debug --outputdir atest/output atest")
+
+
+@task
+def clean(ctx):
+    for target in [DIST_DIR, ATEST_OUTPUT, RUFF_CACHE, PYTEST_CACHE, MYPY_CACHE]:
+        print(target)
+        if target.exists():
+            shutil.rmtree(target)
