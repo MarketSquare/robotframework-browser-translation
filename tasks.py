@@ -21,4 +21,4 @@ def utest(ctx):
 
 @task
 def atest(ctx):
-    ctx("robot -L debug --outputdir atest/output atest")
+    ctx.run("robot -L debug --outputdir atest/output atest")
