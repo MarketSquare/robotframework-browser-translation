@@ -55,3 +55,8 @@ lint.select = [
 
 [tool.ruff.lint.per-file-ignores]
 "tasks.py" = ["T201"]
+
+[tool.pytest.ini_options]
+testpaths = ["utest"]
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
