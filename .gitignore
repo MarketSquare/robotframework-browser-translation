@@ -164,3 +164,7 @@ atest/output
 
 #vscode
 .vscode/
+
+
+# Ruff
+.ruff_cache/
