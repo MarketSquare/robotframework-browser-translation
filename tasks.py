@@ -20,7 +20,6 @@ def lint(ctx, fix=False):
     if in_ci:
         cmd.insert(1, "--check")
         cmd.insert(1, "--diff")
-    print(cmd)
     ctx.run(" ".join(cmd))
 
 
