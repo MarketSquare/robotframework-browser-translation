@@ -52,3 +52,6 @@ lint.select = [
   "SIM",
   "RUF"
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"tasks.py" = ["T201"]
