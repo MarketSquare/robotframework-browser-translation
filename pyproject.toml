@@ -61,3 +61,13 @@ lint.select = [
 testpaths = ["utest"]
 log_format = "%(asctime)s %(levelname)s %(message)s"
 log_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.robotidy]
+lineseparator = "unix"
+configure = [
+    "NormalizeAssignments:equal_sign_type=space_and_equal_sign",
+    "NormalizeAssignments:equal_sign_type_variables=space_and_equal_sign",
+    "NormalizeNewLines:section_lines=1",
+    "RenameTestCases:enabled=True:capitalize_each_word=True",
+    "RenameKeywords:enabled=True",
+]

@@ -1,3 +1,5 @@
+import os
+
 from invoke import task
 
 
@@ -12,6 +14,14 @@ def lint(ctx, fix=False):
     if fix:
         ruff_cmd = f"{ruff_cmd} --fix"
     ctx.run(ruff_cmd)
+    in_ci = os.getenv("GITHUB_WORKFLOW")
+    print(f"Lint Robot files {'in ci' if in_ci else ''}")
+    cmd = ["robotidy", "atest"]
+    if in_ci:
+        cmd.insert(1, "--check")
+        cmd.insert(1, "--diff")
+    print(cmd)
+    ctx.run(" ".join(cmd))
 
 
 @task
