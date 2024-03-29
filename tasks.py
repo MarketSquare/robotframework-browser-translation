@@ -28,7 +28,7 @@ def lint(ctx, fix=False):
 
 @task
 def utest(ctx):
-    ctx.run("pytest .")
+    ctx.run("python -m pytest .")
 
 
 @task
