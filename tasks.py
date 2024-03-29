@@ -17,3 +17,8 @@ def lint(ctx, fix=False):
 @task
 def utest(ctx):
     ctx.run("pytest .")
+
+
+@task
+def atest(ctx):
+    ctx("robot -L debug --outputdir atest/output atest")
