@@ -161,3 +161,6 @@ cython_debug/
 
 # Robot Framework
 atest/output
+
+#vscode
+.vscode/
