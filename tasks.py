@@ -12,3 +12,7 @@ def lint(ctx, fix=False):
     if fix:
         ruff_cmd = f"{ruff_cmd} --fix"
     ctx.run(ruff_cmd)
+
+@task
+def utest(ctx):
+    ctx.run("pytest .")
