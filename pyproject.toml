@@ -8,6 +8,7 @@ version = "0.0.1"
 authors = [
   { name="Tatu Aalto", email="aalto.tatu@gmail.com" },
 ]
+license = {file = "LICENSE"}
 description = "Robot Framework Browser library translation to Finnish languege"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -19,10 +20,17 @@ classifiers = [
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
+keywords = ["Robot Framework", "Browser"]
 
 [project.urls]
 Homepage = "https://github.com/MarketSquare/robotframework-browser-translation-fi"
 Issues = "https://github.com/MarketSquare/robotframework-browser-translation-fi/issues"
+
+[tool.setuptools]
+packages = ["robotframework_browser_translation_fi"]
+
+[tool.setuptools.package-data]
+robotframework_browser_translation_fi = ["*.json"]
 
 [tool.black]
 target-version = ['py38']
