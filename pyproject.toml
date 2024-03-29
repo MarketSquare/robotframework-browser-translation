@@ -1,3 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robotframework-browser-translation-fi"
+version = "0.0.1"
+authors = [
+  { name="Tatu Aalto", email="aalto.tatu@gmail.com" },
+]
+description = "Robot Framework Browser library translation to Finnish languege"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Framework :: Robot Framework :: Library",
+  "Topic :: Software Development :: Testing :: Acceptance",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/MarketSquare/robotframework-browser-translation-fi"
+Issues = "https://github.com/MarketSquare/robotframework-browser-translation-fi/issues"
+
 [tool.black]
 target-version = ['py38']
 exclude = '''
