@@ -16,6 +16,7 @@ def test_translation():
     assert result_path == expexted_path
     assert result_path.is_file()
 
+
 def test_json_file_format():
     lang = robotframework_browser_translation_fi.get_language()
     result_path = Path(lang["path"])
