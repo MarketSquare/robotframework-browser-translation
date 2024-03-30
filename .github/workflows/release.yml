@@ -31,6 +31,8 @@ jobs:
         run: |
           rfbrowser init chromium
           inv atest
+      - name: Build package
+        run: python -m build
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@master
         with:
