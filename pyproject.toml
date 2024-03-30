@@ -17,6 +17,11 @@ classifiers = [
   "Framework :: Robot Framework :: Library",
   "Topic :: Software Development :: Testing :: Acceptance",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
@@ -31,6 +36,14 @@ packages = ["robotframework_browser_translation_fi"]
 
 [tool.setuptools.package-data]
 robotframework_browser_translation_fi = ["*.json"]
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:project.version",
+]
+version_variables = [
+    "robotframework_browser_translation_fi/__init__.py:__version__",
+]
 
 [tool.black]
 target-version = ['py38']
