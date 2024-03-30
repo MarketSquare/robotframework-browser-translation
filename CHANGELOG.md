@@ -2,6 +2,21 @@
 
 
 
+## v0.2.0 (2024-03-30)
+
+### Chore
+
+* chore: fix release flow ([`58cc800`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/58cc80031e8c6a49fe53b7a9b004c1ed458d8837))
+
+* chore: build wheel ([`89c503f`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/89c503fe05dffb8de3970611d6bfe0aa650561f8))
+
+* chore: Publish to Pypi ([`34c98c1`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/34c98c105dd516cbec11aab62a32d205ee9c553d))
+
+### Feature
+
+* feat: Translate more keywords to Finnish ([`e83f67a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/e83f67a751158d7e680a97cd7e28aa4fe6c9fc01))
+
+
 ## v0.1.0 (2024-03-30)
 
 ### Chore
