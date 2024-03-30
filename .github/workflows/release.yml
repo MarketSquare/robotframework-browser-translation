@@ -1,0 +1,36 @@
+name: SemanticRelease
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12 with Robot Framework 7
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+          fetch-depth: 0
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Lint files
+        run: inv lint
+      - name: Run unit tests
+        run: inv utest
+      - name: Run acceptance tests
+        run: |
+          rfbrowser init chromium
+          inv atest
+      - name: Python Semantic Release
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
