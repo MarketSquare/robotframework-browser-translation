@@ -34,16 +34,16 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Python Semantic Release
-        uses: python-semantic-release/python-semantic-release@master
+        uses: python-semantic-release/python-semantic-release@v9.3.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        if: ${{ steps.release.outputs.released }} == 'true'
+        if: steps.release.outputs.released == 'true'
 
       - name: Publish package to GitHub Release
         uses: python-semantic-release/upload-to-gh-release@main
-        if: ${{ steps.release.outputs.released }} == 'true'
+        if: steps.release.outputs.released == 'true'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.release.outputs.tag }}
