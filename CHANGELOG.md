@@ -2,6 +2,13 @@
 
 
 
+## v0.3.2 (2024-03-31)
+
+### Fix
+
+* fix: Build only after release is made ([`b766d5e`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b766d5ec2b4a8d9022d60a2802b094e3263de6c7))
+
+
 ## v0.3.1 (2024-03-31)
 
 ### Fix
