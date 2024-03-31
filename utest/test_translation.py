@@ -25,3 +25,12 @@ def test_json_file_format():
     for translation in data.values():
         assert translation.get("name"), translation
         assert translation.get("doc"), translation
+
+
+def test_keywords_are_unique():
+    lang = robotframework_browser_translation_fi.get_language()
+    result_path = Path(lang["path"])
+    with result_path.open("r") as file:
+        data = json.load(file)
+    kw_names = [translation.get("name") for translation in data.values()]
+    assert len(kw_names) == len(set(kw_names))
