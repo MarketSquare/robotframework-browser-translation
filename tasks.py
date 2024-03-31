@@ -10,6 +10,7 @@ DIST_DIR = ROOT_FOLDER / "dist"
 RUFF_CACHE = ROOT_FOLDER / ".ruff_cache"
 PYTEST_CACHE = ROOT_FOLDER / ".pytest_cache"
 MYPY_CACHE = ROOT_FOLDER / ".mypy_cache"
+BUILD_DIR = ROOT_FOLDER / "build"
 
 
 @task
@@ -47,7 +48,14 @@ def atest(ctx):
 
 @task
 def clean(ctx):
-    for target in [DIST_DIR, ATEST_OUTPUT, RUFF_CACHE, PYTEST_CACHE, MYPY_CACHE]:
+    for target in [
+        DIST_DIR,
+        ATEST_OUTPUT,
+        RUFF_CACHE,
+        PYTEST_CACHE,
+        MYPY_CACHE,
+        BUILD_DIR,
+    ]:
         print(target)
         if target.exists():
             shutil.rmtree(target)
