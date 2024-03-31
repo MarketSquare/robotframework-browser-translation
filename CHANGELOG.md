@@ -2,6 +2,13 @@
 
 
 
+## v0.3.1 (2024-03-31)
+
+### Fix
+
+* fix: Fixing publish to pypi ([`67fa4f6`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/67fa4f61acd85f552bb8bade39059eb727df246b))
+
+
 ## v0.3.0 (2024-03-31)
 
 ### Documentation
