@@ -2,6 +2,25 @@
 
 
 
+## v0.3.0 (2024-03-31)
+
+### Documentation
+
+* docs: update .all-contributorsrc ([`5e87227`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5e872277edea85ba3b4f8d3465b0a3786b7cffe7))
+
+* docs: update README.md ([`e1f89c7`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/e1f89c7bdd746173db2252b201f99abe7afa834d))
+
+### Feature
+
+* feat: Translate keywords to get_classes ([`ae44419`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/ae44419363ab6a50f5e583f34a4d1540fe6608fb))
+
+### Test
+
+* test: more testing ([`672c6d3`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/672c6d3e660d343fd2380d5f7c34dc47ac817024))
+
+* test: check that kw names are unique ([`577d1eb`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/577d1eb916134dc79d8a7afd6e7e4a173f995151))
+
+
 ## v0.2.0 (2024-03-30)
 
 ### Chore
