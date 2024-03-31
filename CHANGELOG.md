@@ -2,6 +2,23 @@
 
 
 
+## v0.4.0 (2024-03-31)
+
+### Chore
+
+* chore: better cleanup ([`ec7ad8d`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/ec7ad8d94a15ac3c2ebb888608ee0beebc08a616))
+
+* chore: requirements to pyproject.toml ([`50b6118`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/50b61180da108812cce3f7c2f57630869b5ad62f))
+
+### Feature
+
+* feat: all keywords traslated ([`5cda973`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5cda973115cd304032ddaeaf83ad02093a60ee90))
+
+### Test
+
+* test: improve utest ([`737fd11`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/737fd11fa9e53bf9cae677b322539c5ac40b3778))
+
+
 ## v0.3.2 (2024-03-31)
 
 ### Fix
