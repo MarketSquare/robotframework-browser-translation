@@ -34,6 +34,7 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Python Semantic Release
+        id: release
         uses: python-semantic-release/python-semantic-release@v9.3.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
