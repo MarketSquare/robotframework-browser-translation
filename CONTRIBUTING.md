@@ -14,9 +14,9 @@ Release is created automatically after the PR is merged by using
 To release happen automatically, Python Semantic Release must be able to
 [parse the commit message](https://python-semantic-release.readthedocs.io/en/latest/commit-parsing.html)
 
-In practise first line should start with words `fix` or `feat`:
+In practise first line should start with words `fix:` or `feat:`
 ```
-fix: Fixed to in Close Page keyword
+fix: Fixed typo in Close Page keyword
 ```
 or perhaps:
 ```
