@@ -2,6 +2,35 @@
 
 
 
+## v0.4.1 (2024-04-03)
+
+### Chore
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.3.1 to 9.4.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.3.1...v9.4.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`727b21c`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/727b21cbee3359542866bc99aefe1554d7b77d5f))
+
+### Fix
+
+* fix: use right Browser library version ([`3c546e7`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/3c546e76d308b2b61e1dd3881ec21d68ccf55d48))
+
+### Unknown
+
+* Update CONTRIBUTING.md ([`5beae24`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5beae24d59fd2d2e85e84c1513026fc4367a0cfb))
+
+
 ## v0.4.0 (2024-03-31)
 
 ### Chore
