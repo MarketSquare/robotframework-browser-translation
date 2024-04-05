@@ -53,5 +53,6 @@ def test_keyword_names_are_unique(data: dict):
 
 
 def test_keyword_names_no_space(data: robotframework_browser_translation_fi.Language):
-    for translation in data:
+    for translation, value in data.items():
         assert " " not in translation, translation
+        assert " " not in value["name"]
