@@ -43,7 +43,7 @@ def utest(ctx):
 
 @task
 def atest(ctx):
-    ctx.run("robot -L debug --outputdir atest/output atest")
+    ctx.run("python -m robot -L debug --outputdir atest/output atest")
 
 
 @task
