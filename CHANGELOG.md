@@ -2,6 +2,23 @@
 
 
 
+## v0.4.2 (2024-04-05)
+
+### Chore
+
+* chore: run rfbrowser init chromium in ci ([`b3de91f`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b3de91f332b194e8c3fba4716bb1972b83578bdc))
+
+* chore: lint fixes ([`250c820`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/250c8206332734ff252ae084285290c73940cf7f))
+
+### Fix
+
+* fix: keywords should not contains spaces
+
+also improve testing ([`b95ec0a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b95ec0aa082a61c513ce425799442d0bc133920a))
+
+* fix: remove space from translated keyword ([`10b4eac`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/10b4eacc8c322d21fdf31f4b52f51d052699fbb9))
+
+
 ## v0.4.1 (2024-04-03)
 
 ### Chore
