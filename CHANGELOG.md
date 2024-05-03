@@ -2,6 +2,13 @@
 
 
 
+## v0.5.1 (2024-05-03)
+
+### Fix
+
+* fix: improve docs for comparing docs ([`74e4cd2`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/74e4cd281659a45d1b7a70aabfb7c96fab5135ab))
+
+
 ## v0.5.0 (2024-05-03)
 
 ### Chore
