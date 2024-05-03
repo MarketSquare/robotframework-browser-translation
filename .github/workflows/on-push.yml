@@ -23,12 +23,13 @@ jobs:
         pip install -r requirements-dev.txt
         pip install robotframework-browser
     - name: Lint files
-      run: inv lint
+      run: |
+        rfbrowser init chromium
+        inv lint
     - name: Run unit tests
       run: inv utest
     - name: Run acceptance tests
       run: |
-        rfbrowser init chromium
         inv atest
     - uses: actions/upload-artifact@v4
       if: ${{ always() }}
