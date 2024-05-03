@@ -28,10 +28,11 @@ jobs:
       - name: Lint files
         run: inv lint
       - name: Run unit tests
-        run: inv utest
-      - name: Run acceptance tests
         run: |
           rfbrowser init chromium
+          inv utest
+      - name: Run acceptance tests
+        run: |
           inv atest
       - name: Python Semantic Release
         id: release
