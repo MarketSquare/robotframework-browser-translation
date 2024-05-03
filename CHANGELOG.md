@@ -2,6 +2,13 @@
 
 
 
+## v0.5.2 (2024-05-03)
+
+### Fix
+
+* fix: link in doc ([`6069365`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/606936552c6e186c974d8f133e1be32ee6ff0025))
+
+
 ## v0.5.1 (2024-05-03)
 
 ### Fix
