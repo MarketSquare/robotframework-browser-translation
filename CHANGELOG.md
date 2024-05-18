@@ -2,6 +2,62 @@
 
 
 
+## v0.6.0 (2024-05-18)
+
+### Chore
+
+* chore(deps-dev): bump approvaltests from 12.0.0 to 12.1.0
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.0.0 to 12.1.0.
+- [Release notes](https://github.com/approvals/ApprovalTests.Python/releases)
+- [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.0.0...v12.1.0)
+
+---
+updated-dependencies:
+- dependency-name: approvaltests
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2dd6373`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/2dd6373f1a3dafe418e54a5292866ec94929dd9a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.0 to 9.7.2.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.0...v9.7.2)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`93d440b`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/93d440b31cbe1f1abfd83ae3b4f8eacb77b9dd3a))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.6.0 to 9.7.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.6.0...v9.7.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5275fd7`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5275fd75f903063ee8a8eabc4b8b23790f5c89bb))
+
+### Feature
+
+* feat: Update required Browser to 18.5.1 ([`f1a9c4a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/f1a9c4a27fc1ce7084d99cc83c3332d49259a96f))
+
+
 ## v0.5.2 (2024-05-03)
 
 ### Fix
