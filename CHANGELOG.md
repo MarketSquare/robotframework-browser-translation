@@ -2,6 +2,93 @@
 
 
 
+## v0.7.0 (2024-06-22)
+
+### Chore
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.0 to 9.8.1.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.0...v9.8.1)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5e563b9`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5e563b9b299d922fcbef9a422ef8cdc58c82160f))
+
+* chore(deps-dev): bump approvaltests from 12.2.0 to 12.2.1
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.0 to 12.2.1.
+- [Release notes](https://github.com/approvals/ApprovalTests.Python/releases)
+- [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.0...v12.2.1)
+
+---
+updated-dependencies:
+- dependency-name: approvaltests
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ccdd6f1`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/ccdd6f17e5160013520d939912083c63d4c29ba8))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.3 to 9.8.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.3...v9.8.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`bfa8952`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/bfa89523012877c2148bc9e91ddacdfaefd92c8f))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.7.2 to 9.7.3.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.2...v9.7.3)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`111e70e`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/111e70ee763401f980ca95d17b7f815fc1a7c67f))
+
+* chore(deps-dev): bump approvaltests from 12.1.0 to 12.2.0
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.1.0 to 12.2.0.
+- [Release notes](https://github.com/approvals/ApprovalTests.Python/releases)
+- [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.1.0...v12.2.0)
+
+---
+updated-dependencies:
+- dependency-name: approvaltests
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`146280f`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/146280f37efb6bc0fca9cf2c1738eb03b4ff1143))
+
+### Feature
+
+* feat: support Browser 18.6 ([`d686ff8`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/d686ff8254c9bf153212206835355c69e272fd73))
+
+
 ## v0.6.0 (2024-05-18)
 
 ### Chore
