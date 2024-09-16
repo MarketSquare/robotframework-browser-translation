@@ -39,7 +39,7 @@ Changelog = "https://github.com/MarketSquare/robotframework-browser-translation-
 packages = ["robotframework_browser_translation"]
 
 [tool.setuptools.package-data]
-robotframework_browser_translation_fi = ["*.json"]
+robotframework_browser_translation = ["*.json"]
 
 [tool.semantic_release]
 version_toml = [

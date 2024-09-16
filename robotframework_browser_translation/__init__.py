@@ -22,7 +22,6 @@ class Language(TypedDict):
     path: str
 
 
-def get_language() -> Language:
+def get_language() -> list[Language]:
     folder = Path(__file__).parent
-
-    return {"language": "fi", "path": str(folder / "translation.json")}
+    return [{"language": "fi", "path": str(folder / "translation_fi.json")}]
