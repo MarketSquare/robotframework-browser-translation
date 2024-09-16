@@ -6,28 +6,30 @@ from pathlib import Path
 
 import pytest
 
-import robotframework_browser_translation_fi
+import robotframework_browser_translation
 
 
 @pytest.fixture(scope="module")
 def file() -> Path:
     return (
         Path(__file__).parent.parent
-        / "robotframework_browser_translation_fi"
-        / "translation.json"
+        / "robotframework_browser_translation"
+        / "translation_fi.json"
     )
 
 
 @pytest.fixture(scope="module")
-def data() -> robotframework_browser_translation_fi.Language:
-    lang = robotframework_browser_translation_fi.get_language()
+def data() -> robotframework_browser_translation.Language:
+    lang = robotframework_browser_translation.get_language()[0]
     result_path = Path(lang["path"])
     with result_path.open("r") as file:
         return json.load(file)
 
 
 def test_translation(file: Path):
-    lang = robotframework_browser_translation_fi.get_language()
+    langs = robotframework_browser_translation.get_language()
+    assert len(langs) == 1
+    lang = langs[0]
     assert lang["language"] == "fi"
     result_path = Path(lang["path"])
     assert result_path == file
@@ -58,7 +60,7 @@ def test_keyword_names_are_unique(data: dict):
         ), f"{translation} == {data[translation]['name']}"
 
 
-def test_keyword_names_no_space(data: robotframework_browser_translation_fi.Language):
+def test_keyword_names_no_space(data: robotframework_browser_translation.Language):
     for translation, value in data.items():
         assert " " not in translation, translation
         assert " " not in value["name"], value

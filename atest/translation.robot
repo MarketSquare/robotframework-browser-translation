@@ -1,12 +1,9 @@
 *** Settings ***
 Library     Browser    language=FI
-Library     Process
-Library     OperatingSystem
-Library     json_lib.py
 
 *** Test Cases ***
 Translation Works With Translation
-    Uusi Sivu    https://github.com/MarketSquare/robotframework-browser-translation-fi
+    Uusi Sivu    https://github.com/MarketSquare/
 
 LibDoc Works With Translation
     [Setup]    Remove File    ${CURDIR}/Browser.json
