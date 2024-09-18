@@ -1,8 +1,8 @@
 # Finnish tranlsation for Robot Framework Browser library
-[![Version](https://img.shields.io/pypi/v/robotframework-browser-translation-fi.svg)](https://pypi.python.org/pypi/robotframework-browser-translation-fi)
-![CI](https://github.com/MarketSquare/robotframework-browser-translation-fi/actions/workflows/on-push.yml/badge.svg)
+[![Version](https://img.shields.io/pypi/v/robotframework-browser-translation.svg)](https://pypi.python.org/pypi/robotframework-browser-translation)
+![CI](https://github.com/MarketSquare/robotframework-browser-translation/actions/workflows/on-push.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![All Contributors](https://img.shields.io/github/all-contributors/MarketSquare/robotframework-browser-translation-fi?color=ee8449&style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/github/all-contributors/MarketSquare/robotframework-browser-translation?color=ee8449&style=flat-square)](#contributors)
 
 
 This project contains a transations for the Robot Framework
