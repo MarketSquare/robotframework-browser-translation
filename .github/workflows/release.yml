@@ -25,8 +25,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install uv
-          uv pip install -r requirements-dev.txt
-          uv pip install robotframework-browser
+          uv pip install -r requirements-dev.txt --python 3.12 --system
+          uv pip install robotframework-browser --python 3.12 --system
       - name: Lint files
         run: inv lint
       - name: Run unit tests
