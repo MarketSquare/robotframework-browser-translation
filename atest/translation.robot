@@ -1,5 +1,8 @@
 *** Settings ***
 Library     Browser    language=FI
+Library     OperatingSystem
+Library     Process
+Library     json_lib.py
 
 *** Test Cases ***
 Translation Works With Translation
