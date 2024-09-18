@@ -1,6 +1,127 @@
 # CHANGELOG
 
+## v0.7.1 (2024-09-18)
 
+### Chore
+
+* chore: tune CI with UV even more ([`2c68083`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/2c680831aebc1338f6ac9b07a844347b6da1692c))
+
+* chore: tune CI with UV ([`5a1575d`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5a1575d54924e31be5db5de9927dc410c32e8566))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.7 to 9.8.8.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.7...v9.8.8)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`88b093d`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/88b093d43a14ea717a7cc1b949ea03bb952c260b))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.6 to 9.8.7.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.6...v9.8.7)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`af5ac36`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/af5ac362a046fdc64e615f775f87fb1ce5f0d4af))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.5 to 9.8.6.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.5...v9.8.6)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`ebac393`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/ebac3930b6fc53a37d0f76c2ad76e4c3bf7ff3ff))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.3 to 9.8.5.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.3...v9.8.5)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`a239646`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/a239646a65d7ff09f802fd11ec392e1647aa141c))
+
+* chore(deps-dev): bump approvaltests from 12.2.1 to 14.0.0
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.1 to 14.0.0.
+- [Release notes](https://github.com/approvals/ApprovalTests.Python/releases)
+- [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.1...v14.0.0)
+
+---
+updated-dependencies:
+- dependency-name: approvaltests
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d4701fe`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/d4701fe065a528cabce57d8313548b447e208dac))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.1 to 9.8.3.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.1...v9.8.3)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`edc4c0e`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/edc4c0eedb5b9f53ca9dae6a2c98f53e52ae24f1))
+
+### Fix
+
+* fix: setting version number ([`345c6e8`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/345c6e8cad66f969c3dbfd31ade707be3e62dda9))
+
+### Test
+
+* test: fixing test ([`969501a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/969501a9a5df64f493081a1bc64e5723339862c3))
+
+### Unknown
+
+* BREAKING CHANGE: Drop Python 3.8 support ([`b1d1514`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b1d15147d38f2701a4fd1e694ebdc4fe37c35060))
+
+* BREAKING CHANGE: Finnish translation
+
+Renaming package name and support multiple translations ([`4e44fc8`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/4e44fc8ea4344ef9a44800dbd13dc2f62c690f28))
+
+* Fixing testing and config ([`8524f06`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/8524f0617f55ffa655fc082be15ac61e696d1be0))
+
+* Rename extension to robotframework-browser-translation ([`fb7c965`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/fb7c9656abbc43912b8caca963798b33e19d9a53))
 
 ## v0.7.0 (2024-06-22)
 
@@ -88,7 +209,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`146280f`](https://g
 
 * feat: support Browser 18.6 ([`d686ff8`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/d686ff8254c9bf153212206835355c69e272fd73))
 
-
 ## v0.6.0 (2024-05-18)
 
 ### Chore
@@ -144,20 +264,17 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`5275fd7`](https://g
 
 * feat: Update required Browser to 18.5.1 ([`f1a9c4a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/f1a9c4a27fc1ce7084d99cc83c3332d49259a96f))
 
-
 ## v0.5.2 (2024-05-03)
 
 ### Fix
 
 * fix: link in doc ([`6069365`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/606936552c6e186c974d8f133e1be32ee6ff0025))
 
-
 ## v0.5.1 (2024-05-03)
 
 ### Fix
 
 * fix: improve docs for comparing docs ([`74e4cd2`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/74e4cd281659a45d1b7a70aabfb7c96fab5135ab))
-
 
 ## v0.5.0 (2024-05-03)
 
@@ -252,7 +369,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`2fd4cec`](https://g
 Also updated required Browser library version and
 updated doc from Browser 18.4.0 release ([`07b6425`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/07b6425499d87891eae115fcac935f265de818e1))
 
-
 ## v0.4.2 (2024-04-05)
 
 ### Chore
@@ -268,7 +384,6 @@ updated doc from Browser 18.4.0 release ([`07b6425`](https://github.com/MarketSq
 also improve testing ([`b95ec0a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b95ec0aa082a61c513ce425799442d0bc133920a))
 
 * fix: remove space from translated keyword ([`10b4eac`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/10b4eacc8c322d21fdf31f4b52f51d052699fbb9))
-
 
 ## v0.4.1 (2024-04-03)
 
@@ -298,7 +413,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`727b21c`](https://g
 
 * Update CONTRIBUTING.md ([`5beae24`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/5beae24d59fd2d2e85e84c1513026fc4367a0cfb))
 
-
 ## v0.4.0 (2024-03-31)
 
 ### Chore
@@ -315,20 +429,17 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`727b21c`](https://g
 
 * test: improve utest ([`737fd11`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/737fd11fa9e53bf9cae677b322539c5ac40b3778))
 
-
 ## v0.3.2 (2024-03-31)
 
 ### Fix
 
 * fix: Build only after release is made ([`b766d5e`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/b766d5ec2b4a8d9022d60a2802b094e3263de6c7))
 
-
 ## v0.3.1 (2024-03-31)
 
 ### Fix
 
 * fix: Fixing publish to pypi ([`67fa4f6`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/67fa4f61acd85f552bb8bade39059eb727df246b))
-
 
 ## v0.3.0 (2024-03-31)
 
@@ -348,7 +459,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`727b21c`](https://g
 
 * test: check that kw names are unique ([`577d1eb`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/577d1eb916134dc79d8a7afd6e7e4a173f995151))
 
-
 ## v0.2.0 (2024-03-30)
 
 ### Chore
@@ -362,7 +472,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`727b21c`](https://g
 ### Feature
 
 * feat: Translate more keywords to Finnish ([`e83f67a`](https://github.com/MarketSquare/robotframework-browser-translation-fi/commit/e83f67a751158d7e680a97cd7e28aa4fe6c9fc01))
-
 
 ## v0.1.0 (2024-03-30)
 
