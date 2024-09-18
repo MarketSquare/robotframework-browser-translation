@@ -23,8 +23,10 @@ jobs:
           python-version: 3.12
       - name: Install dependencies
         run: |
-          pip install -r requirements-dev.txt
-          pip install robotframework-browser
+          pip install --upgrade pip
+          pip install uv
+          uv pip install -r requirements-dev.txt
+          uv pip install robotframework-browser
       - name: Lint files
         run: inv lint
       - name: Run unit tests
