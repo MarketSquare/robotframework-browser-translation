@@ -5,9 +5,13 @@ from robot.api import logger
 
 
 def compare_translations(file: Path):
-    with Path(__file__).parent.parent.joinpath(
-        "robotframework_browser_translation", "translation_fi.json"
-    ).open("r") as file_object:
+    with (
+        Path(__file__)
+        .parent.parent.joinpath(
+            "robotframework_browser_translation", "translation_fi.json"
+        )
+        .open("r") as file_object
+    ):
         expected_data = json.load(file_object)
     expected_keywords = [kw["name"] for kw in expected_data.values()]
     logger.info(f"expected_keywords: {expected_keywords}")
