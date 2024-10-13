@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## v0.8.0 (2024-10-13)
+
+### Chore
+
+* chore: lint fixes ([`194f7cb`](https://github.com/MarketSquare/robotframework-browser-translation/commit/194f7cbe8fe40dd9688660b6e043274c16e86bec))
+
+* chore(deps): bump python-semantic-release/python-semantic-release
+
+Bumps [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release) from 9.8.8 to 9.9.0.
+- [Release notes](https://github.com/python-semantic-release/python-semantic-release/releases)
+- [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.8...v9.9.0)
+
+---
+updated-dependencies:
+- dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`1f54cf8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/1f54cf8b433e28f06fea3124536ad6bb6a9b1039))
+
+### Feature
+
+* feat: fix translations ([`7dce8f4`](https://github.com/MarketSquare/robotframework-browser-translation/commit/7dce8f4d91fba7e8ddb8962a9dbd7cfcb5de8ca2))
+
+* feat: support Browser 18.9.1 ([`074324c`](https://github.com/MarketSquare/robotframework-browser-translation/commit/074324c2e89f6812c5accc7b30aed9a80d9ac8c5))
+
 ## v0.7.2 (2024-09-18)
 
 ### Chore
