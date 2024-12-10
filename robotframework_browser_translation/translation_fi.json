@@ -141,8 +141,8 @@
     },
     "reload": {
         "name": "lataa_uudelleen",
-        "doc": "Lataa nykyisen aktiivisen sivun uudelleen.\n\n        [https://forum.robotframework.org/t//4317|Kommentti >>]\n        ",
-        "sha256": "80bd7ca3912f3599f69c6d85da4ce50363a397293e00d66089dd01c501083835"
+        "doc": "Lataa nykyinen aktiivinen sivu uudelleen.\n\n        | =Argumentit= | =Kuvaus= |\n        | ``timeout`` | Maksimiaika, jonka uudelleenlataus voi kestää. |\n        | ``waitUntil`` | Milloin toiminto katsotaan onnistuneeksi, oletuksena `load`. |\n\n        waitUntil-tapahtumat voivat olla:\n        ``domcontentloaded`` - toiminto katsotaan valmiiksi, kun DOMContentLoaded-tapahtuma laukaistaan.\n        ``load`` - toiminto katsotaan valmiiksi, kun load-tapahtuma laukaistaan.\n        ``networkidle`` - toiminto katsotaan valmiiksi, kun verkossa ei ole yhteyksiä vähintään 500 ms ajan.\n        ``commit`` - toiminto katsotaan valmiiksi, kun verkon vastaus on vastaanotettu ja asiakirjan lataus on alkanut. |\n\n        [https://forum.robotframework.org/t//4317|Kommentti >>]\n        ",
+        "sha256": "8ee0af189fec7bec4cf44e3887d73d18b5387151803ceb4bd455e4933183cbd9"
     },
     "set_browser_timeout": {
         "name": "aseta_selaimen_aikakatkaisu",
