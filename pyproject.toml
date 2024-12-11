@@ -28,7 +28,7 @@ classifiers = [
 ]
 keywords = ["Robot Framework", "Browser"]
 
-dependencies = ["robotframework-browser >= 19.1.0"]
+dependencies = ["robotframework-browser >= 19.1.1"]
 
 [project.urls]
 Homepage = "https://github.com/MarketSquare/robotframework-browser-translation-fi"
