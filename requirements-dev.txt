@@ -2,7 +2,7 @@ black >= 24.1.1
 ruff >= 0.2.1
 invoke >= 2.2.0
 pytest >= 7.4.2
-approvaltests == 14.2.0
+approvaltests == 14.3.0
 robotframework-tidy >= 4.9.0
 python-semantic-release >= 9.3.1
 setuptools >= 61.0
