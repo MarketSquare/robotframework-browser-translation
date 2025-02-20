@@ -16,16 +16,14 @@ BUILD_DIR = ROOT_FOLDER / "build"
 @task
 def lint(ctx, fix=False):
     in_ci = os.getenv("GITHUB_WORKFLOW")
-    print("Run mypy:")
-    ctx.run("mypy --exclude .venv .")
-    print("Run black:")
-    black_cmd = ["black", "."]
+    print("Run ruff format:")
+    ruff_format = ["ruff", "format", "."]
     if in_ci:
-        black_cmd.insert(1, "--check")
-    ctx.run(" ".join(black_cmd))
-    print("Run ruff:")
+        ruff_format.insert(2, "--check")
+    ctx.run(" ".join(ruff_format))
+    print("Run ruff check:")
     ruff_cmd = "ruff check "
-    if fix:
+    if fix and not in_ci:
         ruff_cmd = f"{ruff_cmd} --fix"
     ctx.run(ruff_cmd)
     print(f"Lint Robot files {'in ci' if in_ci else ''}")
@@ -34,6 +32,8 @@ def lint(ctx, fix=False):
         cmd.insert(1, "--check")
         cmd.insert(1, "--diff")
     ctx.run(" ".join(cmd))
+    print("Run mypy:")
+    ctx.run("mypy --exclude .venv .")
 
 
 @task
