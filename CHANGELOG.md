@@ -1,27 +1,102 @@
 # CHANGELOG
 
 
+## v0.9.1 (2025-02-20)
+
+### Bug Fixes
+
+- Support for Browser library 19.3.1
+  ([`870903d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/870903df0008668e355feb67dbe3ac8259c537db))
+
+### Chores
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`056e57f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/056e57f11fde0341f6292a9e9faf1402d2906d6c))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.15.2 to 9.16.1. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.15.2...v9.16.1)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`5ba24e1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/5ba24e181c4712bb9209ba94ac9cbf692bd61ff4))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.15.1 to 9.15.2. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.15.1...v9.15.2)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`a800cec`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a800ceccf209c65a7dbcc896bb7f95d4a631d9fc))
+
+Bumps
+  [python-semantic-release/python-semantic-release](https://github.com/python-semantic-release/python-semantic-release)
+  from 9.14.0 to 9.15.1. - [Release
+  notes](https://github.com/python-semantic-release/python-semantic-release/releases) -
+  [Changelog](https://github.com/python-semantic-release/python-semantic-release/blob/master/CHANGELOG.md)
+  -
+  [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.14.0...v9.15.1)
+
+--- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 14.2.0 to 14.3.0
+  ([`02455f7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/02455f7d7367f6d7e8a02323ad17379ecc396ead))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 14.2.0 to 14.3.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v14.2.0...v14.3.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+### Continuous Integration
+
+- Remove Black dependency
+  ([`1ad7631`](https://github.com/MarketSquare/robotframework-browser-translation/commit/1ad7631c568a49d912916fa29c6de532cbdd5923))
+
+
 ## v0.9.0 (2024-12-11)
 
 ### Bug Fixes
 
-- Wait_for_condition keyword and bump Browser to 19.1.1
-  ([`c448248`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c448248e4fe0a34fce7a150eb178d45283e05758))
-
 - __init__ and __intro__:
   ([`25d1dd0`](https://github.com/MarketSquare/robotframework-browser-translation/commit/25d1dd0088ba166971f55b58ca083b94939968d3))
-
-- Upload_file_by_selector and get_page_source kw docs
-  ([`87b666e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/87b666ef366d0eacd88a0bb2cfbb1b5e1fb3be66))
-
-- Reload documentation
-  ([`238620d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/238620deee1df045e4068461e9a5cb49913a0228))
-
-- New_context docs updated
-  ([`a1f2bed`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a1f2bedfddd1e71b1e6571b294aab6726c39592b))
-
-- Require Browser 19.1.0
-  ([`767a3a2`](https://github.com/MarketSquare/robotframework-browser-translation/commit/767a3a25d8cd1786bff47961911edc63cb174881))
 
 - Connect_to_browser docs is fixed
   ([`58f2f4c`](https://github.com/MarketSquare/robotframework-browser-translation/commit/58f2f4c591ad14bae665bbbbc56877f79a141d8d))
@@ -29,19 +104,22 @@
 - Fix close_context documentation
   ([`642af51`](https://github.com/MarketSquare/robotframework-browser-translation/commit/642af51228701ef8c5f271cd02ae1accd60c9e6f))
 
+- New_context docs updated
+  ([`a1f2bed`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a1f2bedfddd1e71b1e6571b294aab6726c39592b))
+
+- Reload documentation
+  ([`238620d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/238620deee1df045e4068461e9a5cb49913a0228))
+
+- Require Browser 19.1.0
+  ([`767a3a2`](https://github.com/MarketSquare/robotframework-browser-translation/commit/767a3a25d8cd1786bff47961911edc63cb174881))
+
+- Upload_file_by_selector and get_page_source kw docs
+  ([`87b666e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/87b666ef366d0eacd88a0bb2cfbb1b5e1fb3be66))
+
+- Wait_for_condition keyword and bump Browser to 19.1.1
+  ([`c448248`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c448248e4fe0a34fce7a150eb178d45283e05758))
+
 ### Chores
-
-- **deps-dev**: Bump approvaltests from 14.1.0 to 14.2.0
-  ([`f1bf524`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f1bf5242432fb84a37a1c877247b7df45f2cae2a))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 14.1.0 to 14.2.0. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v14.1.0...v14.2.0)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-minor ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
 
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`ac6f8df`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ac6f8df88cd54db64b98ab15e797fe617f8cd281))
@@ -55,7 +133,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.13.0...v9.14.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -71,19 +153,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.12.0...v9.13.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-minor
 
-- **deps-dev**: Bump approvaltests from 14.0.0 to 14.1.0
-  ([`f9cdd94`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f9cdd94716a769bb4e45e288cffc4e177518a1c2))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 14.0.0 to 14.1.0. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v14.0.0...v14.1.0)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-minor ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -99,7 +173,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.11.0...v9.12.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -115,35 +193,69 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.9.0...v9.11.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 14.0.0 to 14.1.0
+  ([`f9cdd94`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f9cdd94716a769bb4e45e288cffc4e177518a1c2))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 14.0.0 to 14.1.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v14.0.0...v14.1.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 14.1.0 to 14.2.0
+  ([`f1bf524`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f1bf5242432fb84a37a1c877247b7df45f2cae2a))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 14.1.0 to 14.2.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v14.1.0...v14.2.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Features
 
-- Remove_locator_handler kw
-  ([`c3a8a77`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c3a8a770110880369772f5dd026491c95681a087))
-
 - Add add_locator_handler_click and add_locator_handler_custom kw
   ([`37581fe`](https://github.com/MarketSquare/robotframework-browser-translation/commit/37581fe0216ad5a6410b0e56b21d51207b538396))
 
-- Add stop_coverage
-  ([`8599556`](https://github.com/MarketSquare/robotframework-browser-translation/commit/859955606da863310b5493d682b0e455cb0e18b7))
-
-- Add start_coverage
-  ([`b46836d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b46836d0991e726d85fe05c0b17c8d03ac1a6f09))
-
-- Add set_time
-  ([`b0e8bed`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b0e8bed6865866dced80c5d308f601206180b04a))
-
-- Add resume_clock
-  ([`1f33b0b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/1f33b0b75576885953288c44857ca5557bf242ec))
+- Add advance_clock
+  ([`ae97eb3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ae97eb356d824d83a72c8cb79bbbf94608aeb4f2))
 
 - Add pause_at
   ([`0dc5f3b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0dc5f3b6e5619f333ef304229e38044886db148a))
 
-- Add advance_clock
-  ([`ae97eb3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ae97eb356d824d83a72c8cb79bbbf94608aeb4f2))
+- Add resume_clock
+  ([`1f33b0b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/1f33b0b75576885953288c44857ca5557bf242ec))
+
+- Add set_time
+  ([`b0e8bed`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b0e8bed6865866dced80c5d308f601206180b04a))
+
+- Add start_coverage
+  ([`b46836d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b46836d0991e726d85fe05c0b17c8d03ac1a6f09))
+
+- Add stop_coverage
+  ([`8599556`](https://github.com/MarketSquare/robotframework-browser-translation/commit/859955606da863310b5493d682b0e455cb0e18b7))
+
+- Remove_locator_handler kw
+  ([`c3a8a77`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c3a8a770110880369772f5dd026491c95681a087))
 
 
 ## v0.8.0 (2024-10-13)
@@ -165,7 +277,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.8...v9.9.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -205,11 +321,11 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Chores
 
-- Tune CI with UV even more
-  ([`2c68083`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2c680831aebc1338f6ac9b07a844347b6da1692c))
-
 - Tune CI with UV
   ([`5a1575d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/5a1575d54924e31be5db5de9927dc410c32e8566))
+
+- Tune CI with UV even more
+  ([`2c68083`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2c680831aebc1338f6ac9b07a844347b6da1692c))
 
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`88b093d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/88b093d43a14ea717a7cc1b949ea03bb952c260b))
@@ -223,7 +339,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.7...v9.8.8)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -239,7 +359,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.6...v9.8.7)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -255,7 +379,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.5...v9.8.6)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -271,19 +399,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.3...v9.8.5)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-patch
 
-- **deps-dev**: Bump approvaltests from 12.2.1 to 14.0.0
-  ([`d4701fe`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d4701fe065a528cabce57d8313548b447e208dac))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.1 to 14.0.0. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.1...v14.0.0)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-major ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -299,7 +419,26 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.1...v9.8.3)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 12.2.1 to 14.0.0
+  ([`d4701fe`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d4701fe065a528cabce57d8313548b447e208dac))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.1 to 14.0.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.1...v14.0.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -325,19 +464,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.8.0...v9.8.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-patch
 
-- **deps-dev**: Bump approvaltests from 12.2.0 to 12.2.1
-  ([`ccdd6f1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ccdd6f17e5160013520d939912083c63d4c29ba8))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.0 to 12.2.1. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.0...v12.2.1)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-patch ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -353,7 +484,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.3...v9.8.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -369,7 +504,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.2...v9.7.3)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -381,7 +520,25 @@ Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12
   [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.1.0...v12.2.0)
 
 --- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-minor ...
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 12.2.0 to 12.2.1
+  ([`ccdd6f1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ccdd6f17e5160013520d939912083c63d4c29ba8))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.2.0 to 12.2.1. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.2.0...v12.2.1)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -395,18 +552,6 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Chores
 
-- **deps-dev**: Bump approvaltests from 12.0.0 to 12.1.0
-  ([`2dd6373`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2dd6373f1a3dafe418e54a5292866ec94929dd9a))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.0.0 to 12.1.0. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.0.0...v12.1.0)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-minor ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`93d440b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/93d440b31cbe1f1abfd83ae3b4f8eacb77b9dd3a))
 
@@ -419,7 +564,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.7.0...v9.7.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -435,7 +584,26 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.6.0...v9.7.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 12.0.0 to 12.1.0
+  ([`2dd6373`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2dd6373f1a3dafe418e54a5292866ec94929dd9a))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 12.0.0 to 12.1.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v12.0.0...v12.1.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -465,11 +633,11 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Chores
 
-- Fix release process
-  ([`d944276`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d9442764158fc653a647f0f1ec10a6d4a59de41e))
-
 - Fix CI utest running
   ([`fe69e45`](https://github.com/MarketSquare/robotframework-browser-translation/commit/fe69e4556435040be1ff8e02b681da840b4a65a2))
+
+- Fix release process
+  ([`d944276`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d9442764158fc653a647f0f1ec10a6d4a59de41e))
 
 - **deps**: Bump python-semantic-release/python-semantic-release
   ([`183f6b8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/183f6b873e4ee3f06ea885801a219ee1907ce59e))
@@ -483,31 +651,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.2...v9.6.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
 
-Signed-off-by: dependabot[bot] <support@github.com>
+update-type: version-update:semver-minor
 
-- **deps-dev**: Bump approvaltests from 11.2.1 to 12.0.0
-  ([`165215a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/165215a6658b461bcbee4f8006c46473cd63bd12))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 11.2.1 to 12.0.0. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v11.2.1...v12.0.0)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-major ...
-
-Signed-off-by: dependabot[bot] <support@github.com>
-
-- **deps-dev**: Bump approvaltests from 11.1.3 to 11.2.1
-  ([`19fa01d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/19fa01dea1ae929bec5794551fa45b021ac2cfc5))
-
-Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 11.1.3 to 11.2.1. -
-  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
-  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v11.1.3...v11.2.1)
-
---- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
-  update-type: version-update:semver-minor ...
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -523,7 +671,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.1...v9.4.2)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -539,7 +691,41 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.4.0...v9.4.1)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-patch ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-patch
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 11.1.3 to 11.2.1
+  ([`19fa01d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/19fa01dea1ae929bec5794551fa45b021ac2cfc5))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 11.1.3 to 11.2.1. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v11.1.3...v11.2.1)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+- **deps-dev**: Bump approvaltests from 11.2.1 to 12.0.0
+  ([`165215a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/165215a6658b461bcbee4f8006c46473cd63bd12))
+
+Bumps [approvaltests](https://github.com/approvals/ApprovalTests.Python) from 11.2.1 to 12.0.0. -
+  [Release notes](https://github.com/approvals/ApprovalTests.Python/releases) -
+  [Commits](https://github.com/approvals/ApprovalTests.Python/compare/v11.2.1...v12.0.0)
+
+--- updated-dependencies: - dependency-name: approvaltests dependency-type: direct:development
+
+update-type: version-update:semver-major
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -565,11 +751,11 @@ also improve testing
 
 ### Chores
 
-- Run rfbrowser init chromium in ci
-  ([`b3de91f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b3de91f332b194e8c3fba4716bb1972b83578bdc))
-
 - Lint fixes
   ([`250c820`](https://github.com/MarketSquare/robotframework-browser-translation/commit/250c8206332734ff252ae084285290c73940cf7f))
+
+- Run rfbrowser init chromium in ci
+  ([`b3de91f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b3de91f332b194e8c3fba4716bb1972b83578bdc))
 
 
 ## v0.4.1 (2024-04-03)
@@ -593,7 +779,11 @@ Bumps
   [Commits](https://github.com/python-semantic-release/python-semantic-release/compare/v9.3.1...v9.4.0)
 
 --- updated-dependencies: - dependency-name: python-semantic-release/python-semantic-release
-  dependency-type: direct:production update-type: version-update:semver-minor ...
+  dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -652,22 +842,22 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Testing
 
-- More testing
-  ([`672c6d3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/672c6d3e660d343fd2380d5f7c34dc47ac817024))
-
 - Check that kw names are unique
   ([`577d1eb`](https://github.com/MarketSquare/robotframework-browser-translation/commit/577d1eb916134dc79d8a7afd6e7e4a173f995151))
+
+- More testing
+  ([`672c6d3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/672c6d3e660d343fd2380d5f7c34dc47ac817024))
 
 
 ## v0.2.0 (2024-03-30)
 
 ### Chores
 
-- Fix release flow
-  ([`58cc800`](https://github.com/MarketSquare/robotframework-browser-translation/commit/58cc80031e8c6a49fe53b7a9b004c1ed458d8837))
-
 - Build wheel
   ([`89c503f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/89c503fe05dffb8de3970611d6bfe0aa650561f8))
+
+- Fix release flow
+  ([`58cc800`](https://github.com/MarketSquare/robotframework-browser-translation/commit/58cc80031e8c6a49fe53b7a9b004c1ed458d8837))
 
 - Publish to Pypi
   ([`34c98c1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/34c98c105dd516cbec11aab62a32d205ee9c553d))
