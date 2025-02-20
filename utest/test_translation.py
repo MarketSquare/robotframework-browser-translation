@@ -55,9 +55,9 @@ def test_keyword_names_are_unique(data: dict):
     for translation in data:
         if translation in ["http", "__init__", "__intro__"]:
             continue
-        assert (
-            translation != data[translation]["name"]
-        ), f"{translation} == {data[translation]['name']}"
+        assert translation != data[translation]["name"], (
+            f"{translation} == {data[translation]['name']}"
+        )
 
 
 def test_keyword_names_no_space(data: robotframework_browser_translation.Language):
@@ -79,6 +79,6 @@ def test_verify_checksum(file: Path, tmp_path: Path):
     for kw in source_data:
         source_sha256 = source_data[kw]["sha256"]
         translation_sha256 = translation_data[kw]["sha256"]
-        assert (
-            source_sha256 == translation_sha256
-        ), f"{kw} sha256 was {source_sha256} expected {translation_sha256}"
+        assert source_sha256 == translation_sha256, (
+            f"{kw} sha256 was {source_sha256} expected {translation_sha256}"
+        )
