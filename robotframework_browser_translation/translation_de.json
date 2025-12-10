@@ -1,0 +1,13 @@
+{
+
+    "cancel_download": {
+        "name": "download_abbrechen",
+        "doc": "Bricht einen aktiven Download ab.\n\n \t\t| =Argumente= | =Beschreibung= |\n \t\t| download    | `DownloadInfo`-Objekt oder der Bezeichner (ID) des abzubrechenden Downloads. |\n\n \t\t[https://forum.robotframework.org/t//6478|Kommentar >>]\n \t\t",
+        "sha256": "99d0b4547fe8d0992f2fd8458160055d429e31d3cda742d70765336979d83945"
+    },
+    "close_browser": {
+        "name": "browser_schliessen",
+        "doc": "Schließt den aktuellen Browser.\n\n \t\tDer aktive Browser wird auf denjenigen gesetzt, der davor aktiv war. Schließt alle\n \t\tKontexte und Seiten dieses Browsers. Siehe `Browser, Kontext und Seite` für weitere\n \t\tInformationen über den Browser und die damit verbundenen Konzepte.\n\n\n \t\t| =Argument=  | =Beschreibung= |\n \t\t| ``browser`` | Der zu schließende Browser. ``CURRENT`` (AKTUELL) wählt den aktiven Browser. ``ALL`` (ALLE) schließt alle Browser. Wenn ein Browser-Bezeichner (ID) angegeben wird, wird dieser Browser geschlossen. |\n\n\n\n \t\tBeispiel:\n \t\t| `Browser Schließen`    ALLE        # Schließt alle Browser\n \t\t| `Browser Schließen`    AKTUELL    # Schließt den aktuellen Browser\n \t\t| `Browser Schließen`               # Schließt den aktuellen Browser\n \t\t| `Browser Schließen`    ${id}      # Schließt den Browser, der dem Bezeichner entspricht\n\n \t\t[https://forum.robotframework.org/t//4239|Kommentar >>]\n \t\t",
+        "sha256": "090ec47d8e3c8b1ff3482529d5d03c7373672a5d732822124fc1c53e64106c77"
+    }
+}
