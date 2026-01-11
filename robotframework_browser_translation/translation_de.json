@@ -1,13 +1,725 @@
 {
-
     "cancel_download": {
         "name": "download_abbrechen",
-        "doc": "Bricht einen aktiven Download ab.\n\n \t\t| =Argumente= | =Beschreibung= |\n \t\t| download    | `DownloadInfo`-Objekt oder der Bezeichner (ID) des abzubrechenden Downloads. |\n\n \t\t[https://forum.robotframework.org/t//6478|Kommentar >>]\n \t\t",
+        "doc": "Bricht einen aktiven Download ab.\n\n        | =Arguments= | =Beschreibung= |\n        | download    | Ein `DownloadInfo`-Objekt oder die ID des abzubrechenden Downloads. |\n\n        [https://forum.robotframework.org/t//6478|Kommentar >>]\n        ",
         "sha256": "99d0b4547fe8d0992f2fd8458160055d429e31d3cda742d70765336979d83945"
     },
     "close_browser": {
-        "name": "browser_schliessen",
-        "doc": "Schließt den aktuellen Browser.\n\n \t\tDer aktive Browser wird auf denjenigen gesetzt, der davor aktiv war. Schließt alle\n \t\tKontexte und Seiten dieses Browsers. Siehe `Browser, Kontext und Seite` für weitere\n \t\tInformationen über den Browser und die damit verbundenen Konzepte.\n\n\n \t\t| =Argument=  | =Beschreibung= |\n \t\t| ``browser`` | Der zu schließende Browser. ``CURRENT`` (AKTUELL) wählt den aktiven Browser. ``ALL`` (ALLE) schließt alle Browser. Wenn ein Browser-Bezeichner (ID) angegeben wird, wird dieser Browser geschlossen. |\n\n\n\n \t\tBeispiel:\n \t\t| `Browser Schließen`    ALLE        # Schließt alle Browser\n \t\t| `Browser Schließen`    AKTUELL    # Schließt den aktuellen Browser\n \t\t| `Browser Schließen`               # Schließt den aktuellen Browser\n \t\t| `Browser Schließen`    ${id}      # Schließt den Browser, der dem Bezeichner entspricht\n\n \t\t[https://forum.robotframework.org/t//4239|Kommentar >>]\n \t\t",
+        "name": "browser_schließen",
+        "doc": "Schließt den aktuellen Browser.\n\n        Der aktive Browser wird auf den Browser gesetzt, der vor diesem aktiv war. Schließt alle Kontexte und Seiten, die zu diesem Browser gehören. Siehe `Browser, Context and Page` für weitere Informationen über Browser und verwandte Konzepte.\n\n\n        | =Argument=  | =Beschreibung= |\n        | ``browser`` | Der zu schließende Browser. ``CURRENT`` wählt den aktiven Browser aus. ``ALL`` schließt alle Browser. Wenn eine Browser-ID angegeben wird, wird dieser spezifische Browser geschlossen. |\n\n\n\n        Beispiel:\n        | `Browser Schließen`    ALL        # Schließt alle Browser\n        | `Browser Schließen`    CURRENT    # Schließt den aktuellen Browser\n        | `Browser Schließen`               # Schließt den aktuellen Browser\n        | `Browser Schließen`    ${id}      # Schließt den Browser mit der entsprechenden ID\n\n        [https://forum.robotframework.org/t//4239|Kommentar >>]\n        ",
         "sha256": "090ec47d8e3c8b1ff3482529d5d03c7373672a5d732822124fc1c53e64106c77"
+    },
+    "close_browser_server": {
+        "name": "browser_server_schließen",
+        "doc": "Schließt einen Playwright Browser-Server, der durch seinen Websocket-Endpunkt (wsEndpoint) identifiziert wird.\n\n        Der wsEndpoint-String wird von `Launch Browser Server` zurückgegeben und auch von `Connect To Browser` verwendet.\n\n        | =Arguments=     | =Beschreibung= |\n        | ``wsEndpoint`` | Adresse des Browser-Servers. Beispiel: ``ws://127.0.0.1:63784/ca69bf0e9471391e8183d9ac1e90e1ba``|\n        ",
+        "sha256": "0b5f959d608daeb542be4370265973ddd943eda43eab727c953cfd5c8ddf2b95"
+    },
+    "close_context": {
+        "name": "kontext_schließen",
+        "doc": "Schließt einen Kontext (Context).\n\n        Der aktive Kontext wird auf den Kontext gesetzt, der vor diesem aktiv war. Schließt alle Seiten, die zu diesem Kontext gehören. Siehe `Browser, Context and Page` für weitere Informationen über Kontexte und verwandte Konzepte.\n\n        | =Argument=  | =Beschreibung= |\n        | ``context`` | Der zu schließende Kontext. ``CURRENT`` wählt den aktiven Kontext aus. ``ALL`` schließt alle Kontexte. Wenn eine Kontext-ID angegeben wird, wird dieser spezifische Kontext geschlossen. |\n        | ``browser`` | Browser, in dem der Kontext geschlossen werden soll. ``CURRENT`` wählt den aktiven Browser aus. ``ALL`` schließt alle Browser. Wenn eine Browser-ID angegeben wird, wird dieser spezifische Browser verwendet. |\n        | ``save_trace`` | Wenn auf ``False`` gesetzt, wird der Trace dieses Kontexts nicht gespeichert, selbst wenn er durch `New Context` aktiviert wurde. Standardwert ist ``True``. |\n\n        Beispiel:\n        | `Kontext Schließen`                          # Schließt den aktuellen Kontext und aktuellen Browser\n        | `Kontext Schließen`    CURRENT    CURRENT    # Schließt den aktuellen Kontext und aktuellen Browser\n        | `Kontext Schließen`    ALL        CURRENT    # Schließt alle Kontexte des aktuellen Browsers und den aktuellen Browser\n        | `Kontext Schließen`    ALL        ALL        # Schließt alle Kontexte des aktuellen Browsers und alle Browser\n\n        [https://forum.robotframework.org/t//4240|Kommentar >>]\n        ",
+        "sha256": "dc3b3109d82f7a4e99454bdf8b8bb0af7842b7549f29edfaf900e8df561d9757"
+    },
+    "close_page": {
+        "name": "seite_schließen",
+        "doc": "Schließt die ``page`` im ``context`` des Browsers ``browser``.\n\n        Standardmäßig wird für alle drei der aktuelle (current) Wert verwendet. Die aktive Seite wird auf die Seite gesetzt, die vor dieser aktiv war. Siehe `Browser, Context and Page` für weitere Informationen über Seiten und verwandte Konzepte.\n\n        ``runBeforeUnload`` definiert, ob die [https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event|before unload] Page-Handler ausgeführt werden sollen. Standardwert ist false.\n\n\n        | =Argument=  | =Beschreibung= |\n        | ``page``    | Die zu schließende Seite. ``CURRENT`` wählt die aktive Seite aus. ``ALL`` schließt alle Seiten. Wenn eine Seiten-ID angegeben wird, wird diese spezifische Seite geschlossen. |\n        | ``context`` | Kontext, in dem die Seite geschlossen werden soll. ``CURRENT`` wählt den aktiven Kontext aus. ``ALL`` schließt alle Kontexte. Wenn eine Kontext-ID angegeben wird, wird dieser spezifische Kontext verwendet. |\n        | ``browser`` | Browser, in dem die Seite geschlossen werden soll. ``CURRENT`` wählt den aktiven Browser aus. ``ALL`` schließt alle Browser. Wenn eine Browser-ID angegeben wird, wird dieser spezifische Browser verwendet. |\n\n        Gibt eine Liste von Dictionaries zurück, die IDs, Fehler und Konsolennachrichten der Seite enthalten.\n\n        Beispiel:\n        | `Seite Schließen`                                    # Schließt die aktuelle Seite im aktuellen Kontext und Browser\n        | `Seite Schließen`    CURRENT     CURRENT     CURRENT    # Schließt die aktuelle Seite im aktuellen Kontext und Browser\n        | `Seite Schließen`    ALL         ALL         ALL        # Schließt alle Seiten in allen Kontexten und Browsern\n\n        [https://forum.robotframework.org/t//4241|Kommentar >>]\n        ",
+        "sha256": "84dcc8d2ce93d2b5280c7f671bbb5b87025a52b0123e55a8888b4ac10c2bd7e8"
+    },
+    "connect_to_browser": {
+        "name": "mit_browser_verbinden",
+        "doc": "Verbindet sich mit einem Playwright Browser-Server via Playwright Websocket oder Chrome DevTools Protocol (CDP).\n\n        Siehe `Launch Browser Server` für weitere Informationen zum Starten eines Playwright Browser-Servers.\n\n        Siehe `Browser, Context and Page` für weitere Informationen über Browser und verwandte Konzepte.\n\n        Gibt einen stabilen Identifikator für den verbundenen Browser zurück.\n\n        | =Argument=     | =Beschreibung= |\n        | ``wsEndpoint`` | Zieladresse für die Verbindung. Entweder ``ws://`` oder ``http://`` falls CDP verwendet wird. |\n        | ``browser``    | Öffnet den spezifizierten Browser. Standardwert ist ``chromium``. |\n        | ``use_cdp``    | Verbindung zum Browser via Chrome DevTools Protocol herstellen. Standardwert ist False. Funktioniert nur mit Chromium-basierten Browsern. |\n        | ``timeout``    | Maximale Zeit (im Robot Framework Zeitformat), um auf den Verbindungsaufbau zu warten. Standardwert ist 30 Sekunden. 0 übergeben, um den Timeout zu deaktivieren. |\n\n        Um eine Verbindung via CDP herzustellen, muss der Browser mit aktiviertem Protokoll gestartet worden sein. Dies geschieht typischerweise durch Starten von Chrome mit dem Argument ``--remote-debugging-port=9222`` oder ähnlich. Wenn der Browser mit aktiviertem CDP läuft, ist eine Verbindung entweder über Websockets (``ws://``) oder HTTP (``http://``) möglich. Die HTTP-Verbindung kann genutzt werden, wenn ``use_cdp`` auf True gesetzt ist. Eine typische Adresse für eine CDP-Verbindung ist ``http://127.0.0.1:9222``.\n\n        [https://forum.robotframework.org/t//4242|Kommentar >>]\n        ",
+        "sha256": "57d4b7717c099f94c2ff8bc07feb3d47273b4fea42027b62a03fa168716b2318"
+    },
+    "get_browser_catalog": {
+        "name": "browser_katalog_abrufen",
+        "doc": "Gibt alle Browser, deren offene Kontexte und die darin offenen Seiten zurück.\n\n        Siehe `Browser, Context and Page` für weitere Informationen zu diesen Konzepten.\n\n        | =Arguments= | =Beschreibung= |\n        | assertion_operator | Optionaler Assertions-Operator. Siehe `Assertions` für weitere Informationen. |\n        | assertion_expected | Optionaler erwarteter Wert. Siehe `Assertions` für weitere Informationen. |\n        | message            | Optionale benutzerdefinierte Fehlermeldung. Siehe `Assertions` für weitere Informationen. |\n\n        Die Daten werden in eine Python-Liste geparst, welche die offenen Objekte repräsentiert.\n\n        Auf der obersten Ebene enthält die Liste die offenen Browser.\n\n        Die Daten können auch mit dem ``assertion_operator`` manipuliert werden, zum Beispiel um eine spezifische ID basierend auf einem Index oder einen Seitentitel mit dem ``then`` Operator zu finden.\n\n        Der Rückgabewert kann zudem gegen einen erwarteten Wert geprüft werden.\n\n        Beispiel:\n        | [\n        |   {\n        |     \"type\": \"chromium\",\n        |     \"id\": \"browser=96207191-8147-44e7-b9ac-5e04f2709c1d\",\n        |     \"contexts\": [\n        |       {\n        |         \"type\": \"context\",\n        |         \"id\": \"context=525d8e5b-3c4e-4baa-bfd4-dfdbc6e86089\",\n        |         \"activePage\": \"page=f90c97b8-eaaf-47f2-98b2-ccefd3450f12\",\n        |         \"pages\": [\n        |           {\n        |             \"type\": \"page\",\n        |             \"title\": \"Robocorp\",\n        |             \"url\": \"https://robocorp.com/\",\n        |             \"id\": \"page=7ac15782-22d2-48b4-8591-ff17663fa737\",\n        |             \"timestamp\": 1598607713.858\n        |           }\n        |         ]\n        |       }\n        |     ],\n        |     \"activeContext\": \"context=525d8e5b-3c4e-4baa-bfd4-dfdbc6e86089\",\n        |     \"activeBrowser\": false\n        |   }\n        | ]\n\n        [https://forum.robotframework.org/t//4259|Kommentar >>]\n        ",
+        "sha256": "afbc7f64d995f62d9b7889309e58b8a6ca5128ba546e0906cdec8da697cd71e6"
+    },
+    "get_browser_ids": {
+        "name": "browser_ids_abrufen",
+        "doc": "Gibt eine Liste der IDs aller offenen Browser zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Browser und verwandte Konzepte.\n\n\n        ``browser`` Standardwert ist ``ALL``\n        - ``ALL`` / ``ANY`` Gibt alle IDs als Liste zurück.\n        - ``ACTIVE`` / ``CURRENT`` Gibt die ID des aktuell aktiven Browsers als Liste zurück.\n\n        | =Arguments= | =Beschreibung= |\n        | ``browser`` | Der Browser, von dem die IDs abgerufen werden sollen. ``ALL`` für alle offenen Browser, ``ACTIVE`` für den aktuell aktiven Browser oder eine spezifische Browser-ID. |\n\n        ACTIVE browser ist ein Synonym für CURRENT Browser.\n\n        [https://forum.robotframework.org/t//4260|Kommentar >>]\n        ",
+        "sha256": "b2011b7f9a760de8465b871d89b53f4349d53bd2e5c8aa27770592746a17e458"
+    },
+    "get_console_log": {
+        "name": "konsolen_log_abrufen",
+        "doc": "Gibt das Konsolen-Log der aktiven Seite zurück.\n\n        Wenn Assertions verwendet werden und fehlschlagen, bricht dieses Keyword sofort ab, ohne einen Retry zu versuchen.\n\n        | =Arguments= | =Beschreibung= |\n        | assertion_operator | Optionaler Assertions-Operator. Siehe `Assertions` für weitere Informationen. |\n        | assertion_expected | Optionaler erwarteter Wert. Siehe `Assertions` für weitere Informationen. |\n        | message            | Optionale benutzerdefinierte Fehlermeldung. Siehe `Assertions` für weitere Informationen. |\n        | full               | Wenn true, wird das vollständige Konsolen-Log zurückgegeben. Wenn false, nur neue Einträge seit dem letzten Aufruf. |\n        | last               | Falls gesetzt, werden nur die letzten n Einträge zurückgegeben. Kann ein `int` für die Anzahl oder ein `timedelta` für einen Zeitraum sein. |\n\n        Die zurückgegebenen Daten sind eine `list` von Log-Nachrichten.\n\n        Eine Log-Nachricht ist ein `dict` mit folgender Struktur:\n        | [{\n        |   \"type\": str,\n        |   \"text\": str,\n        |   \"location\": {\n        |     \"url\": str,\n        |     \"lineNumber\": int,\n        |     \"columnNumber\": int\n        |   },\n        |   \"time\": str\n        | }]\n\n        Keys:\n        | =Key= | =Beschreibung= |\n        | ``type`` | Einer der folgenden Werte: ``log``, ``debug``, ``info``, ``error``, ``warning``, etc. |\n        | ``text`` | Der Text der Konsolennachricht. |\n        | ``location.url`` | Die URL der Ressource, die diese Nachricht generiert hat. |\n        | ``location.lineNumber`` | Die Zeilennummer in der Ressource (0-basiert). |\n        | ``time`` | Der Zeitstempel der Nachricht als ISO 8601 String. |\n\n        [https://forum.robotframework.org/t//5267|Kommentar >>]\n        ",
+        "sha256": "bfc0623e5c9e0c468a6a9f67afd4339a86f1e5e5eecdddd1c3576898c4a6733f"
+    },
+    "get_context_ids": {
+        "name": "kontext_ids_abrufen",
+        "doc": "Gibt eine Liste von Kontext-IDs basierend auf der Browser-Auswahl zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Kontexte und verwandte Konzepte.\n\n        ``ALL`` und ``ANY`` sind Synonyme.\n        ``ACTIVE`` und ``CURRENT`` sind ebenfalls Synonyme.\n\n        | =Arguments= | =Beschreibung= |\n        | ``context`` | Der Kontext, von dem IDs abgerufen werden sollen. ``ALL`` gibt alle IDs der gewählten Browser zurück, ``ACTIVE`` nur den jeweils aktiven Kontext pro Browser. |\n        | ``browser`` | Der Browser, von dem die Kontext-IDs abgerufen werden sollen. ``ALL`` für alle offenen Browser, ``ACTIVE`` nur für den aktiven Browser. |\n\n        Der ACTIVE Kontext des ACTIVE Browsers ist der ``Current`` (aktuelle) Kontext.\n\n        [https://forum.robotframework.org/t//4264|Kommentar >>]\n        ",
+        "sha256": "53d57eb1ecf2f78cf61b2d611056402da6405451521f622126b4e283e0481c27"
+    },
+    "get_page_errors": {
+        "name": "seiten_fehler_abrufen",
+        "doc": "Gibt die Seitenfehler der aktiven Seite zurück.\n\n        Wenn Assertions verwendet werden und fehlschlagen, bricht dieses Keyword sofort ab, ohne einen Retry zu versuchen.\n\n        | =Arguments= | =Beschreibung= |\n        | assertion_operator | Optionaler Assertions-Operator. Siehe `Assertions` für weitere Informationen. |\n        | assertion_expected | Optionaler erwarteter Wert. Siehe `Assertions` für weitere Informationen. |\n        | message            | Optionale benutzerdefinierte Fehlermeldung. Siehe `Assertions` für weitere Informationen. |\n        | full               | Wenn true, wird das vollständige Log zurückgegeben. Wenn false, nur neue Einträge seit dem letzten Aufruf. |\n        | last               | Falls gesetzt, werden nur die letzten n Einträge zurückgegeben. Kann ein `int` für die Anzahl oder ein `timedelta` für einen Zeitraum sein. |\n\n        Die zurückgegebenen Daten sind eine `list` von Fehlermeldungen.\n\n        Eine Fehlermeldung ist ein `dict` mit folgender Struktur:\n        | {\n        |   \"name\": str,\n        |   \"message\": str,\n        |   \"stack\": str,\n        |   \"time\": str\n        | }\n\n        Beispiel:\n        | [{\n        |   'name': 'ReferenceError',\n        |   'message': 'YT is not defined',\n        |   'stack': 'ReferenceError: YT is not defined\\n    at HTMLIFrameElement.onload (https://example.com/:20:2245)',\n        |   'time': '2023-02-05T20:08:48.912Z'\n        | }]\n\n        Keys:\n        | =Key= | =Beschreibung= |\n        | ``name`` | Der Name/Typ des Fehlers. |\n        | ``message`` | Die menschenlesbare Fehlermeldung. |\n        | ``stack`` | Der Stack-Trace des Fehlers, falls vorhanden. |\n        | ``time`` | Der Zeitstempel des Fehlers als ISO 8601 String. |\n\n        [https://forum.robotframework.org/t//5268|Kommentar >>]\n        ",
+        "sha256": "0d99f3b45fed5b63ad6fbc5e5c3900b3d8c98a8e93ab4f8d865d97271ba7d969"
+    },
+    "get_page_ids": {
+        "name": "seiten_ids_abrufen",
+        "doc": "Gibt eine Liste von Seiten-IDs basierend auf der Kontext- und Browser-Auswahl zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Seiten und verwandte Konzepte.\n\n        ``ALL`` und ``ANY`` sind Synonyme.\n        ``ACTIVE`` und ``CURRENT`` sind ebenfalls Synonyme.\n\n        | =Arguments= | =Beschreibung= |\n        | ``page``    | Die Seite, von der IDs abgerufen werden sollen. ``ALL`` gibt alle Seiten-IDs als Liste zurück. ``ACTIVE`` gibt die ID der aktiven Seite als Liste zurück. |\n        | ``context`` | Die Kontext-ID oder Auswahl. ``ALL`` ruft Seiten-IDs aus allen Kontexten ab. ``ACTIVE`` nur aus dem aktiven Kontext. |\n        | ``browser`` | Die Browser-ID oder Auswahl. ``ALL`` ruft Seiten-IDs aus allen offenen Browsern ab. ``ACTIVE`` nur aus dem aktiven Browser. |\n\n        Beispiel:\n        | Test Case\n        |    `New Page`    https://www.imbus.de\n        |    ${current_page}=   `Seiten IDs Abrufen`    ACTIVE    ACTIVE    ACTIVE\n        |    Log                Die aktuelle Seiten-ID ist: ${current_page}[0]\n\n        Die ACTIVE Page des ACTIVE Context des ACTIVE Browser ist die ``Current`` Page.\n\n        [https://forum.robotframework.org/t//4274|Kommentar >>]\n        ",
+        "sha256": "9509948eabe185f218da48ecbe0809d53946a50e4a5c4c53b4a26ecf94957a32"
+    },
+    "launch_browser_server": {
+        "name": "browser_server_starten",
+        "doc": "Startet einen neuen Playwright Browser-Server mit den angegebenen Optionen.\n\n        Gibt einen Websocket-Endpunkt (wsEndpoint) String zurück, der zur Verbindung mit dem Server genutzt werden kann.\n\n        | =Arguments= | =Beschreibung= |\n        | ``port`` | Port für den Browser-Server. Standard ist 0 (zufälliger freier Port). |\n        | ``wsPath`` | Falls gesetzt, lauscht Playwright zusätzlich zum Haupt-Port auf diesem Pfad. Standardmäßig ein zufälliger String aus Sicherheitsgründen. |\n\n        Siehe `New Browser` für die Dokumentation der weiteren Argumente.\n\n        [https://forum.robotframework.org/t//4306|Kommentar >>]\n        ",
+        "sha256": "95e34a1d31eee35604f6fef2f304c257d69ec965b909c0d73ae22d6264961880"
+    },
+    "new_browser": {
+        "name": "neuer_browser",
+        "doc": "Erstellt einen neuen Playwright-Browser mit den angegebenen Optionen.\n\n        | =Arguments= | =Beschreibung= |\n        | ``browser`` | Öffnet den spezifizierten Browser-Typ. Standard ist chromium. |\n        | ``headless`` | Auf False setzen, um eine grafische Oberfläche (GUI) anzuzeigen. Standard ist True. |\n        | ``args`` | Zusätzliche Argumente für die Browser-Instanz. |\n        | ``channel`` | Erlaubt die Nutzung von installierten Google Chrome oder Microsoft Edge Browsern. |\n        | ``devtools`` | (Nur Chromium) Gibt an, ob das Developer Tools Panel automatisch für jeden Tab geöffnet wird. |\n        | ``slowMo`` | Verlangsamt Playwright-Operationen um die angegebene Zeit (Sekunden oder timedelta). |\n        | ``timeout`` | Maximale Zeit im Robot Framework Zeitformat, die auf den Start der Browser-Instanz gewartet wird. |\n\n        [https://forum.robotframework.org/t//4306|Kommentar >>]\n        ",
+        "sha256": "992de5d5bc78f4860fb524db55c8eea12b09ddfaf1be24989ebd113905bf1cdd"
+    },
+    "new_context": {
+        "name": "neuer_kontext",
+        "doc": "Erstellt einen neuen BrowserContext mit den angegebenen Optionen.\n\n        Ein BrowserContext ist das Playwright-Objekt, das ein einzelnes Browser-Profil steuert. Innerhalb eines Kontexts werden Caches und Cookies geteilt.\n\n        | =Arguments= | =Beschreibung= |\n        | ``acceptDownloads`` | Ob Anhänge automatisch heruntergeladen werden sollen. Standard ist True. |\n        | ``baseURL`` | Basis-URL für Keywords wie `Go To`. |\n        | ``viewport`` | Dictionary mit ``width`` und ``height``. Setzt eine konsistente Viewport-Größe für jede Seite. |\n        | ``ignoreHTTPSErrors`` | Ob HTTPS-Fehler bei der Navigation ignoriert werden sollen. |\n        | ``javaScriptEnabled`` | Ob JavaScript im Kontext aktiviert sein soll. |\n        | ``locale`` | Benutzer-Lokalisierung, z.B. ``de-DE``. |\n        | ``recordVideo`` | Aktiviert Videoaufzeichnung für alle Seiten in einen Ordner. |\n        | ``tracing`` | Boolean oder Pfad, wo die Tracing-Datei gespeichert werden soll. |\n\n        [https://forum.robotframework.org/t//4307|Kommentar >>]\n        ",
+        "sha256": "6a338831bf87e222a5288fdd821e60894134b4efe10bb94fb5e55217cb877d1f"
+    },
+    "new_page": {
+        "name": "neue_seite",
+        "doc": "Öffnet eine neue Seite.\n\n        Eine Seite (Page) ist das Playwright-Äquivalent zu einem Tab.\n\n        | =Arguments= | =Beschreibung= |\n        | ``url`` | Optionale URL, zu der navigiert werden soll. Muss das Protokoll enthalten (z.B. `https://`). |\n        | ``wait_until`` | Wann die Operation als erfolgreich gilt. Events: ``domcontentloaded``, ``load``, ``networkidle``, ``commit``. |\n\n        Gibt `NewPageDetails` als Dictionary für die erstellte Seite zurück (enthält ``page_id`` und ``video_path``).\n\n        [https://forum.robotframework.org/t//4308|Kommentar >>]\n        ",
+        "sha256": "0ace22c358a7c2f1ecf81e7a38060343d6dc805394072f33a15d7633ec7c4197"
+    },
+    "new_persistent_context": {
+        "name": "neuer_persistenter_kontext",
+        "doc": "Öffnet einen neuen persistenten Kontext.\n\n        Führt im Grunde `New Browser`, `New Context` und `New Page` in einem Schritt aus und setzt gleichzeitig ein Profil.\n\n        | =Argument= | =Beschreibung= |\n        | ``userDataDir`` | Pfad zum User-Data-Verzeichnis, das Session-Daten wie Cookies speichert. |\n        | ``browser`` | Zu verwendender Browser-Typ. Standard ist Chromium. |\n        | ``headless`` | Ob der Browser im Headless-Modus laufen soll. |\n\n        [https://forum.robotframework.org/t//4309|Kommentar >>]\n        ",
+        "sha256": "a34ff08fbf251c8e03715720a3418e6e67d8bfda86a486d8d102cdb1bd1e5e5e"
+    },
+    "open_browser": {
+        "name": "browser_öffnen",
+        "doc": "Öffnet eine neue Browser-Instanz. Nutzen Sie dieses Keyword für schnelle Experimente oder Debugging-Sessions.\n\n        Verwenden Sie für Produktion und automatisierte Ausführung stattdessen direkt `New Page`.\n\n        | =Argument= | =Beschreibung= |\n        | ``url`` | Navigiert zur URL, falls angegeben. |\n        | ``browser`` | Spezifiziert den Browser (firefox, chromium, webkit). |\n        | ``headless`` | Wenn auf False gesetzt, wird eine GUI angezeigt. Standard ist False. |\n\n        [https://forum.robotframework.org/t//4310|Kommentar >>]\n        ",
+        "sha256": "38f44976ff8bfe779539dadf2f18eae3f6bdac45089542443596bb8d8af11653"
+    },
+    "save_storage_state": {
+        "name": "speicherstatus_speichern",
+        "doc": "Speichert den Speicherstatus (Storage State) des aktuellen aktiven Kontexts in eine Datei.\n\n        Web-Apps nutzen oft Cookies oder Tokens zur Authentifizierung. Dieses Keyword speichert diesen Status (Cookies und Local Storage) auf die Festplatte. Danach kann ein `Neuer Kontext` mit diesem vorbefüllten Status erstellt werden.\n\n        Achtung: Die Datei kann Geheimnisse enthalten und sollte nicht außerhalb der Organisation geteilt werden.\n\n        [https://forum.robotframework.org/t//4318|Kommentar >>]\n        ",
+        "sha256": "8f64e3622f83d9fea18cdbaf93ccc888a6c56f38f8bcf5f63d0a6088a911cebb"
+    },
+    "set_default_run_before_unload": {
+        "name": "standard_before_unload_setzen",
+        "doc": "Setzt den Standardwert für runBeforeUnload, wenn `Seite Schließen` indirekt aufgerufen wird (z.B. durch automatisches Schließen).\n\n        Gibt den alten runBeforeUnload-Wert zurück.\n\n        [https://forum.robotframework.org/t/6203|Kommentar >>]\n        ",
+        "sha256": "ab08eb245233c96a275f1f6b120d47787e2b86ada0e60ff9a9a26255da47090f"
+    },
+    "switch_browser": {
+        "name": "browser_wechseln",
+        "doc": "Wechselt den aktuell aktiven Browser zu einem anderen offenen Browser.\n\n        Gibt einen stabilen Identifikator für den vorherigen Browser zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Browser und verwandte Konzepte.\n\n        | =Arguments= | =Beschreibung= |\n        | id          | Die ID des Browsers, zu dem gewechselt werden soll. Beispiel: ``browser=96207191-8147-44e7-b9ac-5e04f2709c1d``. Eine Browser-ID wird von `New Browser` beim Start zurückgegeben oder kann aus dem Browser-Katalog von `Get Browser Catalog` abgerufen werden. |\n\n        [https://forum.robotframework.org/t//4334|Kommentar >>]\n        ",
+        "sha256": "99b036bf03c84933ab023f4e94946f779a13b2bb18e36a9adc720a465866595b"
+    },
+    "switch_context": {
+        "name": "kontext_wechseln",
+        "doc": "Wechselt den aktiven BrowserContext zu einem anderen offenen Kontext.\n\n        Gibt einen stabilen Identifikator für den vorherigen Kontext zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Kontexte und verwandte Konzepte.\n\n        | =Arguments= | =Beschreibung= |\n        | ``id``      | Die ID des Kontexts, zu dem gewechselt werden soll. Beispiel: ``context=525d8e5b-3c4e-4baa-bfd4-dfdbc6e86089``. Eine Kontext-ID wird von `New Context` beim Start zurückgegeben oder kann via `Get Browser Catalog` abgerufen werden. |\n        | ``browser`` | Der Browser, in dem nach diesem Kontext gesucht werden soll. ``CURRENT`` für den aktuell aktiven Browser, ``ALL`` für die Suche in allen offenen Browsern oder die spezifische ID des Browsers. |\n\n        Beispiel:\n        | ${first_context} =     `New Context`\n        | `New Page`              ${URL1}\n        | ${second_context} =    `New Context`\n        | `New Page`              ${URL2}\n        | `Kontext Wechseln`       ${first_context}    # Wechselt zurück zum ersten Kontext und dessen Seite.\n\n        [https://forum.robotframework.org/t//4335|Kommentar >>]\n        ",
+        "sha256": "2b8132add74ea10184809222071a5eea01b8d0b67763ea914e45e344d3abd921"
+    },
+    "switch_page": {
+        "name": "seite_wechseln",
+        "doc": "Wechselt die aktive Browserseite zu einer anderen offenen Seite via ``id`` oder ``NEW``.\n\n        Gibt einen stabilen Identifikator ``id`` für die vorherige Seite zurück.\n        Siehe `Browser, Context and Page` für weitere Informationen über Seiten und verwandte Konzepte.\n\n        | =Arguments= | =Beschreibung= |\n        | ``id``      | Die ID oder der Alias der Seite. Beispiel: ``page=8baf2991-5eaf-444d-a318-8045f914e96a`` oder ``NEW``. Kann ein String oder ein von `New Page` zurückgegebenes Dictionary sein. ``NEW`` wechselt zu einem Pop-up, das gerade von der Webseite geöffnet wurde. ``CURRENT`` wechselt zur aktiven Seite eines anderen Kontexts/Browsers. |\n        | ``context`` | Der Kontext, in dem nach der Seite gesucht werden soll. ``CURRENT``, ``ALL`` oder Kontext-ID. |\n        | ``browser`` | Der Browser, in dem nach der Seite gesucht werden soll. ``CURRENT``, ``ALL`` oder Browser-ID. |\n\n        Beispiel:\n        | `Click`            button#pops_up    # Öffnet neue Seite\n        | ${previous} =     `Seite Wechseln`    NEW\n\n        [https://forum.robotframework.org/t//4336|Kommentar >>]\n        ",
+        "sha256": "f14fe4afd5c96b7e47fce7c3e7822febd4703219b95de14523d794944d3b7d38"
+    },
+    "clear_permissions": {
+        "name": "berechtigungen_löschen",
+        "doc": "Löscht alle Berechtigungen aus dem aktuellen Kontext.\n\n        [https://forum.robotframework.org/t//4236|Kommentar >>]\n        ",
+        "sha256": "a58a7ab400f6abfbc4aebf4ceffe4ccf31c1ffff8d829292d9b61c20f84b4fa1"
+    },
+    "go_back": {
+        "name": "zurück_navigieren",
+        "doc": "Navigiert zur vorherigen Seite im Verlauf (History).\n\n        [https://forum.robotframework.org/t//4289|Kommentar >>]\n        ",
+        "sha256": "22f88c5d98f358ca241f363c67b8ba6fcd2f19ae8a24f4d3e74189dc12e0779c"
+    },
+    "go_forward": {
+        "name": "vorwärts_navigieren",
+        "doc": "Navigiert zur nächsten Seite im Verlauf (History).\n\n        [https://forum.robotframework.org/t//4290|Kommentar >>]\n        ",
+        "sha256": "fdee39fcb69c8f5d2745991ba99731d90e1d06fa1e1c64ac12f1b65a98320c4a"
+    },
+    "go_to": {
+        "name": "navigiere_zu",
+        "doc": "Navigiert zur angegebenen ``url``.\n\n        | =Arguments= | =Beschreibung= |\n        | ``url`` | Ziel-URL. |\n        | ``timeout`` | Wartezeit für das Laden der Seite. Falls nicht definiert, wird der Standard-Timeout der Library verwendet. |\n        | ``wait_until`` | Zeitpunkt, an dem die Operation als erfolgreich gilt (Standard: load). Mögliche Events: ``domcontentloaded``, ``load``, ``networkidle``, ``commit``. |\n\n        Gibt den HTTP-Statuscode der Navigationsanfrage als Ganzzahl zurück (oder 0, falls keiner empfangen wurde).\n\n        [https://forum.robotframework.org/t//4291|Kommentar >>]\n        ",
+        "sha256": "cc6d043510336b7931d92cab54d4d88291e1b10b8523a1770a3ee912a87f33d6"
+    },
+    "grant_permissions": {
+        "name": "berechtigungen_erteilen",
+        "doc": "Erteilt Berechtigungen für den aktuellen Kontext.\n\n        | =Arguments= | =Beschreibung= |\n        | ``permissions`` | Liste der zu erteilenden Berechtigungen (z. B. geolocation, notifications, camera, microphone). |\n        | ``origin`` | Der Ursprung (Origin), für den die Berechtigungen gelten sollen, z. B. \"https://example.com\". |\n\n        Beispiel:\n        | `New Context`\n        | `Berechtigungen Erteilen`    geolocation\n\n        [https://forum.robotframework.org/t//4292|Kommentar >>]\n        ",
+        "sha256": "7a51017bc4aeb67f20bd8d4a37ded1089ff9a64477ed62bc7688f9309fdbf57e"
+    },
+    "reload": {
+        "name": "seite_neu_laden",
+        "doc": "Lädt die aktuell aktive Seite neu.\n\n        | =Arguments= | =Beschreibung= |\n        | ``timeout`` | Maximale Zeit für den Erfolg des Neuladens. |\n        | ``waitUntil`` | Zeitpunkt, an dem die Operation als abgeschlossen gilt (Standard: `load`). |\n\n        [https://forum.robotframework.org/t//4317|Kommentar >>]\n        ",
+        "sha256": "8ee0af189fec7bec4cf44e3887d73d18b5387151803ceb4bd455e4933183cbd9"
+    },
+    "set_browser_timeout": {
+        "name": "browser_timeout_setzen",
+        "doc": "Setzt den Timeout, der von den meisten Eingabe- und Getter-Keywords verwendet wird.\n\n        | =Arguments= | =Beschreibung= |\n        | ``timeout`` | Timeout für den aktuellen und neue Kontexte. Unterstützt das Robot Framework Zeitformat. Gibt den vorherigen Wert zurück. |\n        | ``scope``   | Definiert die Lebensdauer der Einstellung (``Global``, ``Suite``, ``Test`` oder ``Task``). |\n\n        Beispiel:\n        | ${old_timeout} =    `Browser Timeout Setzen`    1m 30 seconds\n        | Click    //button\n        | `Browser Timeout Setzen`    ${old_timeout}\n\n        [https://forum.robotframework.org/t//4328|Kommentar >>]\n        ",
+        "sha256": "6368a8af571a1a665c72a1fb2a9419265fac57fb0d674f29a68b1ceb24b723b4"
+    },
+    "set_geolocation": {
+        "name": "geolokation_setzen",
+        "doc": "Aktualisiert die Geolokation des korrekten Kontexts.\n\n        Breitengrad (Latitude) zwischen -90 und 90, Längengrad (Longitude) zwischen -180 und 180. Die Genauigkeit (Accuracy) muss positiv sein (Standard: 0). Hinweis: Erteilen Sie beim Erstellen des Kontexts die ``geolocation`` Berechtigung.\n\n        | =Arguments= | =Beschreibung= |\n        | ``latitude`` | Breitengrad zwischen -90 und 90. |\n        | ``longitude`` | Längengrad zwischen -180 und 180. |\n        | ``accuracy`` | Nicht-negativer Genauigkeitswert. |\n\n        [https://forum.robotframework.org/t//4329|Kommentar >>]\n        ",
+        "sha256": "7a5c0fbd2fe5651fb95000e912b1a28020d4ff4f39e5385de9e73a8ea3f82807"
+    },
+    "set_highlight_on_failure": {
+        "name": "hervorhebung_bei_fehler_setzen",
+        "doc": "Steuert, ob das Element bei einem Fehler hervorgehoben wird.\n\n        | =Arguments= | =Beschreibung= |\n        | ``highlight`` | Wenn `True`, wird das Element hervorgehoben, während ein Screenshot vom Fehler gemacht wird. |\n        | ``scope``    | Der Scope definiert die Lebensdauer dieser Einstellung (``Global``, ``Suite`` oder ``Test`` / ``Task``). |\n\n        Beispiel:\n        | `Hervorhebung Bei Fehler Setzen`    True\n\n        [https://forum.robotframework.org/t//4740|Kommentar >>]\n        ",
+        "sha256": "c5bfa59b3c1cd99863ae639bc1d5f5b75dddf6bf9c4d1ac355bfcecb69bebe3c"
+    },
+    "set_offline": {
+        "name": "offline_modus_setzen",
+        "doc": "Schaltet die Offline-Emulation des aktuellen Kontexts um.\n\n        | =Arguments= | =Beschreibung= |\n        | ``offline`` | Schaltet den Offline-Modus ein. Auf False setzen, um wieder in den Online-Modus zu wechseln. Standard ist True. |\n\n        [https://forum.robotframework.org/t//4330|Kommentar >>]\n        ",
+        "sha256": "8b4aff54b55d17e937f0fe4c334591fb79f74c29b07e579969b5c9c3d5d9b736"
+    },
+    "set_retry_assertions_for": {
+        "name": "assertion_retry_zeit_setzen",
+        "doc": "Setzt den Timeout für die Wiederholung von fehlgeschlagenen Assertions.\n\n        | =Arguments= | =Beschreibung= |\n        | ``timeout`` | Bestimmt, wie lange die Browser-Library versucht, eine Assertion zu erfüllen, bis sie endgültig fehlschlägt. |\n        | ``scope``    | Definiert die Lebensdauer der Einstellung (``Global``, ``Suite``, ``Test``). |\n\n        Unterschied zu `Browser Timeout Setzen`: Letzteres steuert, wie lange Playwright auf das Erscheinen von Elementen wartet. Dieses Keyword steuert, wie lange die Library prüft, ob eine Bedingung (z.B. ein Textwert) wahr wird.\n\n        Gibt den vorherigen Timeout-Wert zurück.\n\n        [https://forum.robotframework.org/t//4331|Kommentar >>]\n        ",
+        "sha256": "7cfcad31e1a21289cb1c930203628b51a988afa32d084f8d4a2126f8a73cc8de"
+    },
+    "set_selector_prefix": {
+        "name": "selektor_präfix_setzen",
+        "doc": "Setzt ein Präfix für alle Selektoren im angegebenen Scope.\n\n        | =Arguments= | =Beschreibung= |\n        | ``prefix``   | Präfix für alle Selektoren. Präfix und Selektor werden durch ein Leerzeichen getrennt. Nutze ``${None}`` zum Deaktivieren. |\n\n        Nützlich, um z.B. alle Aktionen innerhalb eines iFrames auszuführen, ohne den iFrame-Pfad jedes Mal neu schreiben zu müssen.\n\n        Beispiel:\n        | `Selektor Präfix Setzen`    iframe#embedded_page >>>\n        | `Click`    button#login_btn    # Klickt auf den Button innerhalb des iFrames.\n\n        [https://forum.robotframework.org/t//4741|Kommentar >>]\n        ",
+        "sha256": "5e4b39880186a97110a0b049758c956cc7513e3dc638b5433317d2f6f288ee9d"
+    },
+    "set_viewport_size": {
+        "name": "viewport_größe_setzen",
+        "doc": "Setzt die Viewport-Größe (Sichtbereich) der aktuellen Seite.\n\n        | =Arguments= | =Beschreibung= |\n        | ``width`` | Breite in Pixeln. |\n        | ``height`` | Höhe in Pixeln. |\n\n        [https://forum.robotframework.org/t//4333|Kommentar >>]\n        ",
+        "sha256": "96da339ea98f47d4187120bf92a2070d010299c0fb5836f6de456ca9ba36b026"
+    },
+    "show_keyword_banner": {
+        "name": "keyword_banner_anzeigen",
+        "doc": "Steuert, ob ein Banner des aktuell ausgeführten Keywords auf der Seite angezeigt wird.\n\n        Dies ist hilfreich für Debugging oder Videoaufnahmen. Das Banner ist ein CSS-Overlay.\n\n        | =Arguments= | =Beschreibung= |\n        | ``show`` | `True` zeigt das Banner, `False` versteckt es. |\n        | ``style`` | Zusätzliche CSS-Styles für das Banner (z.B. Position oder Farbe). |\n\n        [https://forum.robotframework.org/t//4716|Kommentar >>]\n        ",
+        "sha256": "0ed4e1d7d942d2592e24953601df6f95a39b1d0d8151c3dad22e6da580d5296f"
+    },
+    "take_screenshot": {
+        "name": "screenshot_erstellen",
+        "doc": "Erstellt einen Screenshot vom aktuellen Fenster oder Element und speichert ihn.\n\n        | =Arguments= | =Beschreibung= |\n        | ``filename`` | Dateiname (Standardpfad: ${OUTPUTDIR}/browser/screenshot). Nutze ``EMBED`` für die direkte Einbettung in log.html. |\n        | ``selector`` | Optionaler Selektor, um nur ein bestimmtes Element zu fotografieren. |\n        | ``fullPage`` | Wenn True, wird die gesamte scrollbare Seite aufgenommen, nicht nur der sichtbare Bereich. |\n        | ``mask`` | Liste von Selektoren, die im Screenshot mit einer pinken Box überdeckt werden sollen (Anonymisierung). |\n\n        [https://forum.robotframework.org/t//4337|Kommentar >>]\n        ",
+        "sha256": "ab04152649256d7c20f80edeae627aeabc56a9e2f408235832929d18d3458b7e"
+    },
+    "add_cookie": {
+        "name": "cookie_hinzufügen",
+        "doc": "Fügt dem aktuellen Browser-Kontext einen Cookie hinzu.\n\n        Entweder ``url`` oder das Paar aus ``domain`` und ``path`` muss angegeben werden.\n\n        | =Arguments= | =Beschreibung= |\n        | ``name`` | Name des Cookies. |\n        | ``value`` | Wert des Cookies. |\n        | ``expires`` | Verfallsdatum (DateTime-Format oder Unix-Timestamp). |\n\n        [https://forum.robotframework.org/t//4233|Kommentar >>]\n        ",
+        "sha256": "262b403b1c01ecd0118794b3aa2fc22ce424b523847326f82cd2154f500c7959"
+    },
+    "delete_all_cookies": {
+        "name": "alle_cookies_löschen",
+        "doc": "Löscht alle Cookies aus dem aktuell aktiven Browser-Kontext.\n\n        [https://forum.robotframework.org/t//4244|Kommentar >>]\n        ",
+        "sha256": "81cdbfe69a56724ea4600919ea6aa1c6f09ed97fd5811601620c1c81e2907a81"
+    },
+    "get_cookie": {
+        "name": "cookie_abrufen",
+        "doc": "Gibt Informationen eines Cookies als Dictionary oder String zurück.\n\n        [https://forum.robotframework.org/t//4265|Kommentar >>]\n        ",
+        "sha256": "3282da62e50164ca9590ee3c3b1f79b5d8bcae231949378a7a0bf833b151dd31"
+    },
+    "advance_clock": {
+        "name": "uhr_vorstellen",
+        "doc": "Stellt die Browser-Uhr um eine bestimmte Zeit vor.\n\n        | Argument | Beschreibung |\n        | time     | Die Zeitspanne, um die vorgestellt werden soll. |\n        | advance_type | `run_forward` (feuert alle Timer dazwischen) oder `fast_forward` (springt direkt zum Zielzeitpunkt). |\n        ",
+        "sha256": "560b8f1897bb4438e9fa4becf37a4bc6ecfb9427ea3a06142b98482425845dca"
+    },
+    "pause_at": {
+        "name": "zeit_anhalten_bei",
+        "doc": "Springt zu einem bestimmten Zeitpunkt vorwärts und hält die Uhr dort an.\n\n        Dies simuliert das Zuklappen eines Laptops und das Wiederöffnen zu einer exakten Zeit. Die Uhr kann nicht rückwärts bewegt werden.\n\n        Beispiel:\n        | `Zeit Setzen` | 2024-10-31 17:34:00 |\n        | `Zeit Anhalten Bei` | 2024-10-31 18:34:00 |\n        | `Uhr Fortsetzen` |\n        ",
+        "sha256": "c510569dc4a0df53508dc961418910049aa16045fd1ae75d6effcda61eff0a6b"
+    },
+    "resume_clock": {
+        "name": "uhr_fortsetzen",
+        "doc": "Setzt den normalen Zeitfluss im Browser wieder fort.\n        ",
+        "sha256": "97ebb95ad4cba1a2d02a87cee4403513e7138811e7154206862d6371c0e11736"
+    },
+    "set_time": {
+        "name": "zeit_setzen",
+        "doc": "Setzt die Zeit der internen Browser-Uhr.\n\n        | Argument | Beschreibung |\n        | time     | Die zu setzende Zeit. Unterstützt das Robot Framework Datums- und Zeitformat. |\n        | clock_type | Der zu setzende Uhrentyp. Standard ist `install`. |\n\n        - `fixed`: Bewirkt, dass Date.now() immer die exakt gleiche (eingefrorene) Zeit zurückgibt.\n        - `system`: Setzt die aktuelle Systemzeit, löst aber keine Timer aus.\n        - `install`: Installiert fiktive Timer, um den Zeitfluss manuell zu steuern (z. B. um Zeit vorzuspulen).\n\n        Siehe [https://playwright.dev/docs/clock|Playwright Clock Dokumentation].\n        ",
+        "sha256": "5916d08f9db1bce9266982b7cdef9d5899b5e3b2614f342be3371a8964822edf"
+    },
+    "merge_coverage_reports": {
+        "name": "coverage_berichte_zusammenführen",
+        "doc": "Kombiniert mehrere rohe (raw) Coverage-Berichte zu einem einzigen Bericht.\n\n        | =Arguments= | =Beschreibung= |\n        | ``input_folder`` | Pfad zum Basisordner der Rohdaten. |\n        | ``output_folder`` | Pfad, in dem der kombinierte Bericht gespeichert wird. |\n        | ``config_file`` | Optionaler Pfad zu einer Monocart-Konfigurationsdatei. |\n\n        Nützlich, wenn Tests über mehrere Seiten oder Kontexte verteilt sind und am Ende ein Gesamtergebnis benötigt wird.\n        ",
+        "sha256": "6d3a9579c667a9259386c63ac42c81d1a72b64d5ef92988a5b8d20629f5ed24c"
+    },
+    "start_coverage": {
+        "name": "coverage_starten",
+        "doc": "Startet die Erfassung der Code-Abdeckung (Coverage) für die aktuelle Seite.\n\n        | =Arguments= | =Beschreibung= |\n        | ``coverage_type`` | Typ der Erfassung: ``all`` (Standard), ``css`` oder ``js``. |\n        | ``raw`` | Wenn `True`, werden Rohdaten für spätere Zusammenführungen gespeichert. |\n        | ``resetOnNavigation`` | Ob die Coverage bei einer Navigation (neue URL) zurückgesetzt wird. |\n\n        Die Coverage sollte gestartet werden, sobald die Seite offen ist, bevor Aktionen ausgeführt werden.\n        ",
+        "sha256": "2daa4cd72111c28d61364a0bc60ae74e544bcd9478b5a84526cfe1982c338bac"
+    },
+    "stop_coverage": {
+        "name": "coverage_stoppen",
+        "doc": "Stoppt die Coverage-Erfassung und erstellt einen Bericht via `monocart-coverage-reports`.\n\n        Gibt den Pfad zum Berichtsordner zurück.\n        ",
+        "sha256": "4598cc62f5143c61467c03b38c3c5e2193d8523bd4ac1f097458517d85c88414"
+    },
+    "crawl_site": {
+        "name": "seite_durchsuchen",
+        "doc": "Ein Web-Crawler, der alle Seiten einer spezifischen Domain durchläuft.\n\n        Findet alle internen Links und öffnet diese nacheinander.\n\n        | =Arguments= | =Beschreibung= |\n        | ``url`` | Start-URL für den Crawl. |\n        | ``page_crawl_keyword`` | Keyword, das auf jeder gefundenen Seite ausgeführt wird (Standard: Screenshot). |\n        | ``max_depth_to_crawl`` | Limit der Link-Tiefe (wie oft wird weitergeklickt). |\n\n        Gibt eine Liste der gecrawlten URLs zurück.\n        ",
+        "sha256": "e65c79b56dccfabf270d2fb97ae4a764b6dc234ca81f5558de66b257b57fc79c"
+    },
+    "get_device": {
+        "name": "gerät_abrufen",
+        "doc": "Ruft einen Geräte-Deskriptor anhand des exakten Namens ab (z. B. \"iPhone X\").\n\n        Wird verwendet, um mobile Endgeräte zu emulieren.\n\n        Beispiel:\n        | ${device}=      `Gerät Abrufen`    iPhone X\n        | `New Context`    &{device}\n        ",
+        "sha256": "f70cc5d593ec2207f3e8f52c584f0bba0167b50237e1c7cbb0e65aaab568ae12"
+    },
+    "add_style_tag": {
+        "name": "style_tag_hinzufügen",
+        "doc": "Injiziert einen CSS <style> Tag direkt in die aktuelle Seite.\n\n        Beispiel:\n        | `Style Tag Hinzufügen`    #username_field { border: 2px solid red; }\n        ",
+        "sha256": "fc2d0db56dcc81ea5c7000254fad0742e341229d6dcfe57f560fa83ef59704bf"
+    },
+    "download": {
+        "name": "herunterladen",
+        "doc": "Lädt den Inhalt einer URL herunter.\n\n        | =Arguments= | =Beschreibung= |\n        | ``url`` | Download-Link. |\n        | ``saveAs`` | Zielpfad. Wenn leer, wird eine GUID als Name generiert. |\n\n        Gibt ein Dictionary mit Pfad, vorgeschlagenem Dateinamen und Status zurück.\n        Hinweis: `acceptDownloads` muss im Kontext auf `True` gesetzt sein.\n        ",
+        "sha256": "b16a68d353e1668b4566de7269fa9c000b6ec71e1f2225729436bc497f9bc8c9"
+    },
+    "evaluate_javascript": {
+        "name": "javascript_ausführen",
+        "doc": "Führt JavaScript-Code auf der Seite oder an bestimmten Elementen aus.\n\n        | =Arguments= | =Beschreibung= |\n        | ``selector`` | Optionaler Selektor. Das gefundene Element wird als erstes Argument an die JS-Funktion übergeben. |\n        | ``function`` | Der JavaScript-Code oder Funktionskörper. |\n        | ``arg``      | Zusätzliches Argument (JSON-serialisierbar). |\n        | ``all_elements`` | Wenn True, erhält die Funktion ein Array aller gefundenen Elemente. |\n        ",
+        "sha256": "b3289b6599f3d7921b09816e6f0248fc7d5a972b067d8185944ca874528c80a4"
+    },
+    "highlight_elements": {
+        "name": "elemente_hervorheben",
+        "doc": "Hebt Elemente, die auf den Selektor passen, visuell hervor (z. B. durch einen Rahmen).\n\n        | =Arguments= | =Beschreibung= |\n        | ``duration`` | Wie lange die Hervorhebung sichtbar bleibt (Standard: 5s). |\n        | ``color``    | Rahmenfarbe. |\n        | ``mode``     | ``border`` (eigener Rahmen) oder ``playwright`` (natives Playwright-Highlighting). |\n\n        Gibt die Anzahl der hervorgehobenen Elemente zurück.\n        ",
+        "sha256": "90db6bb2228b245d5ee5409ff71fa2d6ae62477758c4d8fa9a8ff6a98e2774d2"
+    },
+    "set_assertion_formatters": {
+        "name": "assertion_formatierer_setzen",
+        "doc": "Definiert Formatierer, die vor einer Assertion auf Werte angewendet werden.\n\n        Beispiel:\n        | `Assertion Formatierer Setzen`    {\"Get Text\": [\"strip\", \"normalize spaces\"]}\n        Dies würde alle Texte trimmen und doppelte Leerzeichen entfernen, bevor sie verglichen werden.\n        ",
+        "sha256": "ef31a3a8435f598903497736a23f903b42a1f73c306a0360983524c02039084c"
+    },
+    "check_checkbox": {
+        "name": "checkbox_aktivieren",
+        "doc": "Aktiviert eine Checkbox oder wählt einen Radio-Button aus.\n\n        | Argument | Beschreibung |\n        | selector | Selektor der Checkbox / des Radio-Buttons. |\n        | force    | Wenn True, werden Playwrights Sichtbarkeitsprüfungen übersprungen. |\n\n        Bewirkt nichts, wenn das Element bereits ausgewählt ist.",
+        "sha256": "2d02c689a8fa6a876a2d3fbec0ce1b4de3eeb33137cb2c524fcc9598872b6b28"
+    },
+    "clear_text": {
+        "name": "text_löschen",
+        "doc": "Leert das durch den Selektor gefundene Textfeld.",
+        "sha256": "d86e92f55b35da7e99c8541078514872afb594262f8d1c9ab78768575f7efad0"
+    },
+    "click": {
+        "name": "klicken",
+        "doc": "Simuliert einen Mausklick auf ein Element.\n\n        Der Prozess umfasst: Finden des Elements, Warten auf Interaktionsbereitschaft (Actionability), Scrollen (falls nötig) und Klick in die Mitte des Elements.\n\n        | Argument | Beschreibung |\n        | selector | Das zu klickende Element. |\n        | button   | `left`, `right` oder `middle` (Standard: `left`). |",
+        "sha256": "762e5c9459b6a7e1c262b76d798fdd54fb58957759ac5126eb4d309b03b7fb67"
+    },
+    "click_with_options": {
+        "name": "klicken_mit_optionen",
+        "doc": "Erweiterter Klick mit feingranularen Einstellungen.\n\n        | Argument | Beschreibung |\n        | clickCount | Anzahl der Klicks (z.B. 2 für Doppelklick). |\n        | delay      | Zeit zwischen Maustaste runter und hoch (z.B. 100ms). |\n        | modifiers  | Tasten wie `Control`, `Alt`, `Shift`, die während des Klicks gehalten werden sollen. |\n        | trial      | Wenn True, wird nur geprüft, ob der Klick möglich wäre, ohne ihn auszuführen. |",
+        "sha256": "9e0f2048e478b06bf94289f885f687a1a4dc700c84efce9d808826729670f6bf"
+    },
+    "deselect_options": {
+        "name": "auswahl_aufheben",
+        "doc": "Hebt alle gewählten Optionen in einem Selektionsmenü (`<select>`) auf.",
+        "sha256": "a6a570eb212807be363732603c570d2476fa9df156541107281b6c267c1bc321"
+    },
+    "drag_and_drop": {
+        "name": "ziehen_und_ablegen",
+        "doc": "Führt eine Drag & Drop Operation von einem Element zu einem anderen aus.\n\n        | Argument | Beschreibung |\n        | selector_from | Startelement. |\n        | selector_to   | Zielelement. |\n        | steps         | Anzahl der Zwischenschritte der Mausbewegung (hilfreich bei Animationen). |",
+        "sha256": "237ee4e801af2d852690921bba98e93b5d9ca2ab996fe998c25833211876c781"
+    },
+    "drag_and_drop_by_coordinates": {
+        "name": "ziehen_und_ablegen_nach_koordinaten",
+        "doc": "Drag & Drop von einer Koordinate zu einer anderen relativ zum Viewport.",
+        "sha256": "930be9c8cdc798dce53856f99c0c3e0642944ec8dddd0d96fe14fc53fd9a9704"
+    },
+    "drag_and_drop_relative_to": {
+        "name": "ziehen_und_ablegen_relativ",
+        "doc": "Drag & Drop von einem Element zu einem Punkt relativ zur Mitte dieses Elements (gut für Slider/Swipes).",
+        "sha256": "e71c78725da74a1adcc9375b384953b797f97c83746647292d35788718e26a60"
+    },
+    "fill_secret": {
+        "name": "geheimnis_eintragen",
+        "doc": "Füllt ein Textfeld mit einem Passwort/Secret, ohne den Wert in den Robot Framework Logs zu zeigen.\n\n        Wichtig: Erfordert Variablen-Syntax wie `$variable` (für RF Variablen) oder `%variable` (für Umgebungsvariablen).",
+        "sha256": "c2523dae76c28a4d3154082ea0a2ebf8dabfb098c1c4bff60ff91cae359653e1"
+    },
+    "fill_text": {
+        "name": "text_eintragen",
+        "doc": "Leert das Feld und trägt den angegebenen Text ein. Triggert ein Input-Event.\n\n        Für eine Simulation von Tastaturanschlägen Zeichen für Zeichen sollte stattdessen `Type Text` genutzt werden.",
+        "sha256": "8ce0ab6f2245bbd0136b188bc6bd5ffb6cfff81cfebdeba2c245361f530a5ff9"
+    },
+    "focus": {
+        "name": "fokus_setzen",
+        "doc": "Setzt den Fokus auf das gewählte Element.",
+        "sha256": "d1b5334000ef666b5eb518e00838220eef4eab92a8247ace81df7aa09bae196f"
+    },
+    "handle_future_dialogs": {
+        "name": "nächsten_dialog_behandeln",
+        "doc": "Legt fest, wie mit dem nächsten auftauchenden Dialog (Alert, Confirm, Prompt) umgegangen werden soll.\n\n        Muss **vor** der Aktion aufgerufen werden, die den Dialog auslöst.\n\n        | Argument | Aktion |\n        | action   | `accept` oder `dismiss`. |",
+        "sha256": "119d5c2bcf30e97b996b4bf1136c760117a5642c7f82e1646d78e676f1b5e96b"
+    },
+    "hover": {
+        "name": "mauszeiger_drüberhalten",
+        "doc": "Bewegt den virtuellen Mauszeiger über das Element.",
+        "sha256": "994aaabf9b4de2280dcb91dd21c7b5b22834ae26e4d37ba9fc70737cdddea3ef"
+    },
+    "keyboard_input": {
+        "name": "tastatur_eingabe",
+        "doc": "Gibt Text über die virtuelle Tastatur ein.\n\n        | Aktion | Beschreibung |\n        | insertText | Sendet nur das Input-Event (schnell). |\n        | type       | Sendet keydown, keypress und keyup für jedes Zeichen (realistischer). |",
+        "sha256": "45fbcb222775c1a1c71396af2389b1e74a1365e7e545f47a1377d509fcfda3b6"
+    },
+    "keyboard_key": {
+        "name": "tastatur_taste",
+        "doc": "Drückt eine einzelne Taste oder hält sie gedrückt.\n\n        Aktionen: `press`, `down`, `up` (z.B. für Shift-Kombinationen).",
+        "sha256": "20e015b8f011608331743c6b11ba834f7861719584158aa49daa180faa7686d0"
+    },
+    "mouse_button": {
+        "name": "maustaste_betätigen",
+        "doc": "Klickt, drückt oder lässt eine Maustaste an bestimmten Koordinaten los.\n\n        Aktionen: `click`, `down`, `up`.",
+        "sha256": "431a0182ef1de8500888bf81956c858632bd242f546868bb123a0a3d41d70407"
+    },
+    "mouse_move": {
+        "name": "maus_bewegen",
+        "doc": "Steuert die Maus über absolute Koordinaten (x, y) statt über Selektoren.\n\n        | Argument | Beschreibung |\n        | x & y    | Absolute Koordinaten (Start oben links). |\n        | steps    | Anzahl der Zwischenschritte für eine flüssige Bewegung. |",
+        "sha256": "b29309236fd99ff81ab41f5c384eb92514d1211d9bcff78cbab6ecc5e3a91f25"
+    },
+    "mouse_move_relative_to": {
+        "name": "maus_bewegen_relativ",
+        "doc": "Bewegt den Mauszeiger relativ zur Mitte des gewählten Elements.\n\n        | Argument | Beschreibung |\n        | selector | Das Referenzelement. |\n        | x & y    | Pixel-Versatz von der Mitte des Elements aus. |",
+        "sha256": "54ee8af54671341bb5fbe235e28ce2ea3e5ad7b2250466ad42fb8e5ea298a280"
+    },
+    "mouse_wheel": {
+        "name": "mausrad_drehen",
+        "doc": "Simuliert das Drehen des Mausrads (Scrollen).\n\n        Die Maus muss vorher auf dem Browserfenster positioniert sein (z. B. mit `Hover`).\n\n        | Argument | Beschreibung |\n        | deltaX   | Horizontaler Scroll-Versatz in Pixeln. |\n        | deltaY   | Vertikaler Scroll-Versatz in Pixeln. |",
+        "sha256": "3295f6a49b0396671f2643d5c5259011cdf895b235b876208827c5525e558416"
+    },
+    "press_keys": {
+        "name": "tasten_drücken",
+        "doc": "Tippt eine Tastenkombination oder Zeichenfolge in ein Element.\n\n        Unterstützt Kombinationen mit `+` (z.B. `Control+Shift+T`) und Sondertasten wie `ArrowLeft` oder `Backspace`.",
+        "sha256": "c73f012a9364d88ef7855134ee339fcb1401d09f1fd3804444f1b0d8b1c7bbd3"
+    },
+    "record_selector": {
+        "name": "selektor_aufzeichnen",
+        "doc": "Ein Hilfs-Keyword, das den Selektor des Elements unter der Maus aufzeichnet und zurückgibt.",
+        "sha256": "f1c4e9c9d14cdd711907e39f4814e8c0e1638e03847782b3c65e9de45a044472"
+    },
+    "scroll_by": {
+        "name": "scrollen_um",
+        "doc": "Scrollt ein Element oder die Seite relativ von der aktuellen Position.\n\n        | Argument | Beschreibung |\n        | vertical | Pixel (z.B. 50), Prozent (z.B. 10%) oder `height`. |\n        | behavior | `auto` (direkt) oder `smooth` (flüssig). |",
+        "sha256": "1a568a4505e02db5d49b211c40f43a2463c4e990af319aef5d38f20d804d89a6"
+    },
+    "scroll_to": {
+        "name": "scrollen_zu_position",
+        "doc": "Scrollt zu einer absoluten Position auf der Seite oder innerhalb eines Elements.\n\n        | Argument | Beschreibung |\n        | vertical | Position in Pixeln, Prozent oder `top` / `bottom`. |",
+        "sha256": "0d3acc28f04ebf4cb61bf17e68fd9e33e9b57527f791b0e2e29de52530f03d1a"
+    },
+    "scroll_to_element": {
+        "name": "scrollen_zum_element",
+        "doc": "Sorgt dafür, dass das angegebene Element im sichtbaren Bereich erscheint.",
+        "sha256": "ad4bb92fba49a467b1d962e9a36cff9cfd0eb79ebc2e253a6596d37ac4211b1e"
+    },
+    "select_options_by": {
+        "name": "optionen_auswählen_nach",
+        "doc": "Wählt Optionen in einem Dropdown (`<select>`) aus.\n\n        Mögliche Attribute: `value`, `label`, `text` oder `index`.",
+        "sha256": "ff9fe66ad6aa90fba1c2f60ce61263723a7c3ad3618076c768dfe84704b6a321"
+    },
+    "tap": {
+        "name": "tippen",
+        "doc": "Simuliert ein Antippen (Touch-Event) auf einem Element.\n\n        Erfordert, dass `hasTouch` im Kontext (New Context) auf True gesetzt ist.",
+        "sha256": "75cba70d2e20ae00f49e4eeb274e7a54f8bd17034d330f2cd06ac5b8ff06dcb3"
+    },
+    "type_secret": {
+        "name": "geheimnis_tippen",
+        "doc": "Tippt ein Secret Zeichen für Zeichen ein (Simulation echter Tastaturanschläge), ohne den Wert zu loggen.\n\n        Erfordert Variablen-Syntax wie `$pass` oder `%env_pass`.",
+        "sha256": "3027fd39b95b5a1cf99d3fb8254abc9a53fa7e47d71e64e241619ed00cfc3527"
+    },
+    "type_text": {
+        "name": "text_tippen",
+        "doc": "Simuliert echte Tastaturanschläge Zeichen für Zeichen.\n\n        Löst keydown, keypress/input und keyup Events aus. Ideal für Felder mit Autovervollständigung.",
+        "sha256": "8994bb61bda726783949d2a14a7a95b4106a054c319ff6948c9bfbf3d0bb8af1"
+    },
+    "uncheck_checkbox": {
+        "name": "checkbox_deaktivieren",
+        "doc": "Hebt die Markierung einer Checkbox auf. Bewirkt nichts, wenn sie bereits deaktiviert ist.",
+        "sha256": "2948564d17a7f6a85eb4478022996bbd5e5b8e854dcab3dbe51444dbf00b3407"
+    },
+    "upload_file_by_selector": {
+        "name": "datei_hochladen",
+        "doc": "Lädt eine oder mehrere Dateien/Ordner über ein Datei-Input-Feld hoch.",
+        "sha256": "a985b92e6872b6017e8dd76b9a00ea35ae7b21d9233c2e77f35bb1fc59fa55a8"
+    },
+    "wait_for_alert": {
+        "name": "auf_alert_warten",
+        "doc": "Gibt ein Promise zurück, um auf den nächsten Browser-Dialog zu warten und diesen zu behandeln.\n\n        Muss zusammen mit `Promise To` verwendet werden.",
+        "sha256": "425b5bca766a6e097346c5ad7fd413b83eb69344a3f25b8677b3ddee1a360059"
+    },
+    "wait_for_alerts": {
+        "name": "auf_mehrere_alerts_warten",
+        "doc": "Wartet auf eine Liste von Dialogen und behandelt diese sequenziell.",
+        "sha256": "ed2092b04ac8d4299d9a65f3beb08f9019190b58c08ac541f58bbd3340f7d0d9"
+    },
+    "get_aria_snapshot": {
+        "name": "aria_snapshot_abrufen",
+        "doc": "Gibt einen ARIA-Snapshot (Barrierefreiheits-Struktur) des Elements als YAML oder Dictionary zurück.",
+        "sha256": "529340ae480c4bf59044e26ee13f5c7053401c34cca7c607058a8b6fa3780188"
+    },
+    "get_attribute": {
+        "name": "attribut_abrufen",
+        "doc": "Gibt den Wert eines HTML-Attributs (z.B. 'class', 'href') zurück.\n\n        Kann optional eine Assertion (Prüfung) durchführen.",
+        "sha256": "8a69af16e160e387889cc900d92110f5c7b33ca56a410e135a92f3b813846e27"
+    },
+    "get_attribute_names": {
+        "name": "attributnamen_abrufen",
+        "doc": "Gibt alle HTML-Attributnamen eines Elements als Liste zurück.\n\n        Kann prüfen, ob bestimmte Attribute vorhanden sind (z. B. mit 'contains' oder '==').",
+        "sha256": "633da84327a9f155ea2337a2d2cb6547fb42779270238d4a882106c366d8b9e4"
+    },
+    "get_boundingbox": {
+        "name": "boundingbox_abrufen",
+        "doc": "Gibt die Größe und Position eines Elements zurück (x, y, Breite, Höhe).\n\n        | Argument | Beschreibung |\n        | key      | 'ALL' für das gesamte Dictionary oder ein spezifischer Wert wie 'width' oder 'x'. |\n        | allow_hidden | Wenn True, schlägt das Keyword bei unsichtbaren Elementen nicht fehl, sondern gibt None zurück. |",
+        "sha256": "d6fb299e82f48af3fe9268b223ef470c5a66056af441b724da2aadc2aa39224a"
+    },
+    "get_checkbox_state": {
+        "name": "checkbox_status_abrufen",
+        "doc": "Gibt den Status einer Checkbox zurück (True für 'checked', False für 'unchecked').\n\n        Erlaubt direkte Assertions gegen 'checked' oder 'unchecked'.",
+        "sha256": "0ca1152257da48e0929cbae67885e25882fb80b0d4d42090bbf18a6671ee57ca"
+    },
+    "get_classes": {
+        "name": "klassen_abrufen",
+        "doc": "Gibt alle CSS-Klassen eines Elements als Liste zurück.\n\n        Nützlich, um zu prüfen, ob ein Element einen bestimmten Status (z. B. 'active' oder 'disabled') via CSS-Klasse hat.",
+        "sha256": "bfb654e4ada22f2e83553995e3a02af47e93a5e9e920a58a85bd7f15ff6385c2"
+    },
+    "get_client_size": {
+        "name": "client_größe_abrufen",
+        "doc": "Gibt die sichtbare Größe (clientWidth/Height) eines Elements oder der Seite zurück.\n\n        Im Gegensatz zur BoundingBox werden hier Ränder und Scrollbalken meist nicht mitgerechnet.",
+        "sha256": "d2c872b7625f8d83024305b6e61d08fcd1c004e7d5fb9f34c6d005c67a1fb7d1"
+    },
+    "get_download_state": {
+        "name": "download_status_abrufen",
+        "doc": "Gibt Informationen über einen laufenden oder abgeschlossenen Download zurück (Dateiname, Pfad, Status).",
+        "sha256": "16b0ed004bd4e5927a81baa44fa2d150b18f46042d6e584e8fe5a2c18aa6b3e8"
+    },
+    "get_element": {
+        "name": "element_referenz_abrufen",
+        "doc": "Gibt eine Referenz (Playwright Locator) auf ein Element zurück.\n\n        Diese Referenz kann in nachfolgenden Keywords als Selektor verwendet werden.",
+        "sha256": "3463315fd79006307dca578f86d1b61d8f03fc19903a316d53de2649ffbde24e"
+    },
+    "get_element_by": {
+        "name": "element_suchen_nach",
+        "doc": "Sucht Elemente basierend auf Playwright-Strategien wie Alt-Text, Label, Platzhalter oder Test-ID.\n\n        | Argument | Beschreibung |\n        | locator_type | Strategie (z.B. AltText, Label, Placeholder, TestId, Text, Title). |\n        | exact | Wenn True, muss der Text exakt übereinstimmen. |",
+        "sha256": "83d5ab631b1aecacd4def54b80ad2ae04ac344c67c5cf66abd17bf712f8a4e27"
+    },
+    "get_element_by_role": {
+        "name": "element_suchen_nach_rolle",
+        "doc": "Sucht Elemente basierend auf ihrer ARIA-Rolle (z. B. 'button', 'heading', 'checkbox').\n\n        Ermöglicht sehr robuste Tests, die sich am Barrierefreiheits-Baum (Accessibility Tree) orientieren.",
+        "sha256": "3e43cbca747a8c2852d44aeab76f1bef3e18cab5624e71639231be0621be0418"
+    },
+    "get_element_count": {
+        "name": "element_anzahl_abrufen",
+        "doc": "Gibt zurück, wie viele Elemente auf den Selektor passen.\n\n        Beispiel: `element_anzahl_abrufen  li  >  5` prüft, ob mehr als 5 Listen-Elemente vorhanden sind.",
+        "sha256": "30c52d8a09e16b9bba8d2c91ab7b2aec12fd5e273cbe38018b3d737128145c0e"
+    },
+    "get_element_states": {
+        "name": "element_status_abrufen",
+        "doc": "Gibt eine Liste der aktiven Zustände eines Elements zurück (z. B. 'visible', 'enabled', 'editable', 'checked').",
+        "sha256": "38696152c60a7ba59fc74f536afbd232a75a0c4ae186d876e56bb92e22df68f8"
+    },
+    "get_elements": {
+        "name": "elemente_abrufen",
+        "doc": "Gibt eine Liste von Referenzen (Locators) für alle auf den Selektor passenden Elemente zurück.",
+        "sha256": "675c123af074f33c4ca9047e241bfef9df5ff700c0befcd5f0abf86cfc9ab2a3"
+    },
+    "get_page_source": {
+        "name": "seitenquelltext_abrufen",
+        "doc": "Gibt den kompletten HTML-Quelltext der aktuellen Seite als String zurück.",
+        "sha256": "79b722a52c9f51bdafa3cdd66668771face80435169e9ccee0a7433f072c79e0"
+    },
+    "get_property": {
+        "name": "eigenschaft_abrufen",
+        "doc": "Gibt eine JavaScript-Eigenschaft (Property) eines Elements zurück (z. B. 'innerText', 'innerHTML', 'value').",
+        "sha256": "90608136fe6c72d9a59c9b630ecc3ffa9a3a7dbaed02705e0192cbe6db09d5be"
+    },
+    "get_scroll_position": {
+        "name": "scroll_position_abrufen",
+        "doc": "Gibt die aktuelle Scroll-Position eines Elements oder der Seite als Dictionary (top, left, bottom, right) zurück.",
+        "sha256": "ef967abc94957dbc573a38f58e6f72962aedde5253b1ba80a83a83ec4944f332"
+    },
+    "get_scroll_size": {
+        "name": "scroll_größe_abrufen",
+        "doc": "Gibt die gesamte scrollbare Größe eines Elements oder der Seite zurück (auch den nicht sichtbaren Bereich).",
+        "sha256": "4548c0e9dc86d8af6bd8178e21f19b11d8930c8f8b928e7fec24dd54f0ae04de"
+    },
+    "get_select_options": {
+        "name": "auswahl_optionen_abrufen",
+        "doc": "Gibt alle verfügbaren Optionen eines Dropdown-Menüs (`<select>`) als Liste von Dictionaries zurück (Index, Value, Label, Selected).",
+        "sha256": "9da8bdae574b99e702e1ddac1e772b27549b3e595a89a05f42760c395fe24ba1"
+    },
+    "get_selected_options": {
+        "name": "gewählte_optionen_abrufen",
+        "doc": "Gibt die aktuell ausgewählten Optionen eines Dropdowns zurück.",
+        "sha256": "18483fdb68d49f166b79cb66d707cccb58c2a76137f4f791af555ec726064f24"
+    },
+    "get_style": {
+        "name": "style_abrufen",
+        "doc": "Gibt die berechneten CSS-Styles (Computed Styles) eines Elements zurück.\n\n        Kann auch Pseudo-Elemente wie `::before` oder `::after` abfragen.",
+        "sha256": "b228d315ec24ab255393fd7e8ae67f963cc8556c08da342f4f75a548dd1157f9"
+    },
+    "get_table_cell_index": {
+        "name": "tabellenzellen_index_abrufen",
+        "doc": "Gibt den 0-basierten Index einer Tabellenzelle innerhalb ihrer Zeile zurück.\n\nDer Selektor kann ein <th>, <td> oder ein Element darin sein.",
+        "sha256": "8b2974b09d4743121b9f7c470b255b9ba0d2ddef264ce903198f399f1131640d"
+    },
+    "get_table_row_index": {
+        "name": "tabellenzeilen_index_abrufen",
+        "doc": "Gibt den 0-basierten Index einer Tabellenzeile zurück.\n\nNützlich, um die Position einer bestimmten Datenzeile in einer Tabelle zu bestimmen.",
+        "sha256": "c3e673876fbf48d1fb2aeec0a74c8d37f5e2fab7f49643388cb77ff2b65edca3"
+    },
+    "get_text": {
+        "name": "text_abrufen",
+        "doc": "Gibt das Textattribut des gefundenen Elements zurück.\n\nFunktioniert auch für den Wert (Value) von 'input' oder 'textarea' Elementen.",
+        "sha256": "5f6310dba0949933cb6d1c7042d6f8975dad40a68e36b5b7da1172507be49de2"
+    },
+    "get_title": {
+        "name": "titel_abrufen",
+        "doc": "Gibt den Titel der aktuellen Seite zurück.",
+        "sha256": "ad14f4516d35c8bc348d94f6832914b176c82b735d6305988e5a6dafd796bbe7"
+    },
+    "get_url": {
+        "name": "url_abrufen",
+        "doc": "Gibt die aktuelle URL zurück.",
+        "sha256": "1db2d51125d9dd544a8310822fed1ac8e05dd729fd6f4675e3c7c374b3f3ba0c"
+    },
+    "get_viewport_size": {
+        "name": "viewport_größe_abrufen",
+        "doc": "Gibt die aktuellen Dimensionen des Sichtbereichs (Viewport) zurück.\n\nKann als Dictionary (ALL) oder einzelner Wert (width/height) abgefragt werden.",
+        "sha256": "8bae8bb6e659b74e44b469dcf7a6e25c439c8f0ca2794a9d7a80b60ce6e9af80"
+    },
+    "add_locator_handler_click": {
+        "name": "locator_handler_klick_hinzufügen",
+        "doc": "Fügt einen Handler hinzu, der automatisch klickt, wenn ein bestimmtes Element (z.B. Cookie-Banner oder Overlay) erscheint.\n\nDies geschieht im Hintergrund, sobald der 'selector' sichtbar wird, und führt einen Klick auf 'click_selector' aus.",
+        "sha256": "f0a965d671ba050bb997841bcc855410281301a9d8893382d609415ca1f88480"
+    },
+    "add_locator_handler_custom": {
+        "name": "benutzerdefinierten_locator_handler_hinzufügen",
+        "doc": "Fügt einen Handler für komplexe Aktionen hinzu, die ausgeführt werden, wenn ein Element erscheint.\n\nErmöglicht eine Liste von Aktionen wie click, fill, check oder uncheck über eine 'handler_spec'.",
+        "sha256": "03369069032ebd4d0d1f9123d003bdca76c3c8042104a0a8c602ed4eb572f68c"
+    },
+    "remove_locator_handler": {
+        "name": "locator_handler_entfernen",
+        "doc": "Entfernt einen durch einen Selektor definierten Locator-Handler.",
+        "sha256": "5eed95e32b507e35ae4437a902bd78438ec74b0826543966292a2b434208ace4"
+    },
+    "http": {
+        "name": "http_anfrage",
+        "doc": "Führt eine HTTP-Anfrage im aktuellen Browser-Kontext aus.\n\nNützlich für API-Tests oder um den Status von Endpunkten während der Browser-Session zu prüfen.",
+        "sha256": "1c3c7159ad66ae080972447ab9caf7aea66f9ebd38133f42e30fe89c0a93e980"
+    },
+    "wait_for_navigation": {
+        "name": "auf_navigation_warten",
+        "doc": "Wartet, bis die Seite zu einer bestimmten URL navigiert ist.\n\nUnterstützt exakte Übereinstimmungen oder reguläre Ausdrücke.",
+        "sha256": "9ba2effa2a64e30def4ceb29628328f73e2c52084af1214469e072bc62e53024"
+    },
+    "wait_for_request": {
+        "name": "auf_request_warten",
+        "doc": "Wartet auf eine Netzwerkanfrage, die dem 'matcher' entspricht.",
+        "sha256": "520268f696dca7f2a6bcc1cfa262a125852465d27367bdaa518f1bac3c3fb6d6"
+    },
+    "wait_for_response": {
+        "name": "auf_response_warten",
+        "doc": "Wartet auf eine Netzwerkantwort und gibt diese als Dictionary zurück.\n\nDer Matcher kann ein Glob-Pattern, ein regulärer Ausdruck oder eine JavaScript-Funktion sein.",
+        "sha256": "023c7076949908261b645d84bbfd8962e08815561827a1144d6832e84ab74315"
+    },
+    "wait_until_network_is_idle": {
+        "name": "warten_bis_netzwerk_ruht",
+        "doc": "*DEPRECATED!!* Nutzen Sie stattdessen 'Wait For Load State' mit dem Argument 'networkidle'.",
+        "sha256": "ab64e692f122ee58abc918028cb9599a085a47fca6e77317d236607801a4fe9d"
+    },
+    "emulate_media": {
+        "name": "media_emulieren",
+        "doc": "Ändert den CSS-Medientyp (screen/print) oder das Farbschema (light/dark).\n\nNützlich vor dem Speichern der Seite als PDF.",
+        "sha256": "278029306b768d176fe58ef7bfbe7fefb8c0e1c246c27987bbf7450daff56c26"
+    },
+    "save_page_as_pdf": {
+        "name": "seite_als_pdf_speichern",
+        "doc": "Speichert die aktuelle Seite als PDF. Nur in Chromium Headless unterstützt.",
+        "sha256": "dd65a537c482c9c7188e88dae09c266dfd09f2387ebf08b4d32bba5d1721a38f"
+    },
+    "register_keyword_to_run_on_failure": {
+        "name": "keyword_bei_fehler_registrieren",
+        "doc": "Legt fest, welches Keyword ausgeführt werden soll, wenn ein Browser-Keyword fehlschlägt.\n\nStandardmäßig ist dies 'Take Screenshot'. Kann auf 'NONE' gesetzt werden, um die Funktion zu deaktivieren.",
+        "sha256": "c636b19a4d55ff9dc46598d128af42f045435cde3d3168644a614d77903eb521"
+    },
+    "set_strict_mode": {
+        "name": "strikten_modus_festlegen",
+        "doc": "Steuert den strikten Modus der Bibliothek.\n\nIm strikten Modus (True) schlagen Keywords fehl, wenn ein Selektor auf mehr als ein Element zeigt.",
+        "sha256": "3733f2a6d77bfaa3ef92fa6ca8e39cb33bf5fa5097e6d215cd23205368862a54"
+    },
+    "promise_to": {
+        "name": "versprechen_zu",
+        "doc": "Führt ein Browser-Keyword asynchron im Hintergrund aus (erstellt ein Promise).\n\nDie Testausführung geht sofort weiter, ohne auf den Abschluss des Keywords zu warten. Das Ergebnis kann später mit 'Wait For' abgeholt werden.",
+        "sha256": "574276e70dc6f0f761e03e10fa70b246ec4c3a16660dc97b970b54ce6ec42d2b"
+    },
+    "promise_to_upload_file": {
+        "name": "datei_upload_ankündigen",
+        "doc": "Erstellt ein Versprechen (Promise) für einen Datei-Upload im nächsten Dateiauswahl-Dialog.",
+        "sha256": "ee4211787808d5aab09ed58e04977b79f6ae2e1a1038492d4a287b651088d950"
+    },
+    "promise_to_wait_for_download": {
+        "name": "auf_download_ankündigen",
+        "doc": "Erstellt ein Versprechen, das auf das nächste Download-Ereignis wartet.\n\nErfordert, dass 'acceptDownloads' im Kontext auf True gesetzt ist.",
+        "sha256": "1491237f62960df85af131ddd3568b337ba1842ee67f0e3babd80fdaabf6d9ea"
+    },
+    "wait_for": {
+        "name": "auf_versprechen_warten",
+        "doc": "Wartet auf den Abschluss eines oder mehrerer Promises (Versprechen) und gibt deren Ergebnisse zurück.",
+        "sha256": "adc98aefcfdb617134bf43f097c95b251a74a89ad0d2cd0dcb2bf87bc17eb227"
+    },
+    "wait_for_all_promises": {
+        "name": "auf_alle_versprechen_warten",
+        "doc": "Wartet, bis alle im Hintergrund laufenden Promises abgeschlossen sind.",
+        "sha256": "630c309ca259f1210fc2d55fa8740987f169b1e832e2db01c03afbc67b41240b"
+    },
+    "wait_for_condition": {
+        "name": "auf_bedingung_warten",
+        "doc": "Wartet, bis eine Bedingung (definiert durch ein Browser-Getter-Keyword) wahr wird.\n\nErsetzt 'Wait Until Keyword Succeeds' für Browser-spezifische Abfragen.",
+        "sha256": "515980a860023a56180a2d44b5696b3f16a80cb7472fae763bd5a139ea7c8edc"
+    },
+    "wait_for_elements_state": {
+        "name": "auf_element_zustand_warten",
+        "doc": "Wartet, bis ein Element einen bestimmten Zustand erreicht (z.B. visible, hidden, detached).",
+        "sha256": "74761f2f44542ed4a62a803414cae0342748a6de9d547d70874c8b2da919f5ac"
+    },
+    "wait_for_function": {
+        "name": "auf_funktion_warten",
+        "doc": "Wartet, bis ein JavaScript-Ausdruck oder eine Funktion im Browser einen 'truthy' Wert zurückgibt.",
+        "sha256": "8ee5e83966f9d701b2461b3956226847b9439afbcc8c2c11f5812be668ea6c96"
+    },
+    "wait_for_load_state": {
+        "name": "auf_ladeszustand_warten",
+        "doc": "Wartet, bis die Seite einen bestimmten Ladezustand erreicht hat (load, domcontentloaded oder networkidle).",
+        "sha256": "c9744a0a5854af0268e7645e27f4f633e0582cdcff9cd959763a09ec9ba3ad2d"
+    },
+    "local_storage_clear": {
+        "name": "local_storage_leeren",
+        "doc": "Entfernt alle gespeicherten Daten aus dem Local Storage des Browsers.",
+        "sha256": "6d1f13aabb6c05ca316e25ca06412f697667feca15f3313ae73074131f0945b2"
+    },
+    "local_storage_get_item": {
+        "name": "local_storage_wert_abrufen",
+        "doc": "Ruft einen Wert für einen bestimmten Schlüssel aus dem Local Storage ab.",
+        "sha256": "75b5fb48542f77079bef9a106027b736767d2001bad5da9dbb4bbbb6898ff6e5"
+    },
+    "local_storage_remove_item": {
+        "name": "local_storage_wert_entfernen",
+        "doc": "Löscht einen bestimmten Schlüssel und den zugehörigen Wert aus dem Local Storage.",
+        "sha256": "745b544188166240ed5c8b1aa82d2fa56f22f0da076bbb1b6f5123797a7b6786"
+    },
+    "local_storage_set_item": {
+        "name": "local_storage_wert_setzen",
+        "doc": "Speichert einen Wert unter einem bestimmten Schlüssel im Local Storage.",
+        "sha256": "3f23614d1751be4f520f6fd941becce6f833144c38b857013777ced0075766b4"
+    },
+    "session_storage_clear": {
+        "name": "session_storage_leeren",
+        "doc": "Entfernt alle gespeicherten Daten aus dem Session Storage.\n\nOptional kann über 'frame_selector' der Session Storage eines bestimmten iframes adressiert werden.",
+        "sha256": "6a46932219c02fc63a83fe53d279b1e415c98f9ab000d410bff7cbe3c1b513e1"
+    },
+    "session_storage_get_item": {
+        "name": "session_storage_wert_abrufen",
+        "doc": "Ruft einen gespeicherten Wert für einen bestimmten Schlüssel aus dem Session Storage ab.\n\nUnterstützt direkte Assertion-Operatoren, um den Wert sofort zu prüfen.",
+        "sha256": "0528cdce474e15d10e206c6910aef3196339d2478e018dcc6851da4a8c2d971a"
+    },
+    "session_storage_remove_item": {
+        "name": "session_storage_wert_entfernen",
+        "doc": "Löscht einen spezifischen Schlüssel und den dazugehörigen Wert aus dem Session Storage.",
+        "sha256": "a3a43f7eaeb3f91dee85fa67d1cc7fa1f509f1018151fa966ab00de380db44dd"
+    },
+    "session_storage_set_item": {
+        "name": "session_storage_wert_setzen",
+        "doc": "Speichert einen Wert unter einem bestimmten Schlüssel im Session Storage.\n\nDies gilt nur für die aktuelle Browser-Sitzung. Über 'frame_selector' kann gezielt ein iframe angesteuert werden.",
+        "sha256": "68d0a9aff246c6eb1d3f448d416698d28a6be876074c26edf772ec0e17839043"
+    },
+    "__init__": {
+        "name": "__init__",
+        "doc": "Die Browser-Library ist eine Browser-Automatisierungsbibliothek für das Robot Framework.\n\nDies ist die Keyword-Dokumentation. Für Informationen zur Installation und Support besuchen Sie bitte die [https://github.com/MarketSquare/robotframework-playwright|Projektseite].\n\nBrowser-Library nutzt das [https://github.com/microsoft/playwright|Playwright Node-Modul], um Chromium, Firefox und WebKit zu automatisieren.\n\n= Browser, Context und Page =\n\nDie Library arbeitet mit drei Schichten:\n\n== Browser ==\nEin Browser-Prozess kann Chromium, Firefox oder WebKit sein. Er wird standardmäßig \"headless\" (ohne GUI) gestartet. Playwright bringt eigene Binärdateien mit, sodass keine Treiber wie geckodriver benötigt werden.\n\n== Contexts (Kontexte) ==\nEin Kontext entspricht einer isolierten Inkognito-Sitzung. Kontexte teilen keine Cookies oder Profile. Sie sind ca. 10x schneller als Selenium-Instanzen, da sie keinen neuen Browser-Prozess erfordern. Nützlich für Multi-User-Tests.\n\n== Pages (Seiten) ==\nEine Seite ist ein Tab innerhalb eines Kontextes. Sie enthält den Inhalt der Webseite.\n\n\n\n= Elemente finden (Selektoren) =\n\nKeywords nutzen Selektoren, um Elemente zu finden. Standardmäßig ist der **Strict Mode** aktiv: Findet ein Selektor mehr als ein Element, schlägt das Keyword fehl.\n\n| = Strategie = | = Basis = | = Beispiel = |\n| ``css`` | CSS Selektor | ``css=.button`` |\n| ``xpath`` | XPath Ausdruck | ``xpath=//input`` |\n| ``text`` | Textinhalt | ``text=Login`` |\n| ``id`` | ID Attribut | ``id=user_1`` |\n\n== Implizite Selektoren ==\n- Beginnt ein Selektor mit ``//`` oder ``..``, wird er als **XPath** behandelt.\n- Steht ein Selektor in Anführungszeichen (z.B. ``\"Login\"``), wird er als **Text** behandelt.\n- Alles andere wird als **CSS** interpretiert.\n\n== Verkettung (Cascaded Selectors) ==\nSelektoren können mit `` >> `` kombiniert werden (z. B. ``css=.nav >> text=Home``).\n\n== iFrames ==\nUm Frame-Grenzen zu durchbrechen, nutzen Sie den Separator `` >>> `` (z. B. ``#frame_id >>> #button_id``).\n\n== Shadow DOM ==\nDie CSS-Engine durchdringt automatisch offene Shadow-Roots. Es ist nicht nötig, Shadow-Hosts manuell zu öffnen.\n\n= Assertions (Prüfungen) =\n\nKeywords mit ``assertion_operator`` können Werte direkt prüfen. \n\n- **Retry**: Schlägt eine Prüfung fehl, wird sie bis zum Timeout (Standard: 1s) wiederholt.\n- **Typen**: Vergleiche müssen typgleich sein (z.B. String mit String). Erwartete Zahlen in Keywords werden automatisch konvertiert.\n- **Formatierung**: Fehlermeldungen können mit ``{value}`` oder ``{expected}`` angepasst werden.\n\n= Scopes (Gültigkeitsbereiche) =\n\nEinstellungen (wie Timeouts) können verschiedene Scopes haben:\n- **Global**: Gilt dauerhaft.\n- **Suite**: Gilt für die aktuelle Testsuite und deren Kinder.\n- **Test/Task**: Gilt nur für den aktuellen Testlauf.\n\n= JavaScript-Erweiterungen =\n\nDie Library kann durch JS-Module (CommonJS-Format) erweitert werden. Eigene Funktionen können auf die Playwright-Objekte (page, context, browser) zugreifen.\n\n= Sprachen und Plugins =\n\nBrowser unterstützt Übersetzungen und Plugins, um die Funktionalität zu modifizieren, ohne den Quellcode der Library zu ändern."
+    },
+    "__intro__": {
+    "name": "__intro__",
+    "doc": "Die Browser-Library ist eine Browser-Automatisierungsbibliothek für das Robot Framework.\n\n    Dies ist die Keyword-Dokumentation für die Browser-Library. Informationen\n    über Installation, Support und mehr finden Sie auf den\n    [https://github.com/MarketSquare/robotframework-playwright|Projektseiten].\n    Weitere Informationen über das Robot Framework selbst finden Sie unter [https://robotframework.org|robotframework.org].\n\n    Die Browser-Library verwendet das\n    [https://github.com/microsoft/playwright|Playwright Node-Modul],\n    um [https://www.chromium.org/Home|Chromium],\n    [https://www.mozilla.org/en-US/firefox/new/|Firefox]\n    und [https://webkit.org/|WebKit] mit einer einzigen Library zu automatisieren.\n\n\n    == Inhaltsverzeichnis ==\n\n    %TOC%\n\n    = Browser, Kontext und Seite =\n\n    Die Browser-Library arbeitet mit drei verschiedenen Ebenen, die aufeinander aufbauen:\n    *Browser*, *Kontext* und *Seite*.\n\n\n    == Browser ==\n\n    Ein *Browser* kann mit einer der drei\n    verschiedenen Engines Chromium, Firefox oder Webkit gestartet werden.\n\n    === Unterstützte Browser ===\n\n    |   Browser     | Browser mit dieser Engine                          |\n    | ``chromium``  | Google Chrome, Microsoft Edge (seit 2020), Opera |\n    | ``firefox``   | Mozilla Firefox                                   |\n    | ``webkit``    | Apple Safari, Mail, AppStore auf MacOS und iOS     |\n\n    Da [https://github.com/microsoft/playwright|Playwright] mit einem Paket integrierter\n    Binärdateien für alle Browser geliefert wird, sind keine zusätzlichen Treiber wie z.B. geckodriver erforderlich.\n\n    Alle diese Browser, die mehr als 85% der weltweit verwendeten Browser abdecken,\n    können auf Windows, Linux und MacOS getestet werden.\n    Es sind keine dedizierten Maschinen mehr erforderlich.\n\n    Ein Browser-Prozess wird standardmäßig ``headless`` (ohne GUI) gestartet.\n    Führen Sie `New Browser` mit entsprechenden Argumenten aus, wenn ein Browser mit GUI benötigt wird\n    oder wenn ein Proxy konfiguriert werden muss.\n    Ein Browser-Prozess kann mehrere Kontexte enthalten.\n\n\n    == Kontexte ==\n\n    Ein *Kontext* entspricht einer Gruppe von unabhängigen Inkognito-Seiten in einem Browser,\n    die Cookies, Sitzungen oder Profileinstellungen teilen. Seiten in zwei getrennten\n    Kontexten teilen keine Cookies, Sitzungen oder Profileinstellungen.\n    Im Vergleich zu Selenium benötigen diese *keinen* eigenen Browser-Prozess.\n    Um eine saubere Umgebung zu erhalten, kann ein Test einfach einen neuen Kontext öffnen.\n    Dadurch können neue unabhängige Browser-Sitzungen mit\n    Robot Framework Browser etwa 10-mal schneller geöffnet werden als mit Selenium,\n    indem einfach ein `New Context` innerhalb des geöffneten Browsers aufgerufen wird.\n\n    Damit Seiten in derselben Suite den Status teilen, verwenden Sie denselben Kontext, indem Sie den\n    Kontext mit `New Context` im Suite Setup öffnen.\n\n    Die Kontext-Ebene ist nützlich, um z.B. verschiedene Benutzersitzungen auf derselben\n    Webseite zu testen, ohne einen komplett neuen Browser-Kontext zu öffnen.\n    Kontexte können auch detailliert konfiguriert werden, wie z.B. Geo-Location, Spracheinstellungen,\n    die Viewport-Größe oder das Farbschema.\n    Kontexte unterstützen auch das Setzen von HTTP-Zugangsdaten, sodass auch Basis-Authentifizierung\n    getestet werden kann. Um Dateien innerhalb des Tests herunterladen zu können,\n    muss das Argument ``acceptDownloads`` im Keyword `New Context` auf ``True`` gesetzt werden.\n    Ein Kontext kann verschiedene Seiten enthalten.\n\n\n    == Seiten ==\n\n    Eine *Seite* enthält den Inhalt der geladenen Website und hat einen Browserverlauf.\n    Seiten und Browser-Tabs sind dasselbe.\n\n    Typische Anwendung:\n    | *** Test Cases ***\n    | Browser mit einer Seite starten\n    |     New Browser    chromium    headless=false\n    |     New Context    viewport={'width': 1920, 'height': 1080}\n    |     New Page       https://marketsquare.github.io/robotframework-browser/Browser.html\n    |     Get Title      ==    Browser\n\n    Das Keyword `Open Browser` öffnet einen neuen Browser, einen neuen Kontext und eine neue Seite.\n    Dieses Keyword ist nützlich für schnelle Experimente oder Debugging-Sitzungen.\n\n    Wenn `New Page` aufgerufen wird, ohne dass ein Browser offen ist, werden zuerst\n    `New Browser` und `New Context` mit Standardwerten ausgeführt.\n\n    Jeder Browser, Kontext und jede Seite hat eine eindeutige ID, mit der sie adressiert werden können.\n    Ein vollständiger Katalog der geöffneten Instanzen kann mit `Get Browser Catalog` als Dictionary abgerufen werden.\n\n    = Automatisches Schließen von Seiten und Kontexten =\n\n    %AUTO_CLOSING_LEVEL%\n\n    = Elemente finden =\n\n    Alle Keywords in der Library, die mit einem Element auf einer Webseite interagieren müssen,\n    erwarten ein Argument, das typischerweise ``selector`` genannt wird und spezifiziert,\n    wie das Element zu finden ist. Keywords können Elemente im Strict-Mode finden. Wenn der\n    Strict-Mode aktiviert ist und ein Locator mehrere Elemente auf der Seite findet, schlägt das Keyword\n    fehl. Findet das Keyword genau ein Element, schlägt es nicht fehl. Wenn der Strict-Mode deaktiviert ist,\n    schlägt das Keyword nicht fehl, wenn der Selektor auf viele Elemente verweist. Der Strict-Mode ist standardmäßig aktiviert,\n    kann aber beim `Importieren` der Library oder mit dem Keyword `Set Strict Mode` geändert werden.\n    Die Keyword-Dokumentation gibt an, ob ein Keyword den Strict-Mode verwendet. Wenn dort nicht steht,\n    dass der Strict-Mode verwendet wird, wird er für dieses Keyword nicht angewendet. Weitere Details finden Sie in der\n    Playwright [https://playwright.dev/docs/api/class-page#page-query-selector|Strict-Dokumentation].\n\n    Standardmäßig unterstützte Selektor-Strategien sind in der folgenden Tabelle aufgeführt.\n\n    | = Strategie = |     = Treffer basierend auf =     |         = Beispiel =                 |\n    | ``css``       | CSS-Selektor.                      | ``css=.class > \\#login_btn``       |\n    | ``xpath``     | XPath-Ausdruck.                    | ``xpath=//input[@id=\"login_btn\"]`` |\n    | ``text``      | Browser Text-Engine.               | ``text=Login``                     |\n    | ``id``        | Element ID Attribut.               | ``id=login_btn``                   |\n\n    CSS-Selektoren können auch mit dem Keyword `Record selector` aufgezeichnet werden.\n\n    == Explizite Selektor-Strategie ==\n\n    Die explizite Selektor-Strategie wird mit einem Präfix und der Syntax\n    ``strategy=value`` angegeben. Leerzeichen um das Trennzeichen werden ignoriert,\n    sodass ``css=foo``, ``css= foo`` und ``css = foo`` äquivalent sind.\n\n\n    == Implizite Selektor-Strategie ==\n\n    *Die Standard-Selektor-Strategie ist `css`.*\n\n    Wenn ein Selektor keine der bekannten expliziten Strategien enthält, wird\n    angenommen, dass es sich um einen CSS-Selektor handelt.\n\n    Selektoren, die mit ``//`` oder ``..`` beginnen, werden als XPath-Selektoren betrachtet.\n\n    Selektoren in Anführungszeichen werden als Text-Selektoren betrachtet.\n\n    Beispiele:\n\n    | # CSS-Selektoren sind Standard.\n    | `Click`  span > button.some_class         # Dies ist äquivalent\n    | `Click`  css=span > button.some_class     # zu diesem.\n    |\n    | # // oder .. führt zur XPath-Strategie\n    | `Click`  //span/button[@class=\"some_class\"]\n    | `Click`  xpath=//span/button[@class=\"some_class\"]\n    |\n    | # \"text\" in Anführungszeichen führt zur exakten Text-Strategie\n    | `Click`  \"Login\"\n    | `Click`  text=\"Login\"\n\n\n    == CSS ==\n\n    Wie bereits erwähnt, ist die Standard-Strategie `css`. Siehe\n    [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors | CSS-Selektor]\n    für weitere Informationen.\n\n    Jeder fehlerhafte Selektor, der weder mit ``//`` oder ``..`` beginnt, noch mit\n    Anführungszeichen startet und endet, wird als CSS-Selektor interpretiert.\n\n    Beachten Sie, dass ``#`` ein Kommentarzeichen in der [https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#ignored-data | Robot Framework Syntax] ist und als\n    ``\\#`` maskiert werden muss, um als [https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors | CSS ID-Selektor] zu funktionieren.\n\n    Beispiele:\n    | `Click`     span > button.some_class\n    | `Get Text`  \\#username_field  ==  George\n\n\n    == XPath ==\n\n    Die XPath-Engine entspricht [https://developer.mozilla.org/en/docs/Web/API/Document/evaluate|Document.evaluate].\n    Beispiel: ``xpath=//html/body//span[text()=\"Hello World\"]``.\n\n    Ein fehlerhafter Selektor, der mit ``//`` oder ``..`` beginnt, wird als XPath-Selektor angenommen.\n    Zum Beispiel wird ``//html/body`` in ``xpath=//html/body`` umgewandelt. Weitere\n    Beispiele finden Sie unter `Examples`.\n\n    Beachten Sie, dass XPath nicht durch [https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM|Shadow Roots] dringt.\n\n\n    == Text ==\n\n    Die Text-Engine findet ein Element, das einen Textknoten mit dem übergebenen Text enthält.\n    Zum Beispiel klickt ``Click text=Login`` auf einen Login-Button, und\n    ``Wait For Elements State text=\"lazy loaded text\"`` wartet darauf, dass der Text auf der Seite erscheint.\n\n    Die Text-Engine findet Felder basierend auf ihren Labels in Keywords, die Text eingeben.\n\n    Ein Selektor, der mit Anführungszeichen (entweder ``\"`` oder ``'``) beginnt und endet, wird als Text-Selektor angenommen.\n    Beispiel: ``Click \"Login\"`` wird zu ``Click text=\"Login\"`` umgewandelt.\n    Beachten Sie, dass dies nur zu exakten Treffern führt!\n\n\n    === Case-insensitive Suche ===\n\n    Standardmäßig wird die Groß-/Kleinschreibung ignoriert, führende/abschließende Leerzeichen werden ignoriert\n    und es wird nach einem Teilstring gesucht. Das bedeutet ``text= Login`` findet auch\n    ``<button>Button loGIN (click me)</button>``.\n\n    === Exakte Suche ===\n\n    Der Textkörper kann in einfache oder doppelte Anführungszeichen gesetzt werden, um eine präzise Übereinstimmung\n    zu erzwingen, einschließlich Leerzeichen und Groß-/Kleinschreibung.\n    Dies bedeutet, dass ``text=\"Login \"`` nur ``<button>Login </button>`` mit genau einem Leerzeichen nach \"Login\" findet.\n    Quotierter Text folgt den üblichen Maskierungsregeln, z.B. nutzen Sie ``\\\"`` für doppelte Anführungszeichen in einem\n    String: ``text=\"foo\\\"bar\"``.\n\n    === RegEx ===\n\n    Der Textkörper kann auch ein JavaScript-ähnlicher regulärer Ausdruck sein, der in / Symbole eingeschlossen ist.\n    Das bedeutet ``text=/^hello .*!$/i`` oder ``text=/^Hello .*!$/`` findet ``<span>Hello Peter Parker!</span>``.\n    Das erste Beispiel nutzt das Flag ``i`` für Case-insensitivity.\n    Siehe [https://regex101.com/|https://regex101.com] für mehr Informationen zu RegEx.\n\n    === Button- und Submit-Werte ===\n\n    Input-Elemente vom Typ Button und Submit werden mit ihrem 'value' als Text gerendert,\n    und die Text-Engine findet diese. Zum Beispiel findet ``text=Login`` auch\n    ``<input type=button value=\"Login\">``.\n\n    == Kaskadierte Selektor-Syntax ==\n\n    Die Browser-Library unterstützt dieselben Strategien wie das zugrunde liegende Playwright:\n    XPath, CSS, ID und Text. Die Strategie kann explizit oder implizit sein.\n\n    Ein großer Vorteil von Browser ist, dass mehrere Selektor-Engines innerhalb eines Selektors verwendet werden können.\n    Es ist möglich, XPath, CSS und Text-Selektoren zu mischen, um ein einzelnes Element auszuwählen.\n\n    Selektoren sind Strings, die aus einer oder mehreren Klauseln bestehen, die durch das\n    ``>>`` Token getrennt sind, z.B. ``clause1 >> clause2 >> clause3``. Wenn mehrere Klauseln\n    vorhanden sind, wird die nächste relativ zum Ergebnis der vorherigen gesucht.\n\n    Beispiel:\n    | `Highlight Elements`    \"Hello\" >> ../.. >> .select_button\n    | `Highlight Elements`    text=Hello >> xpath=../.. >> css=.select_button\n\n    Jede Klausel enthält einen Engine-Namen und einen Selektor-Body, z.B. ``engine=body``.\n    Der Body ignoriert führende und abschließende Leerzeichen für bessere Lesbarkeit.\n    Wenn der Selektor selbst ``>>`` enthalten muss, muss dieser in einem String maskiert werden,\n    z.B. ``text=\"some >> text\"``.\n\n    Ein Engine-Name kann mit ``*`` präfigiert werden, um das Element dieser Klausel zu erfassen statt der letzten.\n    Beispiel: ``css=article >> text=Hello`` erfasst das Element mit dem Text ``Hello``,\n    während ``*css=article >> text=Hello`` (beachte das *) das Artikel-Element erfasst,\n    das ein Element mit dem Text 'Hello' enthält.\n\n    == iFrames ==\n\n    Standardmäßig überschreiten Selektor-Ketten keine Frame-Grenzen. Ein normaler CSS-Selektor\n    kann kein Element innerhalb eines iFrames auswählen. Dafür gibt es den speziellen Selektor ``>>>``,\n    der einen Selektor für den Frame mit einem Selektor für ein Element darin kombiniert.\n\n    Beispiel:\n    | Click   id=iframe >>> id=btn\n\n    Die Klausel direkt vor dem Frame-Öffner ``>>>`` muss das Frame-Element selbst auswählen.\n\n    == WebComponents und Shadow DOM ==\n\n    Playwright und somit auch die Browser-Library können automatisch Shadow DOMs durchdringen.\n    Daher ist die CSS-Engine in der Lage, Shadow Roots automatisch zu 'piercen'. Jedes\n    Nachfahren-Kombinationszeichen (Descendant combinator) durchdringt eine beliebige Anzahl offener Shadow Roots.\n\n    Es ist also nicht nötig, jeden Shadow Host einzeln auszuwählen.\n\n    === CSS:light ===\n\n    Die Engine ``css:light`` entspricht [https://developer.mozilla.org/en/docs/Web/API/Document/querySelector | Document.querySelector]\n    und verhält sich gemäß CSS-Spezifikation. Sie durchdringt *keine* Shadow Roots.\n\n    = Assertions (Prüfungen) =\n\n    Keywords, die die Argumente ``assertion_operator`` und ``assertion_expected`` akzeptieren,\n    können optional prüfen, ob eine Bedingung erfüllt ist. Das Keyword gibt den Wert auch dann zurück,\n    wenn die Prüfung durchgeführt wurde.\n\n    Prüfungen werden innerhalb eines Timeouts wiederholt (Retry), bevor sie fehlschlagen.\n    Siehe `Importing` und ``retry_assertions_for`` (Standard ist 1 Sekunde) zur Konfiguration.\n\n    %ASSERTION_TABLE%\n\n    Standard-Fehlermeldungen können mit dem Argument ``message`` überschrieben werden.\n    Dieses akzeptiert die Platzhalter `{value}`, `{value_type}`, `{expected}` und `{expected_type}`.\n\n    Wichtig: Der Typ von ``assertion_expected`` wird nicht konvertiert. Er muss denselben Typ haben wie\n    der vom Keyword zurückgegebene Wert (z.B. `Get Text` gibt immer einen String zurück).\n\n    = Implizites Warten =\n\n    Playwright wartet automatisch (Auto-wait), bevor Aktionen auf Elementen ausgeführt werden.\n    Zusätzlich warten Browser-Assertions für die angegebene Zeit und versuchen es erneut, bevor sie fehlschlagen.\n\n    = Scope-Einstellungen =\n\n    Einige Keywords haben ein ``scope`` Argument: `Global`, `Suite` und `Test`/`Task`.\n    - `Global`: Gilt bis zum Überschreiben.\n    - `Suite`: Gilt bis zum Ende der aktuellen Suite (wird an Unter-Suites vererbt).\n    - `Test`: Gilt nur für den aktuellen Test.\n\n    = Erweiterung mit JavaScript =\n\n    Die Browser-Library kann mit JavaScript-Modulen (CommonJS Format) erweitert werden.\n    Funktionen können reservierte Argumente wie ``page``, ``context``, ``browser``, ``logger`` und ``playwright`` nutzen.\n\n    Beispiel Robot Framework Seite:\n    | *** Settings ***\n    | Library    Browser    jsextension=${CURDIR}/module.js"
     }
 }
