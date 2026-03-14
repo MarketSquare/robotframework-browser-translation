@@ -139,6 +139,7 @@ to be updated.
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/aaltat"><img src="https://avatars.githubusercontent.com/u/2665023?v=4?s=100" width="100px;" alt="Tatu Aalto"/><br /><sub><b>Tatu Aalto</b></sub></a><br /><a href="#code-aaltat" title="Code">💻</a> <a href="#doc-aaltat" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Welflo"><img src="https://avatars.githubusercontent.com/u/244182951?v=4?s=100" width="100px;" alt="Florian Wellens"/><br /><sub><b>Florian Wellens</b></sub></a><br /><a href="#code-Welflo" title="Code">💻</a> <a href="#doc-Welflo" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
