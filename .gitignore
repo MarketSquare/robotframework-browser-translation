@@ -160,7 +160,9 @@ cython_debug/
 #.idea/
 
 # Robot Framework
-atest/output
+atest/output/
+results/
+atest/Browser*.json
 
 #vscode
 .vscode/
@@ -170,3 +172,4 @@ atest/output
 
 # UV
 uv.lock
+
