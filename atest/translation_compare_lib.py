@@ -4,11 +4,15 @@ from pathlib import Path
 from robot.api import logger
 
 
-def compare_translations(file: Path):
+def compare_translations(file: Path, language: str = "fi"):
+    language = language.lower()
+    if language not in {"fi", "de"}:
+        raise AssertionError(f"Unsupported language '{language}'. Use fi or de.")
+
     with (
         Path(__file__)
         .parent.parent.joinpath(
-            "robotframework_browser_translation", "translation_fi.json"
+            "robotframework_browser_translation", f"translation_{language}.json"
         )
         .open("r") as file_object
     ):
@@ -22,4 +26,6 @@ def compare_translations(file: Path):
         logger.info(keyword)
         name = keyword["name"]
         name = name.replace(" ", "_").lower()
-        assert name in expected_keywords, f"name '{name}' not in {expected_keywords}"
+        assert name in expected_keywords, (
+            f"name '{name}' not in expected keywords for language '{language}'"
+        )
