@@ -26,14 +26,26 @@ def data() -> robotframework_browser_translation.Language:
         return json.load(file)
 
 
-def test_translation(file: Path):
+from pathlib import Path
+
+def test_translation():
+    # Retrieve the list of supported languages
     langs = robotframework_browser_translation.get_language()
-    assert len(langs) == 1
-    lang = langs[0]
-    assert lang["language"] == "fi"
-    result_path = Path(lang["path"])
-    assert result_path == file
-    assert result_path.is_file()
+    
+    # Verify that exactly two languages are returned
+    assert len(langs) == 2
+    
+    # Validate Finnish (index 0)
+    assert langs[0]["language"] == "fi"
+    path_fi = Path(langs[0]["path"])
+    assert path_fi.name == "translation_fi.json"
+    assert path_fi.is_file()
+
+    # Validate German (index 1)
+    assert langs[1]["language"] == "de"
+    path_de = Path(langs[1]["path"])
+    assert path_de.name == "translation_de.json"
+    assert path_de.is_file()
 
 
 def test_json_file_format(data: dict):
