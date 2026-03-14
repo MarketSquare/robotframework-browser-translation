@@ -8,6 +8,7 @@ import pytest
 
 import robotframework_browser_translation
 
+AVIABLE_LANGUAGES = 2
 
 @pytest.fixture(scope="module")
 def file() -> Path:
@@ -26,15 +27,13 @@ def data() -> robotframework_browser_translation.Language:
         return json.load(file)
 
 
-from pathlib import Path
-
 def test_translation():
     # Retrieve the list of supported languages
     langs = robotframework_browser_translation.get_language()
-    
+
     # Verify that exactly two languages are returned
-    assert len(langs) == 2
-    
+    assert len(langs) == AVIABLE_LANGUAGES
+
     # Validate Finnish (index 0)
     assert langs[0]["language"] == "fi"
     path_fi = Path(langs[0]["path"])
