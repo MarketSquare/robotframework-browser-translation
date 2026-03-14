@@ -6,7 +6,7 @@ Library     translation_compare_lib.py
 
 *** Test Cases ***
 Translation Works With Translation DE
-    Erstelle Page    https://github.com/MarketSquare/
+    Erstelle Seite    https://github.com/MarketSquare/
 
 LibDoc Works With Translation DE
     [Setup]    Remove File    ${CURDIR}/Browser_de.json
