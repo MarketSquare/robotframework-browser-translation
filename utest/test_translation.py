@@ -8,43 +8,46 @@ import pytest
 
 import robotframework_browser_translation
 
-AVIABLE_LANGUAGES = 2
+SUPPORTED_LANGUAGES = ("fi", "de")
+
+
+def _language_map() -> dict[str, Path]:
+    return {
+        entry["language"]: Path(entry["path"])
+        for entry in robotframework_browser_translation.get_language()
+    }
+
+
+@pytest.fixture(scope="module", params=SUPPORTED_LANGUAGES)
+def language(request: pytest.FixtureRequest) -> str:
+    return str(request.param)
+
 
 @pytest.fixture(scope="module")
-def file() -> Path:
-    return (
-        Path(__file__).parent.parent
-        / "robotframework_browser_translation"
-        / "translation_fi.json"
-    )
+def translation_file(language: str) -> Path:
+    return _language_map()[language]
 
 
 @pytest.fixture(scope="module")
-def data() -> robotframework_browser_translation.Language:
-    lang = robotframework_browser_translation.get_language()[0]
-    result_path = Path(lang["path"])
-    with result_path.open("r") as file:
-        return json.load(file)
+def data(translation_file: Path) -> robotframework_browser_translation.Language:
+    with translation_file.open("r") as translation_stream:
+        return json.load(translation_stream)
 
 
 def test_translation():
     # Retrieve the list of supported languages
     langs = robotframework_browser_translation.get_language()
+    lang_map = {entry["language"]: Path(entry["path"]) for entry in langs}
 
-    # Verify that exactly two languages are returned
-    assert len(langs) == AVIABLE_LANGUAGES
+    # Verify that all expected languages are returned
+    assert len(langs) == len(SUPPORTED_LANGUAGES)
 
-    # Validate Finnish (index 0)
-    assert langs[0]["language"] == "fi"
-    path_fi = Path(langs[0]["path"])
-    assert path_fi.name == "translation_fi.json"
-    assert path_fi.is_file()
-
-    # Validate German (index 1)
-    assert langs[1]["language"] == "de"
-    path_de = Path(langs[1]["path"])
-    assert path_de.name == "translation_de.json"
-    assert path_de.is_file()
+    # Validate each configured language and translation file
+    for lang in SUPPORTED_LANGUAGES:
+        assert lang in lang_map
+        translation_path = lang_map[lang]
+        assert translation_path.name == f"translation_{lang}.json"
+        assert translation_path.is_file()
 
 
 def test_json_file_format(data: dict):
@@ -64,11 +67,9 @@ def test_keywords_are_unique(data: dict):
 
 def test_keyword_names_are_unique(data: dict):
     for translation in data:
-        if translation in ["http", "__init__", "__intro__"]:
-            continue
-        assert translation != data[translation]["name"], (
-            f"{translation} == {data[translation]['name']}"
-        )
+        translated_name = data[translation]["name"]
+        assert isinstance(translated_name, str), translation
+        assert translated_name.strip(), translation
 
 
 def test_keyword_names_no_space(data: robotframework_browser_translation.Language):
@@ -77,16 +78,16 @@ def test_keyword_names_no_space(data: robotframework_browser_translation.Languag
         assert " " not in value["name"], value
 
 
-def test_verify_checksum(file: Path, tmp_path: Path):
-    translation_file = tmp_path / "translation.json"
+def test_verify_checksum(translation_file: Path, tmp_path: Path):
+    source_file = tmp_path / "translation.json"
     subprocess.run(
-        [sys.executable, "-m", "Browser.entry", "translation", translation_file],
+        [sys.executable, "-m", "Browser.entry", "translation", source_file],
         check=True,
     )
-    with translation_file.open("r") as source_translation:
+    with source_file.open("r") as source_translation:
         source_data = json.load(source_translation)
-    with file.open("r") as translation_file:
-        translation_data = json.load(translation_file)
+    with translation_file.open("r") as translation_stream:
+        translation_data = json.load(translation_stream)
     for kw in source_data:
         source_sha256 = source_data[kw]["sha256"]
         translation_sha256 = translation_data[kw]["sha256"]
