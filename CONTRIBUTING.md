@@ -3,9 +3,12 @@ We welcome improving the translations. Improvements are done
 by creating
 [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 in the GitHub. You should not modify the Python code, instead you
-should modify/delete/add translations to the
-[translation.json](https://github.com/MarketSquare/robotframework-browser-translation-fi/blob/main/robotframework_browser_translation_fi/translation.json)
-file.
+should modify/delete/add translations to the translation file of the language
+you are improving:
+[translation_fi.json](https://github.com/MarketSquare/robotframework-browser-translation/blob/main/robotframework_browser_translation/translation_fi.json)
+for Finnish or
+[translation_de.json](https://github.com/MarketSquare/robotframework-browser-translation/blob/main/robotframework_browser_translation/translation_de.json)
+for German.
 
 # Release
 Release is created automatically after the PR is merged by using
