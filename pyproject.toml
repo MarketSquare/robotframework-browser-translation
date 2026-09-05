@@ -10,33 +10,32 @@ authors = [
   { name="Tatu Aalto", email="aalto.tatu@gmail.com" },
 ]
 license = {file = "LICENSE"}
-description = "Robot Framework Browser library translation to Finnish languege"
+description = "Finnish and German translations for the Robot Framework Browser library"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Framework :: Robot Framework :: Library",
   "Topic :: Software Development :: Testing :: Acceptance",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
 keywords = ["Robot Framework", "Browser"]
 
 dependencies = [
-    "invoke>=2.2.1",
     "robotframework-browser >= 19.3.1",
 ]
 
 [project.urls]
-Homepage = "https://github.com/MarketSquare/robotframework-browser-translation-fi"
-Issues = "https://github.com/MarketSquare/robotframework-browser-translation-fi/issues"
-Changelog = "https://github.com/MarketSquare/robotframework-browser-translation-fi/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/MarketSquare/robotframework-browser-translation"
+Issues = "https://github.com/MarketSquare/robotframework-browser-translation/issues"
+Changelog = "https://github.com/MarketSquare/robotframework-browser-translation/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 packages = ["robotframework_browser_translation"]
@@ -51,24 +50,6 @@ version_toml = [
 version_variables = [
     "robotframework_browser_translation/__init__.py:__version__",
 ]
-
-[tool.black]
-target-version = ['py39']
-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.mypy_cache
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-  | generated
-	| wrapper
-  | browser\.pyi
-)/
-'''
 
 [tool.ruff]
 lint.unfixable = []
@@ -102,7 +83,7 @@ lint.select = [
 exclude = [
   "__pycache__",
 ]
-target-version = "py39"
+target-version = "py310"
 
 [tool.ruff.lint.per-file-ignores]
 "tasks.py" = ["T201"]
