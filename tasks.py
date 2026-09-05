@@ -26,11 +26,11 @@ def lint(ctx, fix=False):
     if fix and not in_ci:
         ruff_cmd = f"{ruff_cmd} --fix"
     ctx.run(ruff_cmd)
-    print(f"Lint Robot files {'in ci' if in_ci else ''}")
-    cmd = ["robotidy", "atest"]
+    print(f"Format Robot files {'in ci' if in_ci else ''}")
+    cmd = ["robocop", "format"]
     if in_ci:
-        cmd.insert(1, "--check")
-        cmd.insert(1, "--diff")
+        cmd.extend(["--check", "--diff"])
+    cmd.append("atest")
     ctx.run(" ".join(cmd))
     print("Run mypy:")
     ctx.run("mypy --exclude .venv .")
