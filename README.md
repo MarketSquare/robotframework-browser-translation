@@ -25,8 +25,8 @@ list of dictionaries like this:
 
 ```python
 [
-  {"language": "fi", "path": "/path/to/translation_fi.json"},
-  {"language": "de", "path": "/path/to/translation_de.json"},
+    {"language": "fi", "path": "/path/to/translation_fi.json"},
+    {"language": "de", "path": "/path/to/translation_de.json"},
 ]
 ```
 

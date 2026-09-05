@@ -1,5 +1,158 @@
 # CHANGELOG
 
+<!-- version list -->
+
+## v1.0.0 (2026-03-22)
+
+### Bug Fixes
+
+- :lipstick: Linting issues
+  ([`89aaf9f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/89aaf9f6b6ee9a29a696da9486d5cb3330ad5ce5))
+
+- :memo: Updated checksums and adapted escaped Unicode
+  ([`05d5661`](https://github.com/MarketSquare/robotframework-browser-translation/commit/05d5661432ef9c8452d5bb681499b9276d438dc9))
+
+- :tada: Robot Code extension caching issue
+  ([`47459ac`](https://github.com/MarketSquare/robotframework-browser-translation/commit/47459ac0e7bfeb1a5d650167e5356bed9f7fa80a))
+
+### Chores
+
+- **deps**: Bump actions/checkout from 4 to 5
+  ([`3a4126c`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3a4126cc73a491a328bc9fbdbf85f6ca73f1a454))
+
+- **deps**: Bump actions/checkout from 5 to 6
+  ([`397f56b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/397f56bea674133198bab96539ddc64166605c54))
+
+- **deps**: Bump actions/setup-python from 5 to 6
+  ([`9f64f58`](https://github.com/MarketSquare/robotframework-browser-translation/commit/9f64f5833be000603a2c20b06c57531fa8525c46))
+
+- **deps**: Bump actions/upload-artifact from 4 to 5
+  ([`68b1b3a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/68b1b3a8f502fb5b46fdbc7bbe54cf054b9027e5))
+
+- **deps**: Bump actions/upload-artifact from 5 to 6
+  ([`3c3b2c7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3c3b2c70c3b998e55339400f8830232e96d1be26))
+
+- **deps**: Bump actions/upload-artifact from 6 to 7
+  ([`8243e02`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8243e02cf28da11c5e400d491199fd3227d8d036))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`0a95bf2`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0a95bf2c9636ae9cec749df24e5d9b89ed2f6ea0))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`c2f2284`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c2f228460936657e6f65ce29558b4307a1c18145))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`98feecb`](https://github.com/MarketSquare/robotframework-browser-translation/commit/98feecb0130a638da045cc39d723ee5ac5b8570b))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`b9001ea`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b9001eab50de52a8dc47d092624cac15cdf6c89b))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`9c842ce`](https://github.com/MarketSquare/robotframework-browser-translation/commit/9c842ce5687e45e20eb8e2120edd59e919077d85))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`59328cf`](https://github.com/MarketSquare/robotframework-browser-translation/commit/59328cfe53f10fea3a3658e037f91ba40bc2558d))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`5c415d0`](https://github.com/MarketSquare/robotframework-browser-translation/commit/5c415d0ae25867f139480e248fd8abc41dab75e6))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`7718504`](https://github.com/MarketSquare/robotframework-browser-translation/commit/7718504f882d6bbdb3f61cc11af91cbe05f240ff))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`af878dc`](https://github.com/MarketSquare/robotframework-browser-translation/commit/af878dc0f67cf39e6081cd56b6928d65198c242d))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`e7dbf21`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e7dbf21c94fcc7937d154321921d387f1c64c0bf))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`a125ffb`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a125ffb62c809ebcae05737c4cd7f82f58aa9bdd))
+
+- **deps-dev**: Bump approvaltests from 14.3.0 to 14.3.1
+  ([`c3d1067`](https://github.com/MarketSquare/robotframework-browser-translation/commit/c3d10675f59ebeb016fbe7394be463d5fcf140b4))
+
+- **deps-dev**: Bump approvaltests from 14.3.1 to 14.4.0
+  ([`8cc2d7b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8cc2d7be53df758511e3120c48f22b203b96094b))
+
+- **deps-dev**: Bump approvaltests from 14.4.0 to 14.5.0
+  ([`3896590`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3896590a991174e37defd0db63c9baa80dc30760))
+
+- **deps-dev**: Bump approvaltests from 14.5.0 to 15.1.0
+  ([`a1a6609`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a1a66090e23b1b6c59793e0858d1ebc4b2e3db96))
+
+- **deps-dev**: Bump approvaltests from 15.1.0 to 15.1.1
+  ([`81339b7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/81339b71260c7a21d0a6c007df28916da1f57e02))
+
+- **deps-dev**: Bump approvaltests from 15.1.1 to 15.2.1
+  ([`83f99b8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/83f99b894a3d39a881afbfc2417ab75d9114f6b2))
+
+- **deps-dev**: Bump approvaltests from 15.2.1 to 15.3.2
+  ([`337787c`](https://github.com/MarketSquare/robotframework-browser-translation/commit/337787c24b79b618824c0c8d65fd994368720c28))
+
+- **deps-dev**: Bump approvaltests from 15.3.2 to 16.2.1
+  ([`234b036`](https://github.com/MarketSquare/robotframework-browser-translation/commit/234b0360335b4c247ba52031397388fcb9f41a23))
+
+- **deps-dev**: Bump approvaltests from 16.2.1 to 16.3.0
+  ([`04caf81`](https://github.com/MarketSquare/robotframework-browser-translation/commit/04caf81b7100fbed7ed17aec17256a9f106122ea))
+
+- **deps-dev**: Bump approvaltests from 16.3.0 to 17.0.0
+  ([`cf61072`](https://github.com/MarketSquare/robotframework-browser-translation/commit/cf61072c2895563453d5879498ce91ecd9707f91))
+
+- **deps-dev**: Bump approvaltests from 17.0.0 to 17.1.0
+  ([`43b9cd3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/43b9cd3046d36ea8fc720994304efc3da0925cc2))
+
+- **deps-dev**: Bump approvaltests from 17.1.0 to 17.2.1
+  ([`2d7fa3e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2d7fa3e9f89047367f3c45f26e732bee76475781))
+
+### Continuous Integration
+
+- Save atest results always
+  ([`46cbacc`](https://github.com/MarketSquare/robotframework-browser-translation/commit/46cbacc4ae5ecb3d258aba6b1f8e5c79ab78083b))
+
+### Documentation
+
+- :memo: Added and updated documentation with uv and pytest
+  ([`3c5c220`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3c5c2209ed697cf621c34aa7a805ab07fafae65e))
+
+- :memo: Added contributor Welflo
+  ([`f005908`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f0059089a056c9d35761ca077665a0d4c3dccbc5))
+
+### Features
+
+- :rocket: added all keywords with first version of documentation
+  ([`ba0318d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ba0318d17d9f7a724f91030730df7ed229b763f0))
+
+- :sparkles: added uv optimization
+  ([`320dfd8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/320dfd8e93b366b5f41a968f76658e2baf676721))
+
+- :white_check_mark: Added german language support
+  ([`3694160`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3694160be906fe3e9296145554c2043266ebc242))
+
+- :white_check_mark: Added new keywords and updated hashes of existing ones
+  ([`f720714`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f7207143013cf185d856fe8349f2051cc3c7db4a))
+
+- :white_check_mark: Start german translation
+  ([`e162855`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e162855dd38d1170b64347145fa1275b2042a7ef))
+
+### Refactoring
+
+- :sparkles: Optimized the german translation
+  ([`0f6d8f7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0f6d8f75f68aa258ac230f29a269e2ebb8700650))
+
+### Testing
+
+- :ambulance: fixed german acceptance test
+  ([`5290330`](https://github.com/MarketSquare/robotframework-browser-translation/commit/52903309facdd41acb047edc57b705335cad7c11))
+
+- :chart_with_upwards_trend: Updated unit tests to support multiple languages
+  ([`33fefe8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/33fefe8c2586c37dc5739e40209b6a56c54b69a2))
+
+- :rocket: Add multilingual acceptance tests
+  ([`b0e0458`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b0e0458200e891558e85c8f4fefd22b644a9f43d))
+
+- :white_check_mark: Added translation test for german
+  ([`55a5520`](https://github.com/MarketSquare/robotframework-browser-translation/commit/55a5520d4fef04fe921f8af01032aebe915bd60c))
+
 
 ## v0.9.1 (2025-02-20)
 
