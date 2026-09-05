@@ -6,46 +6,47 @@ from pathlib import Path
 
 import pytest
 
-import robotframework_browser_translation
+from robotframework_browser_translation import get_language, translation_files
 
-SUPPORTED_LANGUAGES = ("fi", "de")
-
-
-def _language_map() -> dict[str, Path]:
-    return {
-        entry["language"]: Path(entry["path"])
-        for entry in robotframework_browser_translation.get_language()
-    }
+# The languages this package promises to ship. Every other test derives its
+# languages from get_language(), so a new language is picked up automatically;
+# this tuple only guards against discovery silently finding nothing.
+EXPECTED_LANGUAGES = ("de", "fi")
 
 
-@pytest.fixture(scope="module", params=SUPPORTED_LANGUAGES)
+@pytest.fixture(scope="module", params=sorted(translation_files()))
 def language(request: pytest.FixtureRequest) -> str:
     return str(request.param)
 
 
 @pytest.fixture(scope="module")
 def translation_file(language: str) -> Path:
-    return _language_map()[language]
+    return translation_files()[language]
 
 
 @pytest.fixture(scope="module")
-def data(translation_file: Path) -> robotframework_browser_translation.Language:
-    with translation_file.open("r") as translation_stream:
-        return json.load(translation_stream)
+def data(translation_file: Path) -> dict:
+    return json.loads(translation_file.read_text(encoding="utf-8"))
+
+
+@pytest.fixture(scope="session")
+def source_data(tmp_path_factory: pytest.TempPathFactory) -> dict:
+    """Keyword specification of the installed Browser library.
+
+    Generated once per session, because every drift test compares against it.
+    """
+    source_file = tmp_path_factory.mktemp("browser") / "translation.json"
+    subprocess.run(
+        [sys.executable, "-m", "Browser.entry", "translation", source_file],
+        check=True,
+    )
+    return json.loads(source_file.read_text(encoding="utf-8"))
 
 
 def test_translation():
-    # Retrieve the list of supported languages
-    langs = robotframework_browser_translation.get_language()
-    lang_map = {entry["language"]: Path(entry["path"]) for entry in langs}
-
-    # Verify that all expected languages are returned
-    assert len(langs) == len(SUPPORTED_LANGUAGES)
-
-    # Validate each configured language and translation file
-    for lang in SUPPORTED_LANGUAGES:
-        assert lang in lang_map
-        translation_path = lang_map[lang]
+    lang_map = {entry["language"]: Path(entry["path"]) for entry in get_language()}
+    assert tuple(sorted(lang_map)) == EXPECTED_LANGUAGES
+    for lang, translation_path in lang_map.items():
         assert translation_path.name == f"translation_{lang}.json"
         assert translation_path.is_file()
 
@@ -72,25 +73,35 @@ def test_keyword_names_are_unique(data: dict):
         assert translated_name.strip(), translation
 
 
-def test_keyword_names_no_space(data: robotframework_browser_translation.Language):
+def test_keyword_names_no_space(data: dict):
     for translation, value in data.items():
         assert " " not in translation, translation
         assert " " not in value["name"], value
 
 
-def test_verify_checksum(translation_file: Path, tmp_path: Path):
-    source_file = tmp_path / "translation.json"
-    subprocess.run(
-        [sys.executable, "-m", "Browser.entry", "translation", source_file],
-        check=True,
+def test_no_untranslated_keywords(data: dict, source_data: dict, language: str):
+    missing = sorted(set(source_data) - set(data))
+    assert not missing, (
+        f"{len(missing)} keyword(s) of the Browser library are missing from the "
+        f"'{language}' translation: {missing}"
     )
-    with source_file.open("r") as source_translation:
-        source_data = json.load(source_translation)
-    with translation_file.open("r") as translation_stream:
-        translation_data = json.load(translation_stream)
-    for kw in source_data:
-        source_sha256 = source_data[kw]["sha256"]
-        translation_sha256 = translation_data[kw]["sha256"]
-        assert source_sha256 == translation_sha256, (
-            f"{kw} sha256 was {source_sha256} expected {translation_sha256}"
-        )
+
+
+def test_no_obsolete_keywords(data: dict, source_data: dict, language: str):
+    obsolete = sorted(set(data) - set(source_data))
+    assert not obsolete, (
+        f"{len(obsolete)} keyword(s) in the '{language}' translation no longer "
+        f"exist in the Browser library: {obsolete}"
+    )
+
+
+def test_verify_checksum(data: dict, source_data: dict, language: str):
+    outdated = sorted(
+        keyword
+        for keyword in set(source_data) & set(data)
+        if source_data[keyword]["sha256"] != data[keyword]["sha256"]
+    )
+    assert not outdated, (
+        f"{len(outdated)} keyword(s) have '{language}' documentation that is out "
+        f"of date with the Browser library: {outdated}"
+    )

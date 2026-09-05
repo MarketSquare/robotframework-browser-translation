@@ -25,10 +25,13 @@ list of dictionaries like this:
 
 ```python
 [
-    {"language": "fi", "path": "/path/to/translation_fi.json"},
     {"language": "de", "path": "/path/to/translation_de.json"},
+    {"language": "fi", "path": "/path/to/translation_fi.json"},
 ]
 ```
+
+The languages are discovered from the `translation_<language>.json` files
+shipped inside the package, sorted by language code.
 
 Browser uses these values to select the requested language when Browser is imported.
 
@@ -111,12 +114,18 @@ How pytest works here:
 
 - Test discovery: pytest collects functions whose names start with `test_`.
 - Fixtures: reusable setup blocks (`language`, `translation_file`, `data`) provide test inputs.
-- Parametrization: the `language` fixture runs dependent tests once per language (`fi`, `de`).
+- Parametrization: the `language` fixture runs dependent tests once per language
+  discovered by `get_language()` (`de`, `fi`).
 - Assertion style: plain `assert ...` statements are enough; pytest prints useful failure diffs.
 
 Tip:
 
-If you add a new language, add its code to `SUPPORTED_LANGUAGES` in [utest/test_translation.py](utest/test_translation.py) so the same checks run automatically.
+Adding a language means adding its `translation_<language>.json` file to
+[robotframework_browser_translation](robotframework_browser_translation); it is
+then discovered automatically and every check runs against it. The only other
+place to update is `EXPECTED_LANGUAGES` in
+[utest/test_translation.py](utest/test_translation.py), which asserts which
+languages this package promises to ship.
 
 ## Detect changes in documentation
 Each `translation_xx.json` contains a `sha256` value for every keyword. The
