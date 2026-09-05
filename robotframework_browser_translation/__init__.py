@@ -16,15 +16,31 @@ from typing import TypedDict
 
 __version__ = "1.0.0"
 
+TRANSLATION_FILE_PREFIX = "translation_"
+
 
 class Language(TypedDict):
     language: str
     path: str
 
 
-def get_language() -> list[Language]:
+def translation_files() -> dict[str, Path]:
+    """Map every language code shipped in this package to its translation file.
+
+    Languages are discovered from the ``translation_<language>.json`` files
+    next to this module, so adding a language means adding its file and
+    nothing else.
+    """
     folder = Path(__file__).parent
+    return {
+        path.stem[len(TRANSLATION_FILE_PREFIX) :]: path
+        for path in sorted(folder.glob(f"{TRANSLATION_FILE_PREFIX}*.json"))
+    }
+
+
+def get_language() -> list[Language]:
+    """Return the translation files for the Browser library plugin API."""
     return [
-        {"language": "fi", "path": str(folder / "translation_fi.json")},
-        {"language": "de", "path": str(folder / "translation_de.json")},
+        {"language": language, "path": str(path)}
+        for language, path in translation_files().items()
     ]
