@@ -2,6 +2,111 @@
 
 <!-- version list -->
 
+## v2.0.0 (2026-09-24)
+
+### Bug Fixes
+
+- Correct package metadata and drop Python 3.9
+  ([`bf2cffa`](https://github.com/MarketSquare/robotframework-browser-translation/commit/bf2cffaec445aaf8f6d45e0482208aa5bbc89516))
+
+### Build System
+
+- Replace robotidy with Robocop
+  ([`228feaa`](https://github.com/MarketSquare/robotframework-browser-translation/commit/228feaa98dad2bcdba880d777203d59c240b4c21))
+
+- Require Robocop 9.0.0
+  ([`51b3476`](https://github.com/MarketSquare/robotframework-browser-translation/commit/51b3476b918cd22f76eaf49f22df6255fa361fa3))
+
+### Chores
+
+- **deps**: Bump actions/checkout from 6 to 7
+  ([`a28839b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a28839bf1e3e02d263d482b2ede675ad9529a7cf))
+
+- **deps**: Bump actions/setup-python from 6 to 7
+  ([`e9d3f75`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e9d3f75d11f8fcc0ac33a11cd9c974b09a461b4f))
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`b1a1480`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b1a1480e7819bb5fdb7feb2a09d82a717a88593b))
+
+- **deps**: Update robotframework-browser requirement
+  ([`f3cd3b1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f3cd3b19abbf5a91e09d32789f46268a711a9f2e))
+
+- **deps-dev**: Bump approvaltests from 17.2.1 to 17.4.0
+  ([#114](https://github.com/MarketSquare/robotframework-browser-translation/pull/114),
+  [`ee65afc`](https://github.com/MarketSquare/robotframework-browser-translation/commit/ee65afc811b7281444fb15e6556ebe07c3aac5aa))
+
+- **deps-dev**: Bump approvaltests from 17.4.0 to 17.4.1
+  ([`acabbe3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/acabbe334a16072c5d6f6d95bb55c4c50fee5ff4))
+
+- **deps-dev**: Bump approvaltests from 17.4.1 to 19.1.1
+  ([`2c9930e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2c9930e1ea5a83902048e86d7fe1fd23dd11ff27))
+
+- **deps-dev**: Update build requirement from >=1.2.1 to >=1.6.1
+  ([`a0fa8d1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a0fa8d176cebc33fe4d8136c5585625d14fafa4f))
+
+- **deps-dev**: Update invoke requirement from >=2.2.0 to >=3.0.3
+  ([`75bb06e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/75bb06ed0609082837db7a124417e8bc2f663c40))
+
+- **deps-dev**: Update mypy requirement from >=1.9.0 to >=2.3.1
+  ([`28ed2bd`](https://github.com/MarketSquare/robotframework-browser-translation/commit/28ed2bd2d189a5fcfe0c94d64a9d857589d1fe61))
+
+- **deps-dev**: Update pytest requirement from >=7.4.2 to >=8.4.2
+  ([`685daf1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/685daf14aa29afa67efbe089ceed2b16a25ef362))
+
+- **deps-dev**: Update pytest requirement from >=8.4.2 to >=9.1.1
+  ([`a58c172`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a58c172779a0a9ae767be704a22242b798a2fa9d))
+
+- **deps-dev**: Update python-semantic-release requirement
+  ([`910d903`](https://github.com/MarketSquare/robotframework-browser-translation/commit/910d903cc89f8eb2dc040de31df700ffece415c3))
+
+- **deps-dev**: Update robotframework-tidy requirement
+  ([`4036a90`](https://github.com/MarketSquare/robotframework-browser-translation/commit/4036a90792aceac45a79f9d33b395d408c8e76a9))
+
+- **deps-dev**: Update ruff requirement from >=0.15.12 to >=0.16.7
+  ([`b0ccbe3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b0ccbe329bad47843345f197509ac1ca54038094))
+
+- **deps-dev**: Update ruff requirement from >=0.16.7 to >=0.16.8
+  ([`995ec85`](https://github.com/MarketSquare/robotframework-browser-translation/commit/995ec85adfe6a28fd344516e8016433f201b2814))
+
+- **deps-dev**: Update ruff requirement from >=0.2.1 to >=0.15.12
+  ([`8e3052a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8e3052ae2fa396ec70188f24441bbfe7c45c24f1))
+
+- **deps-dev**: Update setuptools requirement from >=61.0 to >=84.0.0
+  ([`e48d382`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e48d3823b41e562af7258c7b0115de3b6b151944))
+
+- **deps-dev**: Update uv requirement from >=0.11.7 to >=0.12.9
+  ([`b3bfe27`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b3bfe27c6784ba12b6fba59cfe3f4f3f990fbc78))
+
+- **deps-dev**: Update uv requirement from >=0.12.13 to >=0.12.16
+  ([`706c2e7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/706c2e7c18731bedbe611924b85d36a91a457eaa))
+
+- **deps-dev**: Update uv requirement from >=0.12.9 to >=0.12.13
+  ([`5bc5155`](https://github.com/MarketSquare/robotframework-browser-translation/commit/5bc5155c29989e86aed37e9bfb28904a6a0093db))
+
+- **deps-dev**: Update uv requirement from >=0.4.12 to >=0.11.7
+  ([`2858391`](https://github.com/MarketSquare/robotframework-browser-translation/commit/28583911951b6752b9425f29f7084f3259390912))
+
+### Continuous Integration
+
+- Restore green pipeline and harden workflows
+  ([`99a5b96`](https://github.com/MarketSquare/robotframework-browser-translation/commit/99a5b96b94e603b74b3bbac4065e1150205f34d6))
+
+### Features
+
+- Update translations for Browser 20.5.0
+  ([`dd87358`](https://github.com/MarketSquare/robotframework-browser-translation/commit/dd873582ed309fef2bc0461f302c2ab2ef7c70de))
+
+### Refactoring
+
+- Discover translation languages from the shipped files
+  ([`11b17c3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/11b17c35933d7975e063cd913352cbfdb325e5d9))
+
+### Breaking Changes
+
+- Python 3.9 is no longer supported, and invoke is no longer installed as a dependency of this
+  package.
+
+
 ## v1.0.0 (2026-03-22)
 
 ### Bug Fixes
