@@ -11,7 +11,7 @@ from robotframework_browser_translation import get_language, translation_files
 # The languages this package promises to ship. Every other test derives its
 # languages from get_language(), so a new language is picked up automatically;
 # this tuple only guards against discovery silently finding nothing.
-EXPECTED_LANGUAGES = ("de", "fi")
+EXPECTED_LANGUAGES = ("de", "fi", "fr")
 
 
 @pytest.fixture(scope="module", params=sorted(translation_files()))
