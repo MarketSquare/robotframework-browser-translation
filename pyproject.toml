@@ -10,7 +10,7 @@ authors = [
   { name="Tatu Aalto", email="aalto.tatu@gmail.com" },
 ]
 license = {file = "LICENSE"}
-description = "Finnish and German translations for the Robot Framework Browser library"
+description = "Finnish, German and French translations for the Robot Framework Browser library"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [

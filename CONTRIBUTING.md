@@ -8,7 +8,9 @@ you are improving:
 [translation_fi.json](https://github.com/MarketSquare/robotframework-browser-translation/blob/main/robotframework_browser_translation/translation_fi.json)
 for Finnish or
 [translation_de.json](https://github.com/MarketSquare/robotframework-browser-translation/blob/main/robotframework_browser_translation/translation_de.json)
-for German.
+for German or
+[translation_fr.json](https://github.com/MarketSquare/robotframework-browser-translation/blob/main/robotframework_browser_translation/translation_fr.json)
+for French.
 
 # Release
 Release is created automatically after the PR is merged by using
