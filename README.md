@@ -1,4 +1,4 @@
-# Robot Framework Browser Translation (Finnish + German)
+# Robot Framework Browser Translation (Finnish + German + French)
 [![Version](https://img.shields.io/pypi/v/robotframework-browser-translation.svg)](https://pypi.python.org/pypi/robotframework-browser-translation)
 ![CI](https://github.com/MarketSquare/robotframework-browser-translation/actions/workflows/on-push.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -12,6 +12,7 @@ Currently supported languages:
 
 - Finnish (`fi`) via `translation_fi.json`
 - German (`de`) via `translation_de.json`
+- French (`fr`) via `translation_fr.json`
 
 The package is discovered by Browser through Python plugin naming conventions
 (`robotframework_browser_translation`) and exposes `get_language()` with available
@@ -27,6 +28,7 @@ list of dictionaries like this:
 [
     {"language": "de", "path": "/path/to/translation_de.json"},
     {"language": "fi", "path": "/path/to/translation_fi.json"},
+    {"language": "fr", "path": "/path/to/translation_fr.json"},
 ]
 ```
 
@@ -55,6 +57,17 @@ or:
 ```robotframework
 *** Settings ***
 Library    Browser    language=de
+```
+
+or, for French:
+
+```robotframework
+*** Settings ***
+Library    Browser    language=fr
+
+*** Test Cases ***
+Open A Page In French
+    Ouvrir Une Nouvelle Page    https://robotframework.org
 ```
 
 ## Developer Setup With UV
@@ -115,7 +128,7 @@ How pytest works here:
 - Test discovery: pytest collects functions whose names start with `test_`.
 - Fixtures: reusable setup blocks (`language`, `translation_file`, `data`) provide test inputs.
 - Parametrization: the `language` fixture runs dependent tests once per language
-  discovered by `get_language()` (`de`, `fi`).
+  discovered by `get_language()` (`de`, `fi`, `fr`).
 - Assertion style: plain `assert ...` statements are enough; pytest prints useful failure diffs.
 
 Tip:
