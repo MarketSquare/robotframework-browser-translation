@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v2.1.0 (2026-09-27)
+
+### Documentation
+
+- Retain original language registration instructions
+  ([`8741344`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8741344816d0460fa1b60f8902482c49851fd5af))
+
+### Features
+
+- Add French translation for Browser 20.5.0
+  ([`0094a33`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0094a3316ce6a8278b2bf41313eeb73c01f02040))
+
+
 ## v2.0.0 (2026-09-24)
 
 ### Bug Fixes
