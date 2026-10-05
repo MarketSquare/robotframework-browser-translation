@@ -1,4 +1,4 @@
-ruff >= 0.16.9
+ruff >= 0.16.10
 invoke >= 3.0.3
 pytest >= 9.1.1
 robotframework-robocop >= 9.1.0
