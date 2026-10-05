@@ -5,6 +5,9 @@ from collections import Counter
 from pathlib import Path
 
 import pytest
+from robot.libdocpkg import LibraryDocumentation
+from robot.libdocpkg.model import LibraryDoc
+from robot.utils import normalize
 
 from robotframework_browser_translation import get_language, translation_files
 
@@ -41,6 +44,20 @@ def source_data(tmp_path_factory: pytest.TempPathFactory) -> dict:
         check=True,
     )
     return json.loads(source_file.read_text(encoding="utf-8"))
+
+
+@pytest.fixture(scope="session")
+def english_libdoc() -> LibraryDoc:
+    return LibraryDocumentation("Browser")
+
+
+@pytest.fixture(scope="module")
+def translated_libdoc(language: str) -> LibraryDoc:
+    return LibraryDocumentation(f"Browser::language={language}")
+
+
+def _keyword_docs(libdoc: LibraryDoc) -> dict:
+    return {(kw.source, kw.lineno): kw for kw in [*libdoc.inits, *libdoc.keywords]}
 
 
 def test_translation():
@@ -104,4 +121,52 @@ def test_verify_checksum(data: dict, source_data: dict, language: str):
     assert not outdated, (
         f"{len(outdated)} keyword(s) have '{language}' documentation that is out "
         f"of date with the Browser library: {outdated}"
+    )
+
+
+def test_libdoc_builds_every_keyword(translated_libdoc: LibraryDoc, language: str):
+    failed = sorted(
+        kw.name
+        for kw in _keyword_docs(translated_libdoc).values()
+        if kw.doc.startswith("*Creating keyword failed")
+    )
+    assert not failed, (
+        f"Libdoc could not build {len(failed)} '{language}' keyword(s): {failed}"
+    )
+
+
+def test_libdoc_extracts_argument_sections(
+    data: dict, translated_libdoc: LibraryDoc, language: str
+):
+    keywords = {
+        normalize(kw.name, ignore="_"): [kw] for kw in translated_libdoc.keywords
+    }
+    keywords["__init__"] = list(translated_libdoc.inits)
+    not_extracted = sorted(
+        key
+        for key, entry in data.items()
+        if "*Arguments:*" in entry["doc"].splitlines()
+        for kw in keywords[
+            key if key == "__init__" else normalize(entry["name"], ignore="_")
+        ]
+        if "*Arguments:*" in kw.doc or not any(arg.doc for arg in kw.args)
+    )
+    assert not not_extracted, (
+        f"Libdoc does not extract the argument section of {len(not_extracted)} "
+        f"'{language}' keyword(s): {not_extracted}"
+    )
+
+
+def test_libdoc_deprecation(
+    english_libdoc: LibraryDoc, translated_libdoc: LibraryDoc, language: str
+):
+    translated = _keyword_docs(translated_libdoc)
+    mismatched = sorted(
+        kw.name
+        for key, kw in _keyword_docs(english_libdoc).items()
+        if kw.deprecated != translated[key].deprecated
+    )
+    assert not mismatched, (
+        f"{len(mismatched)} keyword(s) differ in deprecation in '{language}': "
+        f"{mismatched}"
     )
