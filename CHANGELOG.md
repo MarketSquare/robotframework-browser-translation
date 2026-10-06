@@ -2,6 +2,40 @@
 
 <!-- version list -->
 
+## v2.2.0 (2026-10-06)
+
+### Chores
+
+- **deps**: Bump python-semantic-release/python-semantic-release
+  ([`7aacc96`](https://github.com/MarketSquare/robotframework-browser-translation/commit/7aacc96d54c099452a10242cd1c96b815b3cf072))
+
+- **deps-dev**: Update mypy requirement from >=2.3.1 to >=2.4.0
+  ([`9cd1491`](https://github.com/MarketSquare/robotframework-browser-translation/commit/9cd1491d51664dfb022ddac27f85a1d0ba891509))
+
+- **deps-dev**: Update python-semantic-release requirement
+  ([`357b58a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/357b58ad9a40f8ce262cdcd860b967a5f40e5be5))
+
+- **deps-dev**: Update robotframework-robocop requirement
+  ([`b772dc6`](https://github.com/MarketSquare/robotframework-browser-translation/commit/b772dc647d62e6c1248a3fbbd689947cb542f428))
+
+- **deps-dev**: Update ruff requirement from >=0.16.8 to >=0.16.9
+  ([`a612b6f`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a612b6fac50250857812b2ddbc4ad1a26b94b1f8))
+
+- **deps-dev**: Update ruff requirement from >=0.16.9 to >=0.16.10
+  ([`d8a12b5`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d8a12b5e3d3e494c9eb3400a4235f3a67151c0db))
+
+- **deps-dev**: Update uv requirement from >=0.12.16 to >=0.12.19
+  ([`237f733`](https://github.com/MarketSquare/robotframework-browser-translation/commit/237f733d8f0af55e7e4a4a75884a348fbf43b6ed))
+
+- **deps-dev**: Update uv requirement from >=0.12.19 to >=0.12.22
+  ([`0f6e059`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0f6e05913c05473f38e1466b3d69215120bd2b47))
+
+### Features
+
+- Update translations for Browser 20.6.0
+  ([`6b59000`](https://github.com/MarketSquare/robotframework-browser-translation/commit/6b5900084520ba512f367ac9676dd9c5b46d722c))
+
+
 ## v2.1.0 (2026-09-27)
 
 ### Documentation
