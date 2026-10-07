@@ -76,7 +76,7 @@
     },
     "new_page": {
         "name": "erstelle_seite",
-        "doc": "\u00d6ffnet eine neue Seite.\n\nEine Seite (Page) ist das Playwright-\u00c4quivalent zu einem Tab.\n\n*Arguments:*\n  - ``url``: Optionale URL, zu der navigiert werden soll. Muss das Protokoll\n        enthalten (z.B. `https://`).\n  - ``wait_until``: Wann die Operation als erfolgreich gilt. Events:\n        ``domcontentloaded``, ``load``, ``networkidle``, ``commit``.\n\nGibt `NewPageDetails` als Dictionary f\u00fcr die erstellte Seite zur\u00fcck (enth\u00e4lt ``page_id`` und ``video_path``).\n\n[https://forum.robotframework.org/t//4308|Kommentar >>]",
+        "doc": "\u00d6ffnet eine neue Seite.\n\nEine Seite (Page) ist das Playwright-\u00c4quivalent zu einem Tab.\n\n*Arguments:*\n  - ``url``: Optionale URL, zu der navigiert werden soll. Muss das Protokoll\n        enthalten (z.B. `https://`).\n  - ``wait_until``: Wann die Operation als erfolgreich gilt. Events:\n        ``domcontentloaded``, ``load``, ``networkidle``, ``commit``.\n\nGibt `NewPageDetails` als Dictionary f\u00fcr die erstellte Seite zur\u00fcck (enth\u00e4lt ``page_id`` und ``video_path``).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n[https://forum.robotframework.org/t//4308|Kommentar >>]",
         "sha256": "5e12b7592fdb208696e2129c7661103ac456c2945a0bc6d5e0883b11d926cd36"
     },
     "new_persistent_context": {
@@ -121,17 +121,17 @@
     },
     "go_back": {
         "name": "gehe_zurueck",
-        "doc": "Navigiert zur vorherigen Seite im Verlauf (History).\n\n[https://forum.robotframework.org/t//4289|Kommentar >>]",
+        "doc": "Navigiert zur vorherigen Seite im Verlauf (History).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n[https://forum.robotframework.org/t//4289|Kommentar >>]",
         "sha256": "3735ba89090b1ec2e4376137c7ad94f2a0a66397e5c6b81b6a68b5e0bbc6203a"
     },
     "go_forward": {
         "name": "gehe_vorwaerts",
-        "doc": "Navigiert zur n\u00e4chsten Seite im Verlauf (History).\n\n[https://forum.robotframework.org/t//4290|Kommentar >>]",
+        "doc": "Navigiert zur n\u00e4chsten Seite im Verlauf (History).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n[https://forum.robotframework.org/t//4290|Kommentar >>]",
         "sha256": "2ebc38b3c55af52087f90f058f9ae61d5f91aaaeec7c5666f39f4c59f7d51854"
     },
     "go_to": {
         "name": "gehe_zu",
-        "doc": "Navigiert zur angegebenen ``url``.\n\n*Arguments:*\n  - ``url``: Ziel-URL.\n  - ``timeout``: Wartezeit f\u00fcr das Laden der Seite. Falls nicht definiert, wird\n        der Standard-Timeout der Library verwendet.\n  - ``wait_until``: Zeitpunkt, an dem die Operation als erfolgreich gilt\n        (Standard: load). M\u00f6gliche Events: ``domcontentloaded``, ``load``,\n        ``networkidle``, ``commit``.\n\nGibt den HTTP-Statuscode der Navigationsanfrage als Ganzzahl zur\u00fcck (oder 0, falls keiner empfangen wurde).\n\n[https://forum.robotframework.org/t//4291|Kommentar >>]",
+        "doc": "Navigiert zur angegebenen ``url``.\n\n*Arguments:*\n  - ``url``: Ziel-URL.\n  - ``timeout``: Wartezeit f\u00fcr das Laden der Seite. Falls nicht definiert, wird\n        der Standard-Timeout der Library verwendet.\n  - ``wait_until``: Zeitpunkt, an dem die Operation als erfolgreich gilt\n        (Standard: load). M\u00f6gliche Events: ``domcontentloaded``, ``load``,\n        ``networkidle``, ``commit``.\n\nGibt den HTTP-Statuscode der Navigationsanfrage als Ganzzahl zur\u00fcck (oder 0, falls keiner empfangen wurde).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n[https://forum.robotframework.org/t//4291|Kommentar >>]",
         "sha256": "d47b348e873c57030ac321e05c239788eec960fb7e6126bcdefb1a6826d371ce"
     },
     "grant_permissions": {
@@ -141,7 +141,7 @@
     },
     "reload": {
         "name": "lade_seite_neu",
-        "doc": "L\u00e4dt die aktuell aktive Seite neu.\n\n*Arguments:*\n  - ``timeout``: Maximale Zeit f\u00fcr den Erfolg des Neuladens.\n  - ``waitUntil``: Zeitpunkt, an dem die Operation als abgeschlossen gilt\n        (Standard: `load`).\n\n[https://forum.robotframework.org/t//4317|Kommentar >>]",
+        "doc": "L\u00e4dt die aktuell aktive Seite neu.\n\n*Arguments:*\n  - ``timeout``: Maximale Zeit f\u00fcr den Erfolg des Neuladens.\n  - ``waitUntil``: Zeitpunkt, an dem die Operation als abgeschlossen gilt\n        (Standard: `load`).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n[https://forum.robotframework.org/t//4317|Kommentar >>]",
         "sha256": "d6b85b25b902d77d91ef808acef5649d03295e6ea515ae757e5fdae1d88f97a8"
     },
     "set_browser_timeout": {
@@ -611,7 +611,7 @@
     },
     "wait_for_navigation": {
         "name": "auf_navigation_warten",
-        "doc": "Wartet, bis die Seite zu einer bestimmten URL navigiert ist.\n\nUnterst\u00fctzt exakte \u00dcbereinstimmungen oder regul\u00e4re Ausdr\u00fccke.",
+        "doc": "Wartet, bis die Seite zu einer bestimmten URL navigiert ist.\n\nUnterst\u00fctzt exakte \u00dcbereinstimmungen oder regul\u00e4re Ausdr\u00fccke.\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.",
         "sha256": "237b4ad2eaedd60b75087acaea69c8b78551d8b37dc382ee30d3095e5333b615"
     },
     "wait_for_request": {
@@ -686,7 +686,7 @@
     },
     "wait_for_load_state": {
         "name": "auf_ladeszustand_warten",
-        "doc": "Wartet, bis die Seite einen bestimmten Ladezustand erreicht hat (load, domcontentloaded oder networkidle).",
+        "doc": "Wartet, bis die Seite einen bestimmten Ladezustand erreicht hat (load, domcontentloaded oder networkidle).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.",
         "sha256": "3c15744fba103e8561dda156d2a38e994c58adbfb56bdb72e4da7427a3187888"
     },
     "local_storage_clear": {
