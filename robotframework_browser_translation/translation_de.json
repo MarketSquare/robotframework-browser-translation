@@ -371,7 +371,7 @@
     },
     "mouse_move": {
         "name": "maus_bewegen",
-        "doc": "Steuert die Maus \u00fcber absolute Koordinaten (x, y) statt \u00fcber Selektoren.\n\n*Arguments:*\n  - ``x``: Absolute Koordinaten (Start oben links).\n  - ``y``: Absolute Koordinaten (Start oben links).\n  - ``steps``: Anzahl der Zwischenschritte f\u00fcr eine fl\u00fcssige Bewegung.",
+        "doc": "Steuert die Maus \u00fcber absolute Koordinaten (x, y) statt \u00fcber Selektoren.\n\n*Arguments:*\n  - ``x``: Absolute Koordinate, ausgehend vom linken Seitenrand.\n  - ``y``: Absolute Koordinate nach unten, ausgehend vom oberen Seitenrand.\n  - ``steps``: Anzahl der Zwischenschritte f\u00fcr eine fl\u00fcssige Bewegung.",
         "sha256": "dfd2c1c6d9b42556bb92af6af9ec82dec758e6365ee11e261a90e096556cd506"
     },
     "mouse_move_relative_to": {
