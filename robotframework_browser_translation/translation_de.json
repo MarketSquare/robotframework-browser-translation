@@ -91,7 +91,7 @@
     },
     "save_storage_state": {
         "name": "speichere_speicherstatus",
-        "doc": "Speichert den Speicherstatus (Storage State) des aktuellen aktiven Kontexts in eine Datei.\n\nWeb-Apps nutzen oft Cookies oder Tokens zur Authentifizierung. Dieses Keyword speichert diesen Status (Cookies und Local Storage) auf die Festplatte. Danach kann ein `Neuer Kontext` mit diesem vorbef\u00fcllten Status erstellt werden.\n\nAchtung: Die Datei kann Geheimnisse enthalten und sollte nicht au\u00dferhalb der Organisation geteilt werden.\n\n[https://forum.robotframework.org/t//4318|Kommentar >>]",
+        "doc": "Speichert den Speicherstatus (Storage State) des aktuellen aktiven Kontexts in eine Datei.\n\nWeb-Apps nutzen oft Cookies oder Tokens zur Authentifizierung. Dieses Keyword speichert diesen Status (Cookies und Local Storage) auf die Festplatte. Danach kann ein `Neuer Kontext` mit diesem vorbef\u00fcllten Status erstellt werden.\n\nAchtung: Die Datei kann Geheimnisse enthalten und sollte nicht au\u00dferhalb der Organisation geteilt werden.\n\n*Arguments:*\n  - ``path``: Where the state file is written. Relative paths are resolved\n        against the current working directory and missing parent directories are\n        created. If the file already exists, it is overwritten. If not given, a\n        file with a generated name is created in ${OUTPUTDIR}/browser/state. The\n        absolute path of the written file is returned.\n  - ``indexedDB``: Also save IndexedDB. Needed by applications, like Firebase,\n        which store authentication tokens in IndexedDB.\n  - ``credentials``: Also save the context's virtual WebAuthn credentials, as\n        created by `Create Credential`. This is not related to the\n        ``httpCredentials`` argument of `New Context`, which is about HTTP\n        authentication.\n\n[https://forum.robotframework.org/t//4318|Kommentar >>]",
         "sha256": "66d72a3446063d194a40e915a9948748a8296045a837133b4224fdd53ca65ddf"
     },
     "set_default_run_before_unload": {
@@ -206,7 +206,7 @@
     },
     "get_cookie": {
         "name": "hole_cookie",
-        "doc": "Gibt Informationen eines Cookies als Dictionary oder String zur\u00fcck.\n\n[https://forum.robotframework.org/t//4265|Kommentar >>]",
+        "doc": "Gibt Informationen eines Cookies als Dictionary oder String zur\u00fcck.\n\n*Arguments:*\n  - ``cookie``: Name of the cookie to be retrieved.\n  - ``return_type``: Type of the return value. Can be either ``dictionary`` or\n        ``string``. Defaults to ``dictionary``.\n\n[https://forum.robotframework.org/t//4265|Kommentar >>]",
         "sha256": "6b71811c8448f90f33e0d11f37e0b757c0628f5b5e8bbdb324c2201c719ee93c"
     },
     "get_cookies": {
@@ -221,7 +221,7 @@
     },
     "pause_at": {
         "name": "pausiere_zeit",
-        "doc": "Springt zu einem bestimmten Zeitpunkt vorw\u00e4rts und h\u00e4lt die Uhr dort an.\n\nDies simuliert das Zuklappen eines Laptops und das Wieder\u00f6ffnen zu einer exakten Zeit. Die Uhr kann nicht r\u00fcckw\u00e4rts bewegt werden.\n\nBeispiel:\n| `Zeit Setzen` | 2024-10-31 17:34:00 |\n| `Zeit Anhalten Bei` | 2024-10-31 18:34:00 |\n| `Uhr Fortsetzen` |",
+        "doc": "Springt zu einem bestimmten Zeitpunkt vorw\u00e4rts und h\u00e4lt die Uhr dort an.\n\nDies simuliert das Zuklappen eines Laptops und das Wieder\u00f6ffnen zu einer exakten Zeit. Die Uhr kann nicht r\u00fcckw\u00e4rts bewegt werden.\n\n*Arguments:*\n  - ``time``: The time to pause the clock at.\n\nBeispiel:\n| `Zeit Setzen` | 2024-10-31 17:34:00 |\n| `Zeit Anhalten Bei` | 2024-10-31 18:34:00 |\n| `Uhr Fortsetzen` |",
         "sha256": "d6fd307ce8d66ab5a0a180f4f7b00fd62be83e9a0f300c2fe70359e050d7e333"
     },
     "resume_clock": {
@@ -256,7 +256,7 @@
     },
     "get_device": {
         "name": "hole_geraet",
-        "doc": "Ruft einen Ger\u00e4te-Deskriptor anhand des exakten Namens ab (z. B. \"iPhone X\").\n\nWird verwendet, um mobile Endger\u00e4te zu emulieren.\n\nBeispiel:\n| ${device}=      `Ger\u00e4t Abrufen`    iPhone X\n| `New Context`    &{device}",
+        "doc": "Ruft einen Ger\u00e4te-Deskriptor anhand des exakten Namens ab (z. B. \"iPhone X\").\n\nWird verwendet, um mobile Endger\u00e4te zu emulieren.\n\n*Arguments:*\n  - ``name``: Name of the requested device. See Playwright's\n    [https://github.com/microsoft/playwright/blob/master/packages/playwright-core/src/server/deviceDescriptorsSource.json|deviceDescriptorsSource.json] for a formatted list.\n\nBeispiel:\n| ${device}=      `Ger\u00e4t Abrufen`    iPhone X\n| `New Context`    &{device}",
         "sha256": "9a79c8b0ed1c12f48d03e81a150af3ef681dcbf6632e8885773aeb0131d1166f"
     },
     "get_devices": {
@@ -266,7 +266,7 @@
     },
     "add_style_tag": {
         "name": "style_tag_hinzuf\u00fcgen",
-        "doc": "Injiziert einen CSS <style> Tag direkt in die aktuelle Seite.\n\nBeispiel:\n| `Style Tag Hinzuf\u00fcgen`    #username_field { border: 2px solid red; }",
+        "doc": "Injiziert einen CSS <style> Tag direkt in die aktuelle Seite.\n\n*Arguments:*\n  - ``content``: Roher CSS-Inhalt, der in die aktuelle Seite eingefuegt wird.\n\nBeispiel:\n| `Style Tag Hinzuf\u00fcgen`    #username_field { border: 2px solid red; }",
         "sha256": "b030811ca91a36b1e5eebc55552cff5669d1fbaa89e5a22b71714de3ec0eecdf"
     },
     "download": {
@@ -286,7 +286,7 @@
     },
     "set_assertion_formatters": {
         "name": "assertion_formatierer_setzen",
-        "doc": "Definiert Formatierer, die vor einer Assertion auf Werte angewendet werden.\n\nBeispiel:\n| `Assertion Formatierer Setzen`    {\"Get Text\": [\"strip\", \"normalize spaces\"]}\nDies w\u00fcrde alle Texte trimmen und doppelte Leerzeichen entfernen, bevor sie verglichen werden.",
+        "doc": "Definiert Formatierer, die vor einer Assertion auf Werte angewendet werden.\n\n*Arguments:*\n  - ``formatters``: Dictionary of keywords and formatters, where the key is the\n        name of the keyword where the formatters are applied. The dictionary\n        value is a list of formatters which are applied. Formatters for a\n        defined keyword are always overwritten. An empty list will clear all\n        formatters for the keyword. If ``formatters`` is an empty dictionary,\n        then all formatters are cleared from all keywords, in the Global scope,\n        regardless of the ``scope`` argument.\n  - ``scope``: Defines the lifetime of the formatter, possible values are\n        Global, Suite and Test.\n\nBeispiel:\n| `Assertion Formatierer Setzen`    {\"Get Text\": [\"strip\", \"normalize spaces\"]}\nDies w\u00fcrde alle Texte trimmen und doppelte Leerzeichen entfernen, bevor sie verglichen werden.",
         "sha256": "97255fd93b89d9d9e874a26764412e14540f9f5c207d117f0dd591982cd12663"
     },
     "check_checkbox": {
@@ -296,7 +296,7 @@
     },
     "clear_text": {
         "name": "text_l\u00f6schen",
-        "doc": "Leert das durch den Selektor gefundene Textfeld.",
+        "doc": "Leert das durch den Selektor gefundene Textfeld.\n\n*Arguments:*\n  - ``selector``: Selektor des Textfelds. Siehe Abschnitt `Elemente finden` fuer\n        Details zu Selektoren.",
         "sha256": "97bb89bae0d0b7a4005ecd4954784de143080005c497970cd98d5ece1051a2b0"
     },
     "click": {
@@ -311,7 +311,7 @@
     },
     "deselect_options": {
         "name": "auswahl_aufheben",
-        "doc": "Hebt alle gew\u00e4hlten Optionen in einem Selektionsmen\u00fc (`<select>`) auf.",
+        "doc": "Hebt alle gew\u00e4hlten Optionen in einem Selektionsmen\u00fc (`<select>`) auf.\n\n*Arguments:*\n  - ``selector``: Selektor des ``select``-Tags. Siehe Abschnitt `Elemente finden`\n        fuer Details zu Selektoren.",
         "sha256": "48b589add796dac27ec5103df47013508407806ccae985e4710d7f9b75c88d6e"
     },
     "drag_and_drop": {
@@ -321,27 +321,27 @@
     },
     "drag_and_drop_by_coordinates": {
         "name": "ziehen_und_ablegen_nach_koordinaten",
-        "doc": "Drag & Drop von einer Koordinate zu einer anderen relativ zum Viewport.",
+        "doc": "Drag & Drop von einer Koordinate zu einer anderen relativ zum Viewport.\n\n*Arguments:*\n  - ``from_x``: Definiert den Startpunkt auf der Seite.\n  - ``from_y``: Definiert den Startpunkt auf der Seite.\n  - ``to_x``: Definiert den Endpunkt.\n  - ``to_y``: Definiert den Endpunkt.\n  - ``steps``: Definiert, wie viele Zwischen-Schritte bei der Mausbewegung\n        gesendet werden. Haeufig sind mehr als ein Zwischen-Schritt noetig, um\n        das gewuenschte Ergebnis zu erreichen. Standard ist 1.",
         "sha256": "2ebcd680ac33960c5b5dbad018752369d1f0b9804ca5d4c8103a0a375fbe0bb3"
     },
     "drag_and_drop_relative_to": {
         "name": "ziehen_und_ablegen_relativ",
-        "doc": "Drag & Drop von einem Element zu einem Punkt relativ zur Mitte dieses Elements (gut f\u00fcr Slider/Swipes).",
+        "doc": "Drag & Drop von einem Element zu einem Punkt relativ zur Mitte dieses Elements (gut fuer Slider/Swipes).\n\n*Arguments:*\n  - ``selector_from``: Identifiziert das Element, dessen Mittelpunkt der\n        Startpunkt ist.\n  - ``x``: Definiert den Endpunkt relativ zum Startpunkt.\n  - ``y``: Definiert den Endpunkt relativ zum Startpunkt.\n  - ``steps``: Definiert, wie viele Zwischen-Schritte bei der Mausbewegung\n        gesendet werden. Haeufig sind mehr als ein Zwischen-Schritt noetig, um\n        das gewuenschte Ergebnis zu erreichen. Standard ist 1.",
         "sha256": "5a12fe1672735d28f038bb1f44d7a94ede0ccd05d6ab1fcf1496ecf9fb78502d"
     },
     "fill_secret": {
         "name": "passwort_eintragen",
-        "doc": "F\u00fcllt ein Textfeld mit einem Passwort/Secret, ohne den Wert in den Robot Framework Logs zu zeigen.\n\nWichtig: Erfordert Variablen-Syntax wie `$variable` (f\u00fcr RF Variablen) oder `%variable` (f\u00fcr Umgebungsvariablen).",
+        "doc": "Fuellt ein Textfeld mit einem Passwort/Secret, ohne den Wert in den Robot Framework Logs zu zeigen.\n\n*Arguments:*\n  - ``selector``: Selektor des Textfelds. Siehe Abschnitt `Elemente finden` fuer\n        Details zu Selektoren.\n  - ``secret``: Der geheime String, der in das Textfeld eingetragen wird.\n        Unterstuetzt den Robot Framework 7.4 Secret-Typ als normale Variable\n        (mit geschweiften Klammern). Ebenfalls unterstuetzt: Umgebungsvariablen\n        mit ``%``-Praefix oder lokale Variablen mit ``$``-Praefix (ohne\n        geschweifte Klammern), deren Wert den geheimen Text enthaelt.\n  - ``force``: Auf ``True`` setzen, um Playwrights\n        [https://playwright.dev/docs/actionability | Actionability checks] zu\n        ueberspringen.",
         "sha256": "b8e5716324d669f5f40b6ebbd8b0f9e78826bf85c485fc826368f572dabd426b"
     },
     "fill_text": {
         "name": "text_eintragen",
-        "doc": "Leert das Feld und tr\u00e4gt den angegebenen Text ein. Triggert ein Input-Event.\n\nF\u00fcr eine Simulation von Tastaturanschl\u00e4gen Zeichen f\u00fcr Zeichen sollte stattdessen `Type Text` genutzt werden.",
+        "doc": "Leert das Feld und traegt den angegebenen Text ein. Triggert ein Input-Event.\n\n*Arguments:*\n  - ``selector``: Selektor des Textfelds. Siehe Abschnitt `Elemente finden` fuer\n        Details zu Selektoren.\n  - ``txt``: Text fuer das Textfeld.\n  - ``force``: Auf ``True`` setzen, um Playwrights\n        [https://playwright.dev/docs/actionability | Actionability checks] zu\n        ueberspringen.\n\nFuer eine Simulation von Tastaturanschlaegen Zeichen fuer Zeichen sollte stattdessen `Type Text` genutzt werden.",
         "sha256": "98149c8075c15b539a6acfbdabf80f1f667585de5f6d7eae8fdaa6e32b4bd5a0"
     },
     "focus": {
         "name": "fokus_setzen",
-        "doc": "Setzt den Fokus auf das gew\u00e4hlte Element.",
+        "doc": "Setzt den Fokus auf das gew\u00e4hlte Element.\n\n*Arguments:*\n  - ``selector``: Selector of the element. See the `Finding elements` section\n        for details about the selectors.",
         "sha256": "c6625d5d92dc98d225da283b90426610618deb2da2b3556f38eb5efd0a217388"
     },
     "handle_future_dialogs": {
@@ -351,22 +351,22 @@
     },
     "hover": {
         "name": "mauszeiger_dr\u00fcberhalten",
-        "doc": "Bewegt den virtuellen Mauszeiger \u00fcber das Element.",
+        "doc": "Bewegt den virtuellen Mauszeiger \u00fcber das Element.\n\n*Arguments:*\n  - ``selector``: Selector element to hover. See the `Finding elements` section\n        for details about the selectors.\n  - ``position_x``: A point to hover relative to the top-left corner of element\n        bounding box. If not specified, hovers over some visible point of the\n        element. Only positive values within the bounding-box are allowed. Both\n        values must be given, otherwise the position is ignored.\n  - ``position_y``: A point to hover relative to the top-left corner of element\n        bounding box. If not specified, hovers over some visible point of the\n        element. Only positive values within the bounding-box are allowed. Both\n        values must be given, otherwise the position is ignored.\n  - ``force``: Set to ``True`` to skip Playwright's\n        [https://playwright.dev/docs/actionability | Actionability checks].\n        Defaults to ``False``.\n  - ``*modifiers``: Modifier keys to press. Ensures that only these modifiers\n        are pressed during the hover, and then restores current modifiers back.\n        If not specified, currently pressed modifiers are used. Valid modifier\n        keys are ``Alt``, ``Control``, ``ControlOrMeta``, ``Meta`` and\n        ``Shift``.",
         "sha256": "8467558f86bb781f8b6beb3c00f0d8cde11a26485edcfd8ab7d2eb5af1d392f3"
     },
     "keyboard_input": {
         "name": "tastatur_text_eingabe",
-        "doc": "Gibt Text \u00fcber die virtuelle Tastatur ein.\n\n| Aktion | Beschreibung |\n| insertText | Sendet nur das Input-Event (schnell). |\n| type       | Sendet keydown, keypress und keyup f\u00fcr jedes Zeichen (realistischer). |",
+        "doc": "Gibt Text \u00fcber die virtuelle Tastatur ein.\n\n| Aktion | Beschreibung |\n| insertText | Sendet nur das Input-Event (schnell). |\n| type       | Sendet keydown, keypress und keyup f\u00fcr jedes Zeichen (realistischer). |\n\n*Arguments:*\n  - ``action``: ``insertText``: Dispatches only input event, does not emit the\n        keydown, keyup or keypress events. ``type``: Sends a keydown,\n        keypress/input, and keyup event for each character in the text.\n  - ``input``: The input string to be typed. _No special keys possible._\n  - ``delay``: Time to wait between key presses in Robot Framework's time\n        format. Defaults to ``0 ms``.",
         "sha256": "992f8d983a0a2fcad45c82b5e2e24bf89d6bc20d23bdb1b6869844b5156a7d27"
     },
     "keyboard_key": {
         "name": "tastatur_taste_dr\u00fccken",
-        "doc": "Dr\u00fcckt eine einzelne Taste oder h\u00e4lt sie gedr\u00fcckt.\n\nAktionen: `press`, `down`, `up` (z.B. f\u00fcr Shift-Kombinationen).",
+        "doc": "Dr\u00fcckt eine einzelne Taste oder h\u00e4lt sie gedr\u00fcckt.\n\nAktionen: `press`, `down`, `up` (z.B. f\u00fcr Shift-Kombinationen).\n\n*Arguments:*\n  - ``action``: Determines whether the key should be released (``up``), held\n        down (``down``) or pressed once (``press``). ``down`` and ``up`` are\n        useful for combinations, i.e. with Shift.\n  - ``key``: The key to be pressed. Examples of valid keys are: ``F1`` -\n        ``F12``, ``Digit0`` - ``Digit9``, ``KeyA`` - ``KeyZ``, ``Backquote``,\n        ``Minus``, ``Equal``, ``Backslash``, ``Backspace``, ``Tab``, ``Delete``,\n        ``Escape``, ``ArrowDown``, ``End``, ``Enter``, ``Home``, ``Insert``,\n        ``PageDown``, ``PageUp``, ``ArrowRight``, ``ArrowUp`` , etc.\n  - ``delay``: Time the key is held down between keydown and keyup, in Robot\n        Framework's time format. Only valid with action ``press``, other actions\n        raise an error. Defaults to ``0 s``. Example: ``50 ms``",
         "sha256": "bd97a5b0aacd40444265bde7cd60b8627204f001c9d13b07f6bcc46b0bfe4712"
     },
     "mouse_button": {
         "name": "maustaste_bet\u00e4tigen",
-        "doc": "Klickt, dr\u00fcckt oder l\u00e4sst eine Maustaste an bestimmten Koordinaten los.\n\nAktionen: `click`, `down`, `up`.",
+        "doc": "Klickt, dr\u00fcckt oder l\u00e4sst eine Maustaste an bestimmten Koordinaten los.\n\nAktionen: `click`, `down`, `up`.\n\n*Arguments:*\n  - ``action``: Defines if it is a mouseclick (``click``), holding down a button\n        (``down``) or releasing it (``up``).\n  - ``x``: Coordinates to move to before the action is executed. Both must be\n        given, otherwise the action happens at the current mouse position.\n  - ``y``: Coordinates to move to before the action is executed. Both must be\n        given, otherwise the action happens at the current mouse position.\n  - ``button``: One of ``left``, ``middle`` or ``right``. Defaults to ``left``.\n  - ``clickCount``: Determines how often the button shall be clicked if action\n        is equal to ``click``. Defaults to 1.\n  - ``delay``: Delay in Robot Framework time format between the mousedown and\n        mouseup event. Can only be set if the action is ``click``. Defaults to\n        ``0 s``.",
         "sha256": "c3c67900c76b24da80792f29adc2cc82af5ae2ac72510debb87a6d2749b8738a"
     },
     "mouse_move": {
@@ -386,12 +386,12 @@
     },
     "press_keys": {
         "name": "tasten_dr\u00fccken",
-        "doc": "Tippt eine Tastenkombination oder Zeichenfolge in ein Element.\n\nUnterst\u00fctzt Kombinationen mit `+` (z.B. `Control+Shift+T`) und Sondertasten wie `ArrowLeft` oder `Backspace`.",
+        "doc": "Tippt eine Tastenkombination oder Zeichenfolge in ein Element.\n\nUnterst\u00fctzt Kombinationen mit `+` (z.B. `Control+Shift+T`) und Sondertasten wie `ArrowLeft` oder `Backspace`.\n\n*Arguments:*\n  - ``selector``: Selector of the text field. See the `Finding elements` section\n        for details about the selectors.\n  - ``*keys``: Keys to be pressed one after the other. Combining modifiers with\n        a single key press by chaining them with ``+``, like\n        ``Control+Shift+T``, is supported.\n  - ``press_duration``: Delay between keydown and keyup of each key. Can be\n        given as seconds (float) or as Robot Framework time string. Defaults to\n        ``0 ms``. Example: ``50 ms``\n  - ``key_delay``: Delay between key presses. Can be given as seconds (float) or\n        as Robot Framework time string. Defaults to ``0 ms``. Example: ``50 ms``",
         "sha256": "47bca6ec98d7785951d6c751022892603a9c130a18a416367d0018a78197c646"
     },
     "record_selector": {
         "name": "selektor_aufzeichnen",
-        "doc": "Ein Hilfs-Keyword, das den Selektor des Elements unter der Maus aufzeichnet und zur\u00fcckgibt.",
+        "doc": "Ein Hilfs-Keyword, das den Selektor des Elements unter der Maus aufzeichnet und zur\u00fcckgibt.\n\n*Arguments:*\n  - ``label``: Text to show in the box on the page while recording.",
         "sha256": "1669da08fbeef185c5a2670502f419e4b0b945e7b70cf9783ae902cc0c9ee1d3"
     },
     "scroll_by": {
@@ -406,62 +406,62 @@
     },
     "scroll_to_element": {
         "name": "scrollen_zum_element",
-        "doc": "Sorgt daf\u00fcr, dass das angegebene Element im sichtbaren Bereich erscheint.",
+        "doc": "Sorgt daf\u00fcr, dass das angegebene Element im sichtbaren Bereich erscheint.\n\n*Arguments:*\n  - ``selector``: Selector of the element. See the `Finding elements` section\n        for details about the selectors.",
         "sha256": "c29a9beb493a6ea51749374c19e838167a7abb9d93a0e11a4ae15e6fa649d24f"
     },
     "select_options_by": {
         "name": "optionen_ausw\u00e4hlen_nach",
-        "doc": "W\u00e4hlt Optionen in einem Dropdown (`<select>`) aus.\n\nM\u00f6gliche Attribute: `value`, `label`, `text` oder `index`.",
+        "doc": "W\u00e4hlt Optionen in einem Dropdown (`<select>`) aus.\n\nM\u00f6gliche Attribute: `value`, `label`, `text` oder `index`.\n\n*Arguments:*\n  - ``selector``: Selector of the ``<select>`` tag. See the `Finding elements`\n        section for details about the selectors.\n  - ``attribute``: Attribute to select options by. Can be ``value``, ``label``,\n        ``text`` or ``index``. Where ``label`` and ``text`` are same.\n  - ``*values``: Values to select.",
         "sha256": "e6df50be8947ec87e8982234cb0222a5567479d4dceafeb13b2f9331cf4861c4"
     },
     "tap": {
         "name": "tippen",
-        "doc": "Simuliert ein Antippen (Touch-Event) auf einem Element.\n\nErfordert, dass `hasTouch` im Kontext (New Context) auf True gesetzt ist.",
+        "doc": "Simuliert ein Antippen (Touch-Event) auf einem Element.\n\nErfordert, dass `hasTouch` im Kontext (New Context) auf True gesetzt ist.\n\n*Arguments:*\n  - ``selector``: Selector element to tap. See the `Finding elements` section\n        for details about the selectors.\n  - ``*modifiers``: Modifier keys to press. Ensures that only these modifiers\n        are pressed during the tap, and then restores current modifiers back. If\n        not specified, currently pressed modifiers are used. Modifiers can be\n        specified in any order, and multiple modifiers can be specified. Valid\n        modifier keys are ``Alt``, ``Control``, ``ControlOrMeta``, ``Meta`` and\n        ``Shift``.\n  - ``force``: Whether to bypass the actionability checks. Defaults to\n        ``False``.\n  - ``noWaitAfter``: Deprecated. This option has no effect. Defaults to\n        ``False``.\n  - ``position_x``: A point to tap relative to the top-left corner of element\n        bounding-box. Only positive values within the bounding-box are allowed.\n        Both values must be given, otherwise the position is ignored. If not\n        specified, taps some visible point of the element.\n  - ``position_y``: A point to tap relative to the top-left corner of element\n        bounding-box. Only positive values within the bounding-box are allowed.\n        Both values must be given, otherwise the position is ignored. If not\n        specified, taps some visible point of the element.\n  - ``trial``: When set, this method only performs the actionability checks and\n        skips the action. Defaults to ``False``.",
         "sha256": "4b5718bd9b26dc3ac8cf0100df68f8415696ff19a10ac6bea7912353495ecb76"
     },
     "type_secret": {
         "name": "passwort_tippen",
-        "doc": "Tippt ein Secret Zeichen f\u00fcr Zeichen ein (Simulation echter Tastaturanschl\u00e4ge), ohne den Wert zu loggen.\n\nErfordert Variablen-Syntax wie `$pass` oder `%env_pass`.",
+        "doc": "Tippt ein Secret Zeichen f\u00fcr Zeichen ein (Simulation echter Tastaturanschl\u00e4ge), ohne den Wert zu loggen.\n\nErfordert Variablen-Syntax wie `$pass` oder `%env_pass`.\n\n*Arguments:*\n  - ``selector``: Selector of the text field. See the `Finding elements` section\n        for details about the selectors.\n  - ``secret``: Supports Robot Framework 7.4 Secret type as normal variable\n        (with curly braces). Also environment variable name with % prefix or a\n        local variable with $ prefix that has the secret text value (without\n        curly braces).\n  - ``delay``: Delay between the single key strokes. It may be either a number\n        or a Robot Framework time string. Time strings are fully explained in an\n        appendix of Robot Framework User Guide. Defaults to ``0 ms``. Example:\n        ``50 ms``\n  - ``clear``: Set to ``False`` if the field should not be cleared before\n        typing. Defaults to ``True``.",
         "sha256": "985c0814ae5b2c954bfec46017b43ef4ef1b23493dd5f887f7bc2c9d3284953a"
     },
     "type_text": {
         "name": "text_tippen",
-        "doc": "Simuliert echte Tastaturanschl\u00e4ge Zeichen f\u00fcr Zeichen.\n\nL\u00f6st keydown, keypress/input und keyup Events aus. Ideal f\u00fcr Felder mit Autovervollst\u00e4ndigung.",
+        "doc": "Simuliert echte Tastaturanschl\u00e4ge Zeichen f\u00fcr Zeichen.\n\nL\u00f6st keydown, keypress/input und keyup Events aus. Ideal f\u00fcr Felder mit Autovervollst\u00e4ndigung.\n\n*Arguments:*\n  - ``selector``: Selector of the text field. See the `Finding elements` section\n        for details about the selectors.\n  - ``txt``: Text for the text field.\n  - ``delay``: Delay between the single key strokes. It may be either a number\n        or a Robot Framework time string. Time strings are fully explained in an\n        appendix of Robot Framework User Guide. Defaults to ``0 ms``. Example:\n        ``50 ms``\n  - ``clear``: Set to ``False`` if the field should not be cleared before\n        typing. Defaults to ``True``.",
         "sha256": "25e3f6d678e0c928e1d13df56ef1266c8eb529550bfbedf14384d04ca27e6f30"
     },
     "uncheck_checkbox": {
         "name": "checkbox_deaktivieren",
-        "doc": "Hebt die Markierung einer Checkbox auf. Bewirkt nichts, wenn sie bereits deaktiviert ist.",
+        "doc": "Hebt die Markierung einer Checkbox auf. Bewirkt nichts, wenn sie bereits deaktiviert ist.\n\n*Arguments:*\n  - ``selector``: Selector of the checkbox. See the `Finding elements` section\n        for details about the selectors.\n  - ``force``: Set to ``True`` to skip Playwright's\n        [https://playwright.dev/docs/actionability | Actionability checks].",
         "sha256": "11743b28db91facbb5c20acbfa8dded6071bc0328333c1fad1a07c1c49d74087"
     },
     "upload_file_by_selector": {
         "name": "datei_hochladen",
-        "doc": "L\u00e4dt eine oder mehrere Dateien/Ordner \u00fcber ein Datei-Input-Feld hoch.",
+        "doc": "L\u00e4dt eine oder mehrere Dateien/Ordner \u00fcber ein Datei-Input-Feld hoch.\n\n*Arguments:*\n  - ``selector``: Identifies the file input element.\n  - ``path``: Path to the file or folder to be uploaded. Can also be a\n        `FileUploadBuffer` dictionary.\n  - ``extra_paths``: Additional paths to files or folders to be uploaded.",
         "sha256": "df301ca35f553fe70154c4b698c9d4d0f584c116219ebe8de687ed604deeb73a"
     },
     "wait_for_alert": {
         "name": "auf_alert_warten",
-        "doc": "Gibt ein Promise zur\u00fcck, um auf den n\u00e4chsten Browser-Dialog zu warten und diesen zu behandeln.\n\nMuss zusammen mit `Promise To` verwendet werden.",
+        "doc": "Gibt ein Promise zur\u00fcck, um auf den n\u00e4chsten Browser-Dialog zu warten und diesen zu behandeln.\n\nMuss zusammen mit `Promise To` verwendet werden.\n\n*Arguments:*\n  - ``action``: How to handle the alert. Can be ``accept`` or ``dismiss``.\n  - ``prompt_input``: The value to enter into the prompt. Only valid if the\n        ``action`` argument equals ``accept``. Defaults to an empty string.\n  - ``text``: Optional text to verify the dialog text with.\n  - ``timeout``: Optional timeout in Robot Framework time format. Defaults to\n        the library timeout.",
         "sha256": "cf32cc6b3e3d245445083c5c940d77d7849250fed838a1890b8f6e40da484dfc"
     },
     "wait_for_alerts": {
         "name": "auf_mehrere_alerts_warten",
-        "doc": "Wartet auf eine Liste von Dialogen und behandelt diese sequenziell.",
+        "doc": "Wartet auf eine Liste von Dialogen und behandelt diese sequenziell.\n\n*Arguments:*\n  - ``actions``: List of how to handle the alerts. Can be ``accept`` or\n        ``dismiss``.\n  - ``prompt_inputs``: List of the values to enter into the prompts. Only valid\n        if the corresponding action equals ``accept``. Use ``None`` if no input\n        is needed.\n  - ``texts``: List of optional texts to verify the dialog texts with. Use\n        ``None`` if text verification should be disabled.\n  - ``timeout``: Optional timeout in Robot Framework time format. Defaults to\n        the library timeout. The timeout is applied to each alert separately.",
         "sha256": "005bb61303f4f67f19cd61feee82591122709c161715cc006681200bef70d2cb"
     },
     "get_aria_snapshot": {
         "name": "hole_aria_snapshot",
-        "doc": "Gibt einen ARIA-Snapshot (Barrierefreiheits-Struktur) des Elements als YAML oder Dictionary zur\u00fcck.",
+        "doc": "Gibt einen ARIA-Snapshot (Barrierefreiheits-Struktur) des Elements als YAML oder Dictionary zur\u00fcck.\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``return_type``: Defines the return type. Possible values are ``yaml``\n        (default), ``dict`` and ``parsed``. If ``yaml`` is selected, the\n        returned value is a string in YAML format. If ``dict`` is selected, the\n        returned value is a dictionary. If ``parsed`` is selected, the returned\n        value is a tree of node dictionaries.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.\n  - ``mode``: Defines the snapshot mode. Possible values are ``default``\n        (default) and ``ai``. See `AriaSnapshotMode` for more details.\n  - ``depth``: Limits the snapshot to the given number of tree levels. Must be a\n        positive integer. Defaults to ``None``, which does not limit the depth.\n  - ``boxes``: If ``True``, the bounding box of each element is appended to its\n        line as ``[box=x,y,width,height]``. Coordinates are relative to the\n        viewport, in CSS pixels. Defaults to ``False``.",
         "sha256": "7e75fd9ca957c5595712a997d56fb2d235fe940114a903099e6cac54ad57e62d"
     },
     "get_attribute": {
         "name": "hole_attribute",
-        "doc": "Gibt den Wert eines HTML-Attributs (z.B. 'class', 'href') zur\u00fcck.\n\nKann optional eine Assertion (Pr\u00fcfung) durchf\u00fchren.",
+        "doc": "Gibt den Wert eines HTML-Attributs (z.B. 'class', 'href') zur\u00fcck.\n\nKann optional eine Assertion (Pr\u00fcfung) durchf\u00fchren.\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``attribute``: Requested attribute name.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "5bb5185de7dc67fece1fc5905b83046da7a1a489fd5985494275c29536228f80"
     },
     "get_attribute_names": {
         "name": "hole_attribut_namen",
-        "doc": "Gibt alle HTML-Attributnamen eines Elements als Liste zur\u00fcck.\n\nKann pr\u00fcfen, ob bestimmte Attribute vorhanden sind (z. B. mit 'contains' oder '==').",
+        "doc": "Gibt alle HTML-Attributnamen eines Elements als Liste zur\u00fcck.\n\nKann pr\u00fcfen, ob bestimmte Attribute vorhanden sind (z. B. mit 'contains' oder '==').\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``*assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "6bebc40d8ecbbebce09df21692c1571fe2a5afdfeba73f1e2a6c3658ad5fd851"
     },
     "get_boundingbox": {
@@ -471,27 +471,27 @@
     },
     "get_checkbox_state": {
         "name": "hole_checkbox_status",
-        "doc": "Gibt den Status einer Checkbox zur\u00fcck (True f\u00fcr 'checked', False f\u00fcr 'unchecked').\n\nErlaubt direkte Assertions gegen 'checked' oder 'unchecked'.",
+        "doc": "Gibt den Status einer Checkbox zur\u00fcck (True f\u00fcr 'checked', False f\u00fcr 'unchecked').\n\nErlaubt direkte Assertions gegen 'checked' oder 'unchecked'.\n\n*Arguments:*\n  - ``selector``: Selector which shall be examined. See the `Finding elements`\n        section for details about the selectors.\n  - ``assertion_operator``: ``==`` and ``!=`` and equivalent are allowed on\n        boolean values. Other operators are not accepted.\n  - ``assertion_expected``: Boolean value of expected state. Strings are\n        interpreted as booleans. All strings are ``${True}`` except the\n        following: ``FALSE``, ``NO``, ``OFF``, ``0``, ``UNCHECKED``, ``NONE``, ``${EMPTY}``\n        (case-insensitive). Defaults to ``UNCHECKED``.\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "66220c03dd604579ce1368e671a3413bdbdbaa7da199b3d32106e9941abf1576"
     },
     "get_classes": {
         "name": "hole_klassen",
-        "doc": "Gibt alle CSS-Klassen eines Elements als Liste zur\u00fcck.\n\nN\u00fctzlich, um zu pr\u00fcfen, ob ein Element einen bestimmten Status (z. B. 'active' oder 'disabled') via CSS-Klasse hat.",
+        "doc": "Gibt alle CSS-Klassen eines Elements als Liste zur\u00fcck.\n\nN\u00fctzlich, um zu pr\u00fcfen, ob ein Element einen bestimmten Status (z. B. 'active' oder 'disabled') via CSS-Klasse hat.\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``*assertion_expected``: Expected values for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "8747de19b7554f3b209039e13d1e35897f849d933e12839dbd40167b813d9edd"
     },
     "get_client_size": {
         "name": "hole_client_gr\u00f6\u00dfe",
-        "doc": "Gibt die sichtbare Gr\u00f6\u00dfe (clientWidth/Height) eines Elements oder der Seite zur\u00fcck.\n\nIm Gegensatz zur BoundingBox werden hier R\u00e4nder und Scrollbalken meist nicht mitgerechnet.",
+        "doc": "Gibt die sichtbare Gr\u00f6\u00dfe (clientWidth/Height) eines Elements oder der Seite zur\u00fcck.\n\nIm Gegensatz zur BoundingBox werden hier R\u00e4nder und Scrollbalken meist nicht mitgerechnet.\n\n*Arguments:*\n  - ``selector``: Optional selector from which the client size shall be\n        retrieved. If no selector is given the client size of the page itself is\n        used (``document.scrollingElement``). See the `Finding elements` section\n        for details about the selectors.\n  - ``key``: Optionally filters the returned values. If keys is set to ``ALL``\n        (default) it will return the client size as dictionary, otherwise it\n        will just return the single value selected by the key.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "16f1f9c6a342a150fe81a50ff188cd8fca63c8adae5caf330012f85b8c91d31c"
     },
     "get_download_state": {
         "name": "hole_download_status",
-        "doc": "Gibt Informationen \u00fcber einen laufenden oder abgeschlossenen Download zur\u00fcck (Dateiname, Pfad, Status).",
+        "doc": "Gibt Informationen \u00fcber einen laufenden oder abgeschlossenen Download zur\u00fcck (Dateiname, Pfad, Status).\n\n*Arguments:*\n  - ``download``: `DownloadInfo` dictionary returned from `Promise To Wait For\n        Download` or download id as string.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected state of the download. Be aware that the\n        returned value is a dictionary\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "d45db9d0f9b7742b8d36649754184528f6055bd34bc3904e211a7f2488017392"
     },
     "get_element": {
         "name": "hole_element",
-        "doc": "Gibt eine Referenz (Playwright Locator) auf ein Element zur\u00fcck.\n\nDiese Referenz kann in nachfolgenden Keywords als Selektor verwendet werden.",
+        "doc": "Gibt eine Referenz (Playwright Locator) auf ein Element zur\u00fcck.\n\nDiese Referenz kann in nachfolgenden Keywords als Selektor verwendet werden.\n\n*Arguments:*\n  - ``selector``: Selector from which the element shall be retrieved. See the\n        `Finding elements` section for details about the selectors.",
         "sha256": "015955574db2aa4674ebdbaa3b30a8d5f5630d7b13734fa4c9da106b5b29167f"
     },
     "get_element_by": {
@@ -501,57 +501,57 @@
     },
     "get_element_by_role": {
         "name": "hole_element_einer_role",
-        "doc": "Sucht Elemente basierend auf ihrer ARIA-Rolle (z. B. 'button', 'heading', 'checkbox').\n\nErm\u00f6glicht sehr robuste Tests, die sich am Barrierefreiheits-Baum (Accessibility Tree) orientieren.",
+        "doc": "Sucht Elemente basierend auf ihrer ARIA-Rolle (z. B. 'button', 'heading', 'checkbox').\n\nErm\u00f6glicht sehr robuste Tests, die sich am Barrierefreiheits-Baum (Accessibility Tree) orientieren.\n\n*Arguments:*\n  - ``all_elements``: If True, returns all matched elements as a list.\n  - ``role``: Role from which shall be retrieved.\n  - ``checked``: An attribute that is usually set by aria-checked or native\n        <input type=checkbox> controls.\n  - ``disabled``: An attribute that is usually set by aria-disabled or disabled.\n  - ``exact``: Whether name is matched exactly: case-sensitive and whole-string.\n        Defaults to false. Ignored when name is a regular expression. Note that\n        exact match still trims whitespace.\n  - ``expanded``: An attribute that is usually set by aria-expanded.\n  - ``include_hidden``: Option that controls whether hidden elements are\n        matched. By default, only non-hidden elements, as defined by ARIA, are\n        matched by role selector.\n  - ``level``: A number attribute that is usually present for roles heading,\n        list item, row, treeitem, with default values for <h1>-<h6> elements.\n  - ``name``: Option to match the accessible name. By default, matching is\n        case-insensitive and searches for a substring, use exact to control this\n        behavior.\n  - ``pressed``: An attribute that is usually set by aria-pressed.\n  - ``selected``: An attribute that is usually set by aria-selected.",
         "sha256": "9046821d22e128fb9d2788547ecff9e1ae3d19edd623d6f0016fd2b4a03ecbe4"
     },
     "get_element_count": {
         "name": "z\u00e4hle_elemente",
-        "doc": "Gibt zur\u00fcck, wie viele Elemente auf den Selektor passen.\n\nBeispiel: `element_anzahl_abrufen  li  >  5` pr\u00fcft, ob mehr als 5 Listen-Elemente vorhanden sind.",
+        "doc": "Gibt zur\u00fcck, wie viele Elemente auf den Selektor passen.\n\nBeispiel: `element_anzahl_abrufen  li  >  5` pr\u00fcft, ob mehr als 5 Listen-Elemente vorhanden sind.\n\n*Arguments:*\n  - ``selector``: Selector which shall be counted. See the `Finding elements`\n        section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "30a28d740d269be8ead87af415578abcce829067a46c6b993bc2c216fe0c53ba"
     },
     "get_element_states": {
         "name": "hole_element_status",
-        "doc": "Gibt eine Liste der aktiven Zust\u00e4nde eines Elements zur\u00fcck (z. B. 'visible', 'enabled', 'editable', 'checked').",
+        "doc": "Gibt eine Liste der aktiven Zust\u00e4nde eines Elements zur\u00fcck (z. B. 'visible', 'enabled', 'editable', 'checked').\n\n*Arguments:*\n  - ``selector``: Selector of the corresponding object. See the `Finding\n        elements` section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``*assertion_expected``: Expected states\n  - ``message``: overrides the default error message for assertion.\n  - ``return_names``: If set to ``False`` the keyword does return an IntFlag\n        object (`ElementState`) instead of a list. `ElementState` may contain\n        multiple states at the same time. Defaults to ``True``.",
         "sha256": "afd1a04fdd3688b222d8bd48680103c2135236d5eef30ab27fd1969b25c365c1"
     },
     "get_elements": {
         "name": "hole_elemente",
-        "doc": "Gibt eine Liste von Referenzen (Locators) f\u00fcr alle auf den Selektor passenden Elemente zur\u00fcck.",
+        "doc": "Gibt eine Liste von Referenzen (Locators) f\u00fcr alle auf den Selektor passenden Elemente zur\u00fcck.\n\n*Arguments:*\n  - ``selector``: Selector from which the elements shall be retrieved. See the\n        `Finding elements` section for details about the selectors.",
         "sha256": "9b437d6a44c0882363b07f4d445fab54b533b3b2a71365fbf12d6518b3f95d46"
     },
     "get_page_source": {
         "name": "hole_seiten_quelltext",
-        "doc": "Gibt den kompletten HTML-Quelltext der aktuellen Seite als String zur\u00fcck.",
+        "doc": "Gibt den kompletten HTML-Quelltext der aktuellen Seite als String zur\u00fcck.\n\n*Arguments:*\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "11c1552fe012f99dfbf8e6c779f9ea3a9691558a6f92c6d774e6f6cb082bbe23"
     },
     "get_property": {
         "name": "hole_property",
-        "doc": "Gibt eine JavaScript-Eigenschaft (Property) eines Elements zur\u00fcck (z. B. 'innerText', 'innerHTML', 'value').",
+        "doc": "Gibt eine JavaScript-Eigenschaft (Property) eines Elements zur\u00fcck (z. B. 'innerText', 'innerHTML', 'value').\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``property``: Requested property name.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "9fca9deb61e63fa5f201673054477ca25ac9ae0b025bf0241f0a62a1da5bc00a"
     },
     "get_scroll_position": {
         "name": "hole_scroll_position",
-        "doc": "Gibt die aktuelle Scroll-Position eines Elements oder der Seite als Dictionary (top, left, bottom, right) zur\u00fcck.",
+        "doc": "Gibt die aktuelle Scroll-Position eines Elements oder der Seite als Dictionary (top, left, bottom, right) zur\u00fcck.\n\n*Arguments:*\n  - ``selector``: Optional selector from which the scroll position shall be\n        retrieved. If no selector is given the scroll position of the page\n        itself is used (``document.scrollingElement``). See the `Finding\n        elements` section for details about the selectors.\n  - ``key``: Optionally filters the returned values. If keys is set to ``ALL``\n        (default) it will return the scroll position as dictionary, otherwise it\n        will just return the single value selected by the key.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "b7e29374f951d8e9eba3dd08d28180975f6a9501c2c0306acb9faa5a223412f3"
     },
     "get_scroll_size": {
         "name": "hole_scroll_size",
-        "doc": "Gibt die gesamte scrollbare Gr\u00f6\u00dfe eines Elements oder der Seite zur\u00fcck (auch den nicht sichtbaren Bereich).",
+        "doc": "Gibt die gesamte scrollbare Gr\u00f6\u00dfe eines Elements oder der Seite zur\u00fcck (auch den nicht sichtbaren Bereich).\n\n*Arguments:*\n  - ``selector``: Optional selector from which the scroll size shall be\n        retrieved. If no selector is given the scroll size of the page itself is\n        used. See the `Finding elements` section for details about the\n        selectors.\n  - ``key``: Optionally filters the returned values. If keys is set to ``ALL``\n        (default) it will return the scroll size as dictionary, otherwise it\n        will just return the single value selected by the key.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "a4a366510709d60ff9fb4c915fcc02c73867dbb9b20252e133963cebd9e8d1c8"
     },
     "get_select_options": {
         "name": "hole_listen_optionen",
-        "doc": "Gibt alle verf\u00fcgbaren Optionen eines Dropdown-Men\u00fcs (`<select>`) als Liste von Dictionaries zur\u00fcck (Index, Value, Label, Selected).",
+        "doc": "Gibt alle verf\u00fcgbaren Optionen eines Dropdown-Men\u00fcs (`<select>`) als Liste von Dictionaries zur\u00fcck (Index, Value, Label, Selected).\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "2ea2631f55ad501427ad7a6a5bb871b8e3544417b61e30493723053e39b515d9"
     },
     "get_selected_options": {
         "name": "hole_ausgew\u00e4hlte_optionen",
-        "doc": "Gibt die aktuell ausgew\u00e4hlten Optionen eines Dropdowns zur\u00fcck.",
+        "doc": "Gibt die aktuell ausgew\u00e4hlten Optionen eines Dropdowns zur\u00fcck.\n\n*Arguments:*\n  - ``selector``: Selector from which the info is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``option_attribute``: Which attribute shall be returned/verified. Defaults\n        to label.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``*assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "3d7f0adb1161dbfbe965790e2574f400a4f440157e36a2c4f49629de5aad0e72"
     },
     "get_style": {
         "name": "hole_style",
-        "doc": "Gibt die berechneten CSS-Styles (Computed Styles) eines Elements zur\u00fcck.\n\nKann auch Pseudo-Elemente wie `::before` oder `::after` abfragen.",
+        "doc": "Gibt die berechneten CSS-Styles (Computed Styles) eines Elements zur\u00fcck.\n\nKann auch Pseudo-Elemente wie `::before` oder `::after` abfragen.\n\n*Arguments:*\n  - ``selector``: Selector from which the style shall be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``key``: Key of the requested CSS property. Retrieves \"ALL\" styles as\n        dictionary by default. All css settings can be used as keys even if they\n        are not all returned in the dictionary.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.\n  - ``pseudo_element``: Pseudo element to match. Defaults to None.",
         "sha256": "30c37a9fbe0dac720badbe92020a8f63063fc44b791c2270308c1a903dedc5f4"
     },
     "get_table_cell_element": {
@@ -561,42 +561,42 @@
     },
     "get_table_cell_index": {
         "name": "hole_tabellen_zellen_index",
-        "doc": "Gibt den 0-basierten Index einer Tabellenzelle innerhalb ihrer Zeile zur\u00fcck.\n\nDer Selektor kann ein <th>, <td> oder ein Element darin sein.",
+        "doc": "Gibt den 0-basierten Index einer Tabellenzelle innerhalb ihrer Zeile zur\u00fcck.\n\nDer Selektor kann ein <th>, <td> oder ein Element darin sein.\n\n*Arguments:*\n  - ``selector``: can select any ``<th>`` or ``<td>`` element or one of their\n        descendants. See the `Finding elements` section for details about the\n        selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "aa1c9f0d054431daf2d5dacd6d165c6b361d9f049d3d931b7d69f88bf0575427"
     },
     "get_table_row_index": {
         "name": "hole_tabellen_zeilen_index",
-        "doc": "Gibt den 0-basierten Index einer Tabellenzeile zur\u00fcck.\n\nN\u00fctzlich, um die Position einer bestimmten Datenzeile in einer Tabelle zu bestimmen.",
+        "doc": "Gibt den 0-basierten Index einer Tabellenzeile zur\u00fcck.\n\nN\u00fctzlich, um die Position einer bestimmten Datenzeile in einer Tabelle zu bestimmen.\n\n*Arguments:*\n  - ``selector``: can select any ``<tr>``, ``<th>`` or ``<td>`` element or one\n        of their descendants. See the `Finding elements` section for details\n        about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "2236a61d339ae138e0f478fcd9f6e8fefe8f33835b7eda677bd644c3c8034a74"
     },
     "get_text": {
         "name": "hole_text",
-        "doc": "Gibt das Textattribut des gefundenen Elements zur\u00fcck.\n\nFunktioniert auch f\u00fcr den Wert (Value) von 'input' oder 'textarea' Elementen.",
+        "doc": "Gibt das Textattribut des gefundenen Elements zur\u00fcck.\n\nFunktioniert auch f\u00fcr den Wert (Value) von 'input' oder 'textarea' Elementen.\n\n*Arguments:*\n  - ``selector``: Selector from which the text is to be retrieved. See the\n        `Finding elements` section for details about the selectors.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.\n  - ``text_type``: How text is returned. Possible values are ``allInnerTexts``,\n        ``allTextContents``, ``innerText``, ``inputValue``, and ``innerHTML``.\n        Defaults to ``None``, which returns the value of ``input`` and\n        ``textarea`` elements and the inner text of all other elements.",
         "sha256": "fb5e8a5476da7695bca08043b4b7daea459b06c9be364c775b4c370eae901f95"
     },
     "get_title": {
         "name": "hole_titel",
-        "doc": "Gibt den Titel der aktuellen Seite zur\u00fcck.",
+        "doc": "Gibt den Titel der aktuellen Seite zur\u00fcck.\n\n*Arguments:*\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "edd0ac21652b82025c068560ea82d8a7e9d3e9e2bf3433368c198f489043c9d5"
     },
     "get_url": {
         "name": "hole_url",
-        "doc": "Gibt die aktuelle URL zur\u00fcck.",
+        "doc": "Gibt die aktuelle URL zur\u00fcck.\n\n*Arguments:*\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the state\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "520a055b5f5b1c4808a5691e601935caa523453650ddc76af438deefd7bca5b2"
     },
     "get_viewport_size": {
         "name": "hole_viewport_groesse",
-        "doc": "Gibt die aktuellen Dimensionen des Sichtbereichs (Viewport) zur\u00fcck.\n\nKann als Dictionary (ALL) oder einzelner Wert (width/height) abgefragt werden.",
+        "doc": "Gibt die aktuellen Dimensionen des Sichtbereichs (Viewport) zur\u00fcck.\n\nKann als Dictionary (ALL) oder einzelner Wert (width/height) abgefragt werden.\n\n*Arguments:*\n  - ``key``: Optionally filters the returned values. If keys is set to ``ALL``\n        (default) it will return the viewport size as dictionary, otherwise it\n        will just return the single value selected by the key. Note: If a single\n        value is retrieved, an assertion does *not* need a ``validate`` combined\n        with a cast of ``value``.\n  - ``assertion_operator``: See `Assertions` for further details. Defaults to\n        None.\n  - ``assertion_expected``: Expected value for the assertion\n  - ``message``: overrides the default error message for assertion.",
         "sha256": "2c5a11e359c99c5c7acae217aae8845f33b82d434e06241551cadb16874db05a"
     },
     "add_locator_handler_click": {
         "name": "locator_handler_klick_hinzuf\u00fcgen",
-        "doc": "F\u00fcgt einen Handler hinzu, der automatisch klickt, wenn ein bestimmtes Element (z.B. Cookie-Banner oder Overlay) erscheint.\n\nDies geschieht im Hintergrund, sobald der 'selector' sichtbar wird, und f\u00fchrt einen Klick auf 'click_selector' aus.",
+        "doc": "Fuegt einen Handler hinzu, der automatisch klickt, wenn ein bestimmtes Element (z.B. Cookie-Banner oder Overlay) erscheint.\n\nDies geschieht im Hintergrund, sobald der ``selector`` sichtbar wird, und fuehrt einen Klick auf ``click_selector`` aus.\n\n*Arguments:*\n  - ``selector``: Selektor des Elements, das anzeigt, dass der Locator-Handler\n        ausgefuehrt werden soll.\n  - ``noWaitAfter``: Standard ist ``True``. Das bedeutet, dass das Overlay nach\n        der Ausfuehrung des Handlers sichtbar bleiben kann. Bei ``False`` wartet\n        Playwright, bis das Overlay verborgen ist, bevor die Bibliothek mit der\n        Aktion/Assertion fortsetzt, die den Handler ausgeloest hat.\n  - ``times``: Wie oft der Locator-Handler ausgefuehrt wird. ``None``\n        (Standard) bedeutet unbegrenzt.\n  - ``click_selector``: Selektor des Elements, das geklickt werden soll.\n  - ``click_clickCount``: Anzahl der Klicks auf das Element. Standard ist 1.\n  - ``click_delay``: Wartezeit zwischen mousedown und mouseup in Millisekunden.\n        Standard ist 0.\n  - ``click_force``: Legt fest, ob Pruefungen umgangen und das Event direkt\n        dispatcht wird. Standard ist false.",
         "sha256": "1d1883d949b83e99b05f75c5c4c12627ce0c2ed451734da848e609859634ed5a"
     },
     "add_locator_handler_custom": {
         "name": "benutzerdefinierten_locator_handler_hinzuf\u00fcgen",
-        "doc": "F\u00fcgt einen Handler f\u00fcr komplexe Aktionen hinzu, die ausgef\u00fchrt werden, wenn ein Element erscheint.\n\nErm\u00f6glicht eine Liste von Aktionen wie click, fill, check oder uncheck \u00fcber eine 'handler_spec'.",
+        "doc": "Fuegt einen Handler fuer komplexe Aktionen hinzu, die ausgefuehrt werden, wenn ein Element erscheint.\n\nErmoeglicht eine Liste von Aktionen wie click, fill, check oder uncheck ueber ``handler_spec``.\n\n*Arguments:*\n  - ``selector``: Selektor des Elements, das anzeigt, dass der Locator-Handler\n        ausgefuehrt werden soll.\n  - ``handler_spec``: Liste von Dictionaries, die die auszufuehrenden Aktionen\n        definiert.\n  - ``noWaitAfter``: Standard ist ``True``. Das bedeutet, dass das Overlay nach\n        der Ausfuehrung des Handlers sichtbar bleiben kann. Bei ``False`` wartet\n        Playwright, bis das Overlay verborgen ist, bevor die Bibliothek mit der\n        Aktion/Assertion fortsetzt, die den Handler ausgeloest hat.\n  - ``times``: Wie oft der Locator-Handler ausgefuehrt wird. ``None``\n        (Standard) bedeutet unbegrenzt.",
         "sha256": "7ad489abf7161ae34c97db874aa50a1b3d8ddc68ad43639a338af9d64dbf02f2"
     },
     "remove_locator_handler": {
@@ -606,62 +606,62 @@
     },
     "http": {
         "name": "http_anfrage",
-        "doc": "F\u00fchrt eine HTTP-Anfrage im aktuellen Browser-Kontext aus.\n\nN\u00fctzlich f\u00fcr API-Tests oder um den Status von Endpunkten w\u00e4hrend der Browser-Session zu pr\u00fcfen.",
+        "doc": "F\u00fchrt eine HTTP-Anfrage im aktuellen Browser-Kontext aus.\n\nN\u00fctzlich f\u00fcr API-Tests oder um den Status von Endpunkten w\u00e4hrend der Browser-Session zu pr\u00fcfen.\n\n*Arguments:*\n  - ``url``: The request url, e.g. ``/api/foo``.\n  - ``method``: The HTTP method for the request. Defaults to GET.\n  - ``body``: The request body. It is ignored for GET requests, because GET\n        requests cannot have a body. If the body can be parsed as JSON, the\n        ``Content-Type`` header for the request is automatically set to\n        ``application/json``, unless ``headers`` already contains that header.\n        Defaults to None.\n  - ``headers``: A dictionary of additional request headers. Defaults to None.",
         "sha256": "df771c1dee38c7e24430e0d2fb2cf3786a7878b7fa69718db87d3ef830c5b834"
     },
     "wait_for_navigation": {
         "name": "auf_navigation_warten",
-        "doc": "Wartet, bis die Seite zu einer bestimmten URL navigiert ist.\n\nUnterst\u00fctzt exakte \u00dcbereinstimmungen oder regul\u00e4re Ausdr\u00fccke.\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.",
+        "doc": "Wartet, bis die Seite zu einer bestimmten URL navigiert ist.\n\nUnterst\u00fctzt exakte \u00dcbereinstimmungen oder regul\u00e4re Ausdr\u00fccke.\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n*Arguments:*\n  - ``url``: Expected navigation target address, either a Glob-Pattern (a plain\n        string without wildcards matches exactly) or a JavaScript-like regex\n        wrapped in ``/`` symbols.\n  - ``timeout``: Timeout supports Robot Framework time format. Uses default\n        timeout if not set.\n  - ``wait_until``: When to consider the operation succeeded, defaults to load.\n        Events can be either: ``domcontentloaded`` - consider operation to be\n        finished when the DOMContentLoaded event is fired. ``load`` - consider\n        operation to be finished when the load event is fired. ``networkidle`` -\n        consider operation to be finished when there are no network connections\n        for at least 500 ms. ``commit`` - consider operation to be finished when\n        network response is received and the document started loading.",
         "sha256": "237b4ad2eaedd60b75087acaea69c8b78551d8b37dc382ee30d3095e5333b615"
     },
     "wait_for_request": {
         "name": "auf_request_warten",
-        "doc": "Wartet auf eine Netzwerkanfrage, die dem 'matcher' entspricht.",
+        "doc": "Wartet auf eine Netzwerkanfrage, die dem 'matcher' entspricht.\n\n*Arguments:*\n  - ``matcher``: Request URL matcher. Can be a string (Glob-Pattern), a\n        JavaScript RegExp (enclosed in ``/`` with optional trailing flags) or a\n        JavaScript arrow-function that receives the\n        [https://playwright.dev/docs/api/class-request | Request] object and\n        returns a boolean. By default (with an empty string) the first request\n        is matched. For additional information, see the Playwright\n        [https://playwright.dev/docs/api/class-page#page-wait-for-request |\n        waitForRequest] documentation.\n  - ``timeout``: Timeout supports Robot Framework time format. Uses default\n        timeout if not set.",
         "sha256": "32112aafdc91d076b225b9f8949317eda8613d1a0d10a5f9959877c6e24cd54e"
     },
     "wait_for_response": {
         "name": "auf_response_warten",
-        "doc": "Wartet auf eine Netzwerkantwort und gibt diese als Dictionary zur\u00fcck.\n\nDer Matcher kann ein Glob-Pattern, ein regul\u00e4rer Ausdruck oder eine JavaScript-Funktion sein.",
+        "doc": "Wartet auf eine Netzwerkantwort und gibt diese als Dictionary zur\u00fcck.\n\nDer Matcher kann ein Glob-Pattern, ein regul\u00e4rer Ausdruck oder eine JavaScript-Funktion sein.\n\n*Arguments:*\n  - ``matcher``: Response URL matcher. Can be a string (Glob-Pattern), a\n        JavaScript RegExp (enclosed in ``/`` with optional trailing flags) or a\n        JavaScript arrow-function that receives the Response object and returns\n        a boolean. By default (with an empty string) the first response is\n        matched. For additional information, see the Playwright\n        [https://playwright.dev/docs/api/class-page#page-wait-for-response |\n        page.waitForResponse] documentation.\n  - ``timeout``: Timeout supports Robot Framework time format. Uses default\n        timeout if not set.",
         "sha256": "0b47e139640d24f076c7706169b2b51fe660966b103bc8fa4fa96d71cd54d52a"
     },
     "emulate_media": {
         "name": "media_emulieren",
-        "doc": "\u00c4ndert den CSS-Medientyp (screen/print) oder das Farbschema (light/dark).\n\nN\u00fctzlich vor dem Speichern der Seite als PDF.",
+        "doc": "Aendert den CSS-Medientyp (screen/print) oder das Farbschema (light/dark).\n\n*Arguments:*\n  - ``colorScheme``: Emuliert das ``prefers-color-scheme`` Media-Feature.\n        Unterstuetzte Werte sind ``light`` und ``dark``. ``null`` deaktiviert\n        die Emulation des Farbschemas. ``no-preference`` ist veraltet.\n  - ``forcedColors``: Emuliert das ``forced-colors`` Media-Feature.\n        Unterstuetzte Werte sind ``active`` und ``none``. ``null`` deaktiviert\n        die Forced-Colors-Emulation.\n  - ``media``: Aendert den CSS-Media-Typ der Seite. Erlaubte Werte sind\n        ``screen``, ``print`` und ``null``. ``null`` deaktiviert die CSS-Media-\n        Emulation.\n  - ``reducedMotion``: Emuliert das ``prefers-reduced-motion`` Media-Feature.\n        Unterstuetzte Werte sind ``reduce`` und ``no-preference``. ``null``\n        deaktiviert die Reduced-Motion-Emulation.\n\nNuetzlich vor dem Speichern der Seite als PDF.",
         "sha256": "f1ec58b62bb3c3bc57eb154170122e4abae3bcec4a5cccae7d8056372b3dcd9f"
     },
     "save_page_as_pdf": {
         "name": "seite_als_pdf_speichern",
-        "doc": "Speichert die aktuelle Seite als PDF. Nur in Chromium Headless unterst\u00fctzt.",
+        "doc": "Speichert die aktuelle Seite als PDF. Nur in Chromium Headless unterst\u00fctzt.\n\n*Arguments:*\n  - ``path``: Where the PDF is saved. If the path is not absolute, the file is\n        saved relative to ${OUTPUT_DIR}.\n  - ``displayHeaderFooter``: Display header and footer. Defaults to false.\n  - ``footerTemplate``: HTML template for the print footer. Should use the same\n        format as the ``headerTemplate``.\n  - ``format``: Paper format. If set, takes priority over the ``width`` and\n        ``height`` arguments. Defaults to ``Letter``.\n  - ``headerTemplate``: HTML template for the print header. Both templates are\n        only rendered when ``displayHeaderFooter`` is true. See the detailed\n        explanation below.\n  - ``height``: Paper height, accepts values labeled with units.\n  - ``landscape``: Paper orientation. Defaults to false.\n  - ``margin``: Defines the PDF margins, see `PdfMarging` for more details.\n        Defaults to ``0px`` on all sides.\n  - ``outline``: Whether or not to embed the document outline into the PDF.\n        Defaults to false.\n  - ``pageRanges``: Paper ranges to print, e.g. ``1-5, 8, 11-13``. Defaults to\n        the empty string, which means print all pages.\n  - ``preferCSSPageSize``: Give any CSS ``@page`` size declared in the page\n        priority over what is declared in the ``width`` and ``height`` or\n        ``format`` arguments. Defaults to false, which will scale the content to\n        fit the paper size.\n  - ``printBackground``: Print background graphics. Defaults to false.\n  - ``scale``: Scale of the webpage rendering. Defaults to 1. Scale amount must\n        be between 0.1 and 2.\n  - ``tagged``: Whether or not to generate a tagged (accessible) PDF. Defaults\n        to false.\n  - ``width``: Paper width, accepts values labeled with units.",
         "sha256": "e758c453f642b8ceec17f5e53598b9d5c35f982c21a29a7bc65056b61259297d"
     },
     "register_keyword_to_run_on_failure": {
         "name": "keyword_bei_fehler_registrieren",
-        "doc": "Legt fest, welches Keyword ausgef\u00fchrt werden soll, wenn ein Browser-Keyword fehlschl\u00e4gt.\n\nStandardm\u00e4\u00dfig ist dies 'Take Screenshot'. Kann auf 'NONE' gesetzt werden, um die Funktion zu deaktivieren.",
+        "doc": "Legt fest, welches Keyword ausgef\u00fchrt werden soll, wenn ein Browser-Keyword fehlschl\u00e4gt.\n\nStandardm\u00e4\u00dfig ist dies 'Take Screenshot'. Kann auf 'NONE' gesetzt werden, um die Funktion zu deaktivieren.\n\n*Arguments:*\n  - ``keyword``: The name of a keyword that will be executed if a Browser\n        keyword fails. It is possible to use any available keyword, including\n        user keywords or keywords from other libraries.\n  - ``*args``: The arguments to the keyword if any.\n  - ``scope``: Scope defines the lifetime of this setting. Available values are\n        ``Global``, ``Suite`` or ``Test`` / ``Task``. See `Scope Setting` for\n        more details.",
         "sha256": "c067cb843f435dde0efbb34184dcc5597421e557fdfa359a1a6edf7c81a77898"
     },
     "set_strict_mode": {
         "name": "strikten_modus_festlegen",
-        "doc": "Steuert den strikten Modus der Bibliothek.\n\nIm strikten Modus (True) schlagen Keywords fehl, wenn ein Selektor auf mehr als ein Element zeigt.",
+        "doc": "Steuert den strikten Modus der Bibliothek.\n\nIm strikten Modus (True) schlagen Keywords fehl, wenn ein Selektor auf mehr als ein Element zeigt.\n\n*Arguments:*\n  - ``mode``: When set to ``True``, keywords that search elements will use\n        Playwright\n        [https://playwright.dev/docs/api/class-page#page-query-selector | strict\n        mode] and fail if the selector matches more than one element. When set\n        to ``False``, such keywords do not fail but operate on the first\n        matching element.\n  - ``scope``: Scope defines the live time of that setting. Available values are\n        ``Global``, ``Suite`` or ``Test`` / ``Task``. See `Scope` for more\n        details.",
         "sha256": "ab2bff0acd7308402c2a39631eac11fd1a100d27e7562d283de6ab86f70e3f07"
     },
     "promise_to": {
         "name": "keyword_als_promise",
-        "doc": "F\u00fchrt ein Browser-Keyword asynchron im Hintergrund aus (erstellt ein Promise).\n\nDie Testausf\u00fchrung geht sofort weiter, ohne auf den Abschluss des Keywords zu warten. Das Ergebnis kann sp\u00e4ter mit 'Wait For' abgeholt werden.",
+        "doc": "F\u00fchrt ein Browser-Keyword asynchron im Hintergrund aus (erstellt ein Promise).\n\nDie Testausf\u00fchrung geht sofort weiter, ohne auf den Abschluss des Keywords zu warten. Das Ergebnis kann sp\u00e4ter mit 'Wait For' abgeholt werden.\n\n*Arguments:*\n  - ``kw``: Keyword that will run asynchronously in the background.\n  - ``*args``: Keyword arguments as normally used.",
         "sha256": "aff798e18221e2849795bf02d704b257838418f9fccddb03fdad3c55d5dd7db0"
     },
     "promise_to_upload_file": {
         "name": "datei_upload_als_promise",
-        "doc": "Erstellt ein Promise f\u00fcr den Datei-Upload im n\u00e4chsten Dateiauswahl-Dialog.",
+        "doc": "Erstellt ein Promise f\u00fcr den Datei-Upload im n\u00e4chsten Dateiauswahl-Dialog.\n\n*Arguments:*\n  - ``path``: Path to file to be uploaded.",
         "sha256": "b03fb13635a7729f9f53e94e1a3afc169c3da0afd0b8b94ed95a28b8d75d0e0a"
     },
     "promise_to_wait_for_download": {
         "name": "auf_download_warten_als_promise",
-        "doc": "Erstellt ein Promise, das auf das n\u00e4chste Download-Ereignis wartet.\n\nErfordert, dass 'acceptDownloads' im Kontext auf True gesetzt ist.",
+        "doc": "Erstellt ein Promise, das auf das n\u00e4chste Download-Ereignis wartet.\n\nErfordert, dass 'acceptDownloads' im Kontext auf True gesetzt ist.\n\n*Arguments:*\n  - ``saveAs``: Defines path where the file is saved persistently. File will\n        also temporarily be saved in playwright context's default download\n        location. If empty, generated unique path (GUID) is used and file is\n        deleted when the context is closed.\n  - ``wait_for_finished``: If true, promise will wait for download to finish. If\n        false, promise will resolve immediately after download has started.\n  - ``download_timeout``: Maximum total time for the download to start and\n        finish, counted from the moment the promise is created. If the download\n        does not start within this time, the keyword fails. If it starts but\n        does not finish, it is cancelled and the keyword fails. If\n        ``wait_for_finished`` is ``False``, only the start is limited. If not\n        set, the download must start within the browser timeout, see `Set\n        Browser Timeout`, and there is no limit for it to finish.",
         "sha256": "fbdac742717a5f7d91b7fa47dbce2d87981bed8fa09c5570bac3d24d4d8db16a"
     },
     "wait_for": {
         "name": "auf_promises_warten",
-        "doc": "Wartet auf den Abschluss eines oder mehrerer Promises und gibt deren Ergebnisse zur\u00fcck.",
+        "doc": "Wartet auf den Abschluss eines oder mehrerer Promises und gibt deren Ergebnisse zur\u00fcck.\n\n*Arguments:*\n  - ``promises``: Promises to wait for.",
         "sha256": "dd2eb7646c081d1e8a203838655b075c235a705973f2d8fb68db3c68e5742168"
     },
     "wait_for_all_promises": {
@@ -671,62 +671,62 @@
     },
     "wait_for_condition": {
         "name": "auf_bedingung_warten",
-        "doc": "Wartet, bis eine Bedingung (definiert durch ein Browser-Getter-Keyword) wahr wird.\n\nErsetzt 'Wait Until Keyword Succeeds' f\u00fcr Browser-spezifische Abfragen.",
+        "doc": "Wartet, bis eine Bedingung (definiert durch ein Browser-Getter-Keyword) wahr wird.\n\nErsetzt 'Wait Until Keyword Succeeds' f\u00fcr Browser-spezifische Abfragen.\n\n*Arguments:*\n  - ``condition``: A condition, defined with Browser getter keywords, without\n        the word ``Get``.\n  - ``*args``: Arguments to pass to the condition keyword.\n  - ``timeout``: Timeout to wait for the condition to become True. Uses default\n        timeout of the library if not set. As the other assertion keywords this\n        timeout only influences the time the assertion is retried. The browser\n        timeout is used to wait for the element to be found.\n  - ``message``: Overrides the default error message.",
         "sha256": "81c6c5deebfc6251a9a133ec02faebbd382eac85880db25c82df4681e2be63d9"
     },
     "wait_for_elements_state": {
         "name": "auf_element_zustand_warten",
-        "doc": "Wartet, bis ein Element einen bestimmten Zustand erreicht (z.B. visible, hidden, detached).",
+        "doc": "Wartet, bis ein Element einen bestimmten Zustand erreicht (z.B. visible, hidden, detached).\n\n*Arguments:*\n  - ``selector``: Selector of the corresponding object. See the `Finding\n        elements` section for details about the selectors.\n  - ``state``: See `ElementState` for explanation.\n  - ``timeout``: uses default timeout from library if not set.\n  - ``message``: overrides the default error message. The ``message`` argument\n        accepts `{selector}`, ``{function}``, and `{timeout}`\n        [https://docs.python.org/3/library/stdtypes.html#str.format | format]\n        options. The ``{function}`` formatter is the ``state`` argument value\n        for the states which are waited for by Playwright, that are\n        ``attached``, ``detached``, ``visible``, ``hidden``, ``stable``,\n        ``enabled``, ``disabled`` and ``editable``. For all other states, it is\n        the JavaScript expression which is evaluated for the element.",
         "sha256": "b36d61f3b87290d4ae080000b742ed23d6944e1b26eb2d6e69f099717ec658ac"
     },
     "wait_for_function": {
         "name": "auf_funktion_warten",
-        "doc": "Wartet, bis ein JavaScript-Ausdruck oder eine Funktion im Browser einen 'truthy' Wert zur\u00fcckgibt.",
+        "doc": "Wartet, bis ein JavaScript-Ausdruck oder eine Funktion im Browser einen 'truthy' Wert zur\u00fcckgibt.\n\n*Arguments:*\n  - ``function``: A valid javascript function or a javascript function body. For\n        example ``() => true`` and ``true`` will behave similarly.\n  - ``selector``: Selector to resolve and pass to the JavaScript function. This\n        will be the first argument the function receives. If a selector is\n        given, ``function`` must be a function with an argument which receives\n        the element handle. For example ``(element) => document.activeElement\n        === element``. See the `Finding elements` section for details about the\n        selectors.\n  - ``polling``: Default polling value of ``raf`` polls in a callback for\n        ``requestAnimationFrame``. Any other value for polling will be parsed as\n        a Robot Framework time for the interval between polls.\n  - ``timeout``: Uses default timeout of the library if not set.\n  - ``message``: overrides the default error message. The ``message`` argument\n        accepts `{selector}`, ``{function}``, and `{timeout}`\n        [https://docs.python.org/3/library/stdtypes.html#str.format | format]\n        options.",
         "sha256": "08440a35b242c3bffe7c2f30167f56c547d70e2a27fba2c5c4a6fce8ec1c0d04"
     },
     "wait_for_load_state": {
         "name": "auf_ladeszustand_warten",
-        "doc": "Wartet, bis die Seite einen bestimmten Ladezustand erreicht hat (load, domcontentloaded oder networkidle).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.",
+        "doc": "Wartet, bis die Seite einen bestimmten Ladezustand erreicht hat (load, domcontentloaded oder networkidle).\n\nWenn beim Warten ein Timeout auftritt, wird der Loadreport der Seite protokolliert: ob die Navigation committet wurde, wie weit das Dokument geladen war und welche Anfragen noch offen waren.\n\n*Arguments:*\n  - ``state``: State to wait for, defaults to ``load``. Possible values are\n        ``load``, ``domcontentloaded``, ``networkidle`` and ``commit``.\n  - ``timeout``: Timeout supports Robot Framework time format. Uses browser\n        timeout if not set.",
         "sha256": "3c15744fba103e8561dda156d2a38e994c58adbfb56bdb72e4da7427a3187888"
     },
     "local_storage_clear": {
         "name": "local_storage_leeren",
-        "doc": "Entfernt alle gespeicherten Daten aus dem Local Storage des Browsers.",
+        "doc": "Entfernt alle gespeicherten Daten aus dem Local Storage des Browsers.\n\n*Arguments:*\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n    the LocalStorage of that frame is used.\n    Example: ``iframe[name=\"test\"] >>> body``",
         "sha256": "dbfba072f8fac8a979027b1d9d79d328154113ec820ea8c36b1c8961b4c9049f"
     },
     "local_storage_get_item": {
         "name": "local_storage_wert_abrufen",
-        "doc": "Ruft einen Wert f\u00fcr einen bestimmten Schl\u00fcssel aus dem Local Storage ab.",
+        "doc": "Ruft einen Wert f\u00fcr einen bestimmten Schl\u00fcssel aus dem Local Storage ab.\n\n*Arguments:*\n  - ``key``: Named key of the item in the storage.\n  - ``assertion_operator``: Assertion operator to use. See `Assertions` for more\n        information.\n  - ``assertion_expected``: Expected value to compare with.\n  - ``message``: Custom error message to use.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the LocalStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "a9e0319a151d73cd360c582b5ec3a42f0206180c97abb7f61a7c9be8f5463b63"
     },
     "local_storage_remove_item": {
         "name": "local_storage_wert_entfernen",
-        "doc": "L\u00f6scht einen bestimmten Schl\u00fcssel und den zugeh\u00f6rigen Wert aus dem Local Storage.",
+        "doc": "L\u00f6scht einen bestimmten Schl\u00fcssel und den zugeh\u00f6rigen Wert aus dem Local Storage.\n\n*Arguments:*\n  - ``key``: The name of the item which shall be deleted.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the LocalStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "7cfe36d29f5953dc14980ee5c3dadab12a6be9a516f286a15c68ce50b9e30462"
     },
     "local_storage_set_item": {
         "name": "local_storage_wert_setzen",
-        "doc": "Speichert einen Wert unter einem bestimmten Schl\u00fcssel im Local Storage.",
+        "doc": "Speichert einen Wert unter einem bestimmten Schl\u00fcssel im Local Storage.\n\n*Arguments:*\n  - ``key``: The name of the key under which it should be saved.\n  - ``value``: The value which shall be saved as a string.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the LocalStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "2900e0d913cc9beeee62caf180f74277a5fc2fd42e03a067269202adda6b99fb"
     },
     "session_storage_clear": {
         "name": "session_speicher_leeren",
-        "doc": "Entfernt alle gespeicherten Daten aus dem Session Storage.\n\nOptional kann \u00fcber 'frame_selector' der Session Storage eines bestimmten iframes adressiert werden.",
+        "doc": "Entfernt alle gespeicherten Daten aus dem Session Storage.\n\nOptional kann \u00fcber 'frame_selector' der Session Storage eines bestimmten iframes adressiert werden.\n\n*Arguments:*\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n    the SessionStorage of that frame is used.\n\n    Example: ``iframe[name=\"test\"] >>> body``",
         "sha256": "ec237435fb55ed7aaea1d113933aa47f709f0611234344d7b48566e9f14646ed"
     },
     "session_storage_get_item": {
         "name": "session_speicher_wert_abrufen",
-        "doc": "Ruft einen gespeicherten Wert f\u00fcr einen bestimmten Schl\u00fcssel aus dem Session Storage ab.\n\nUnterst\u00fctzt direkte Assertion-Operatoren, um den Wert sofort zu pr\u00fcfen.",
+        "doc": "Ruft einen gespeicherten Wert f\u00fcr einen bestimmten Schl\u00fcssel aus dem Session Storage ab.\n\nUnterst\u00fctzt direkte Assertion-Operatoren, um den Wert sofort zu pr\u00fcfen.\n\n*Arguments:*\n  - ``key``: Named key of the item in the storage.\n  - ``assertion_operator``: Assertion operator to use. See `Assertions` for more\n        information.\n  - ``assertion_expected``: Expected value to compare with.\n  - ``message``: Custom error message to use.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the SessionStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "14424415aa33f2dcf6d0c2f734fecfd6cac3ce7660e5bf07ca754062c77bed2a"
     },
     "session_storage_remove_item": {
         "name": "session_speicher_wert_entfernen",
-        "doc": "L\u00f6scht einen spezifischen Schl\u00fcssel und den dazugeh\u00f6rigen Wert aus dem Session Storage.",
+        "doc": "L\u00f6scht einen spezifischen Schl\u00fcssel und den dazugeh\u00f6rigen Wert aus dem Session Storage.\n\n*Arguments:*\n  - ``key``: The name of the item which shall be deleted.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the SessionStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "55359e9c406831b1f2c829519226bfc24dcde608c20572c691762ed6894bf61f"
     },
     "session_storage_set_item": {
         "name": "session_speicher_wert_setzen",
-        "doc": "Speichert einen Wert unter einem bestimmten Schl\u00fcssel im Session Storage.\n\nDies gilt nur f\u00fcr die aktuelle Browser-Sitzung. \u00dcber 'frame_selector' kann gezielt ein iframe angesteuert werden.",
+        "doc": "Speichert einen Wert unter einem bestimmten Schl\u00fcssel im Session Storage.\n\nDies gilt nur f\u00fcr die aktuelle Browser-Sitzung. \u00dcber 'frame_selector' kann gezielt ein iframe angesteuert werden.\n\n*Arguments:*\n  - ``key``: The name of the key under which it should be saved.\n  - ``value``: The value which shall be saved as a string.\n  - ``frame_selector``: If this selector points to an element inside an iframe,\n        the SessionStorage of that frame is used. Example: ``iframe[name=\"test\"]\n        >>> body``",
         "sha256": "842a6ba9f48e9f425790eae179260b5cd4432c60eb7b34ec094fde213d2700fc"
     },
     "__init__": {
