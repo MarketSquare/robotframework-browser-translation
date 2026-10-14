@@ -9,12 +9,24 @@ from robot.libdocpkg import LibraryDocumentation
 from robot.libdocpkg.model import LibraryDoc
 from robot.utils import normalize
 
+import translation_tools
 from robotframework_browser_translation import get_language, translation_files
 
 # The languages this package promises to ship. Every other test derives its
 # languages from get_language(), so a new language is picked up automatically;
 # this tuple only guards against discovery silently finding nothing.
 EXPECTED_LANGUAGES = ("de", "fi", "fr")
+
+
+def test_coverage_url_extraction_ignores_markup_and_sentence_punctuation():
+    source = "SRC https://example.com/docs. [https://example.org/path|Docs]"
+    translated = "DST https://example.com/docs plus `https://example.org/path`."
+
+    assert translation_tools._coverage_problems(source, translated) == []
+    assert (
+        translation_tools._coverage_values("Broken https://``.", "URLs", translation_tools.URL_RE)
+        == []
+    )
 
 
 @pytest.fixture(scope="module", params=sorted(translation_files()))
