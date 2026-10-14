@@ -22,7 +22,8 @@ ARGUMENT_HEADING_RE = re.compile(
 )
 ARGUMENT_ITEM_RE = re.compile(r"^  - ``(?P<name>[^`]+)``: ")
 CODE_SPAN_RE = re.compile(r"``(?:(?!``).)+``")
-URL_RE = re.compile(r"https?://[^\s|\]]+")
+URL_RE = re.compile(r"https?://[^\s|\]`<>\"']+")
+URL_TRAILING_PUNCTUATION = ".,;:!?"
 MIN_CONTINUATION = 4
 WARNINGS = ("code spans missing", "URLs missing", "argument docs missing")
 LOCALIZED_HEADING_RE = re.compile(r"^\*[^*\s][^*]*:\*$", re.MULTILINE)
@@ -255,11 +256,27 @@ def _coverage_problems(english: str, translated: str) -> list[str]:
     problems = []
     for label, pattern in (("code spans", CODE_SPAN_RE), ("URLs", URL_RE)):
         missing = sorted(
-            set(pattern.findall(english)) - set(pattern.findall(translated))
+            set(_coverage_values(english, label, pattern))
+            - set(_coverage_values(translated, label, pattern))
         )
         if missing:
             problems.append(f"{label} missing: {', '.join(missing)}")
     return problems
+
+
+def _coverage_values(doc: str, label: str, pattern: re.Pattern) -> list[str]:
+    values = pattern.findall(doc)
+    if label != "URLs":
+        return values
+    normalized = []
+    for value in values:
+        value = value.rstrip(URL_TRAILING_PUNCTUATION)
+        while value.endswith(")") and value.count(")") > value.count("("):
+            value = value[:-1]
+        if re.fullmatch(r"https?://", value):
+            continue
+        normalized.append(value)
+    return normalized
 
 
 def validate_entry(english: str, translated: str) -> list[str]:
