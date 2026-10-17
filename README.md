@@ -98,7 +98,7 @@ uv run python -m Browser.entry translation robotframework_browser_translation/tr
 
 2. Translate values in `name` and `doc` fields in `translation_xx.json`.
 3. Keep `sha256` values as generated (they are used to detect upstream doc changes).
-4. Register the new language in `robotframework_browser_translation/__init__.py` inside `get_language()`.
+4. Add the language code to `EXPECTED_LANGUAGES` in `utest/test_translation.py`.
 5. Verify checksums and test suite:
 
 ```bash
