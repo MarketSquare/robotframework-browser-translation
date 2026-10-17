@@ -2,6 +2,62 @@
 
 <!-- version list -->
 
+## v2.2.1 (2026-10-17)
+
+### Bug Fixes
+
+- :ambulance: format translation acceptance suites
+  ([`3b20ce3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3b20ce34cbd4ecab6dbdd1e9f8507d609f5e8595))
+
+- :ambulance: Lint issues
+  ([`2e51302`](https://github.com/MarketSquare/robotframework-browser-translation/commit/2e5130285b53693a8a5544dfd518b1b968b0f643))
+
+- :ambulance: Ruff checks
+  ([`938c9e9`](https://github.com/MarketSquare/robotframework-browser-translation/commit/938c9e9f0b1c041d7233d82420a4c7ad7633cb92))
+
+### Chores
+
+- **deps-dev**: Update uv requirement from >=0.12.22 to >=0.12.24
+  ([`d986cc7`](https://github.com/MarketSquare/robotframework-browser-translation/commit/d986cc75e0e670b061a40d82f12541c04364e882))
+
+### Documentation
+
+- :ambulance: fixed inv validate findings
+  ([`61a62f3`](https://github.com/MarketSquare/robotframework-browser-translation/commit/61a62f39e2669a9f89b41faf9d1e07484daa8a13))
+
+- :chart_with_upwards_trend: optimized spelling
+  ([`a0629e1`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a0629e1b5e0c2d76f1a9511ec7de478af3d58366))
+
+- :hammer: Fixed remaining English descriptions
+  ([`0dedd59`](https://github.com/MarketSquare/robotframework-browser-translation/commit/0dedd59a71bcf19d11df7bfb43c6a8bba1e3dd34))
+
+- :heavy_plus_sign: Added arguments to new_persistent_context
+  ([`e0f8588`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e0f858813fa08e8a38edca00855dde1116476908))
+
+- :heavy_plus_sign: Added the load-report paragraph
+  ([`4371f28`](https://github.com/MarketSquare/robotframework-browser-translation/commit/4371f28554a0f673861b3226990dd32acd2a42b8))
+
+- :memo: Added bullet for argument "_" in __init__
+  ([`db87111`](https://github.com/MarketSquare/robotframework-browser-translation/commit/db8711114feaddeceb471cc09d762a8e86ef4aef))
+
+- :tada: complete Browser 20.6.0 documentation coverage
+  ([`a88f6b8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/a88f6b871b788ab3a9ed3c4d7a2df26b8246188d))
+
+- :triangular_flag_on_post: Added all missing argument docs
+  ([`e16d1d9`](https://github.com/MarketSquare/robotframework-browser-translation/commit/e16d1d9f760430ce2ec105dfbdf2b9de832e6dcc))
+
+- :white_check_mark: Updated mouse_move x/y and mouse_wheel deltaX/deltaY bullets
+  ([`8b029a8`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8b029a806a975b7fa6cd4ac4d1c2b8001e8a10f1))
+
+- :white_check_mark: updated new_page failure text
+  ([`f708d87`](https://github.com/MarketSquare/robotframework-browser-translation/commit/f708d87e44026a128a7e005ef59d252aefbb0ccc))
+
+### Testing
+
+- :heavy_plus_sign: normalize URL coverage checks
+  ([`4b585a6`](https://github.com/MarketSquare/robotframework-browser-translation/commit/4b585a6d0a0cc6fcb0f96314c56c244bae1dd45e))
+
+
 ## v2.2.0 (2026-10-06)
 
 ### Chores
