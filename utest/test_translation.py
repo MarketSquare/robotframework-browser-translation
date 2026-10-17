@@ -24,7 +24,9 @@ def test_coverage_url_extraction_ignores_markup_and_sentence_punctuation():
 
     assert translation_tools._coverage_problems(source, translated) == []
     assert (
-        translation_tools._coverage_values("Broken https://``.", "URLs", translation_tools.URL_RE)
+        translation_tools._coverage_values(
+            "Broken https://``.", "URLs", translation_tools.URL_RE
+        )
         == []
     )
 

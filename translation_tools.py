@@ -269,8 +269,8 @@ def _coverage_values(doc: str, label: str, pattern: re.Pattern) -> list[str]:
     if label != "URLs":
         return values
     normalized = []
-    for value in values:
-        value = value.rstrip(URL_TRAILING_PUNCTUATION)
+    for match in values:
+        value = match.rstrip(URL_TRAILING_PUNCTUATION)
         while value.endswith(")") and value.count(")") > value.count("("):
             value = value[:-1]
         if re.fullmatch(r"https?://", value):
