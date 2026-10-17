@@ -1,8 +1,8 @@
 *** Settings ***
-Library     Browser    language=FR
-Library     OperatingSystem
-Library     Process
-Library     translation_compare_lib.py
+Library    Browser    language=FR
+Library    OperatingSystem
+Library    Process
+Library    translation_compare_lib.py
 
 *** Test Cases ***
 Translation Works With Translation FR
