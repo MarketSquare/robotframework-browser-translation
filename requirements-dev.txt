@@ -7,4 +7,4 @@ python-semantic-release >= 10.7.0
 setuptools >= 84.0.0
 build >= 1.6.1
 mypy >= 2.4.0
-uv >= 0.13.1
+uv >= 0.13.5
