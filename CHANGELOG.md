@@ -2,6 +2,32 @@
 
 <!-- version list -->
 
+## v3.0.0 (2026-11-01)
+
+### Chores
+
+- **deps-dev**: Update ruff requirement from >=0.16.10 to >=0.17.1
+  ([`3d7e12d`](https://github.com/MarketSquare/robotframework-browser-translation/commit/3d7e12ded1ed28475faa69f3e66777087763b4a2))
+
+- **deps-dev**: Update ruff requirement from >=0.17.1 to >=0.17.2
+  ([`8f6a069`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8f6a0694b14fafb72c9653de3e7c815938ace9ca))
+
+- **deps-dev**: Update uv requirement from >=0.12.24 to >=0.13.1
+  ([`1bc6d9b`](https://github.com/MarketSquare/robotframework-browser-translation/commit/1bc6d9b35d3796675a0f33ca43a86f8a57de986a))
+
+- **deps-dev**: Update uv requirement from >=0.13.1 to >=0.13.5
+  ([`7138311`](https://github.com/MarketSquare/robotframework-browser-translation/commit/71383118d487625c15c201a5f8231f0459c874af))
+
+### Features
+
+- Update translations for Browser 21.0.0
+  ([`353a9a2`](https://github.com/MarketSquare/robotframework-browser-translation/commit/353a9a289e234d10f68ad5f138647faf940d40de))
+
+### Breaking Changes
+
+- Python 3.10 is no longer supported, because Browser 21.0.0 requires Python 3.11 or newer.
+
+
 ## v2.2.1 (2026-10-17)
 
 ### Bug Fixes

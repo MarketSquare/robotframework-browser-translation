@@ -14,7 +14,7 @@
 from pathlib import Path
 from typing import TypedDict
 
-__version__ = "2.2.1"
+__version__ = "3.0.0"
 
 TRANSLATION_FILE_PREFIX = "translation_"
 
