@@ -12,24 +12,24 @@ authors = [
 license = {file = "LICENSE"}
 description = "Finnish, German and French translations for the Robot Framework Browser library"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Framework :: Robot Framework :: Library",
   "Topic :: Software Development :: Testing :: Acceptance",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
 keywords = ["Robot Framework", "Browser"]
 
 dependencies = [
-    "robotframework-browser >= 20.6.0",
+    "robotframework-browser >= 21.0.0",
 ]
 
 [project.urls]
@@ -83,7 +83,7 @@ lint.select = [
 exclude = [
   "__pycache__",
 ]
-target-version = "py310"
+target-version = "py311"
 
 [tool.ruff.lint.per-file-ignores]
 "tasks.py" = ["T201"]
