@@ -13,8 +13,11 @@ in `docs/adr/0001-literals-stay-english.md`.
   - the keyword passed to `Promise To`,
   - the run-on-failure keyword,
   - `Set Assertion Formatters` keys.
-- **The `*DEPRECATED*` prefix and the `*Arguments:*` heading stay English.** Libdoc
-  parses them.
+- **The `*DEPRECATED*` prefix, the `*Arguments:*` heading and the `=Arguments=` and
+  `=Description=` table headers stay English.** Detection is based on the English
+  words.
+- **Labels of a user interface that isn't translated stay English,** such as the
+  recorder toolbar's *Save* and *Discard*.
 - **Translated keyword names are frozen once released,** even the imperfect ones.
   Renaming one breaks users' suites.
 
