@@ -9,7 +9,8 @@ version = "3.0.0"
 authors = [
   { name="Tatu Aalto", email="aalto.tatu@gmail.com" },
 ]
-license = {file = "LICENSE"}
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 description = "Finnish, German and French translations for the Robot Framework Browser library"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -23,7 +24,6 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: 3.15",
-  "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
 ]
 keywords = ["Robot Framework", "Browser"]
