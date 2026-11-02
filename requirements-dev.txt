@@ -1,6 +1,6 @@
 ruff >= 0.17.2
 invoke >= 3.0.3
-pytest >= 9.1.1
+pytest >= 9.2.0
 robotframework >= 7.5
 robotframework-robocop >= 9.1.0
 python-semantic-release >= 10.7.0
