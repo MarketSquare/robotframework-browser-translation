@@ -2,6 +2,36 @@
 
 <!-- version list -->
 
+## v3.1.0 (2026-11-04)
+
+### Build System
+
+- Use SPDX license expression in project metadata
+  ([`5a25455`](https://github.com/MarketSquare/robotframework-browser-translation/commit/5a25455688875ea574da636fd18017b98bf10a01))
+
+### Chores
+
+- **deps-dev**: Update mypy requirement from >=2.4.0 to >=2.4.1
+  ([`fc2e6f5`](https://github.com/MarketSquare/robotframework-browser-translation/commit/fc2e6f5ee566fdf5fbb659c467e07776385efc76))
+
+- **deps-dev**: Update pytest requirement from >=9.1.1 to >=9.2.0
+  ([`05f813c`](https://github.com/MarketSquare/robotframework-browser-translation/commit/05f813c2553b9da8afe7be345cb6a7cb132aba40))
+
+- **deps-dev**: Update robotframework-robocop requirement
+  ([`577f697`](https://github.com/MarketSquare/robotframework-browser-translation/commit/577f697b0235df82b0f821b9637da7540001b089))
+
+- **deps-dev**: Update ruff requirement from >=0.17.2 to >=0.17.3
+  ([`cb8079a`](https://github.com/MarketSquare/robotframework-browser-translation/commit/cb8079a35f1cd401c034418d2ee06503f470bc64))
+
+- **deps-dev**: Update uv requirement from >=0.13.5 to >=0.13.6
+  ([`8d83d2e`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8d83d2ea4dbe0a8905b3e9752322e8e62f574bd2))
+
+### Features
+
+- :rocket: Update German Browser 21.0.0 documentation
+  ([`8e75e21`](https://github.com/MarketSquare/robotframework-browser-translation/commit/8e75e21c82d6fe3d08591ae9619beecdf6490e99))
+
+
 ## v3.0.0 (2026-11-01)
 
 ### Chores
